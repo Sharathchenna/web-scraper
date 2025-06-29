@@ -1,0 +1,1 @@
+{"version":3,"file":"google-drive-downloader.d.ts","sourceRoot":"","sources":["../../src/utils/google-drive-downloader.ts"],"names":[],"mappings":"AAKA,qBAAa,qBAAqB;WACnB,kBAAkB,CAC7B,GAAG,EAAE,MAAM,EACX,eAAe,EAAE,MAAM,GACtB,OAAO,CAAC,MAAM,CAAC;IAgClB,MAAM,CAAC,oBAAoB,CAAC,GAAG,EAAE,MAAM,GAAG,MAAM,GAAG,IAAI;CAKxD"}

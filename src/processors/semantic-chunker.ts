@@ -4,19 +4,23 @@ import { logger } from '../utils/logger.js';
 export class SemanticChunker {
   constructor(private config: ChunkingConfig) {}
 
-  async chunkDocument(document: Document): Promise<Document> {
+  async chunkDocument(document: Document, totalChunks?: number): Promise<Document> {
+    if (totalChunks && totalChunks > 0) {
+      return this.chunkDocumentIntoTotalChunks(document, totalChunks);
+    }
+
     try {
-      logger.debug('Starting document chunking', { 
-        documentId: document.id, 
-        contentLength: document.content.length 
+      logger.debug('Starting document chunking', {
+        documentId: document.id,
+        contentLength: document.content.length
       });
 
       // If document is small enough, no chunking needed
       const wordCount = this.countWords(document.content);
       if (wordCount <= this.config.max_chunk_size) {
-        logger.debug('Document is small enough, no chunking needed', { 
-          documentId: document.id, 
-          wordCount 
+        logger.debug('Document is small enough, no chunking needed', {
+          documentId: document.id,
+          wordCount
         });
         return document;
       }
@@ -43,12 +47,57 @@ export class SemanticChunker {
       };
 
     } catch (error) {
-      logger.error('Error chunking document', { 
-        documentId: document.id, 
-        error: error instanceof Error ? error.message : 'Unknown error' 
+      logger.error('Error chunking document', {
+        documentId: document.id,
+        error: error instanceof Error ? error.message : 'Unknown error'
       });
-      
+
       // Return original document if chunking fails
+      return document;
+    }
+  }
+
+  async chunkDocumentIntoTotalChunks(document: Document, totalChunks: number): Promise<Document> {
+    try {
+      logger.debug('Starting document chunking into fixed number of chunks', {
+        documentId: document.id,
+        totalChunks,
+      });
+
+      const words = document.content.split(/\s+/);
+      const totalWords = words.length;
+      const wordsPerChunk = Math.ceil(totalWords / totalChunks);
+      const documentChunks: DocumentChunk[] = [];
+
+      for (let i = 0; i < totalChunks; i++) {
+        const start = i * wordsPerChunk;
+        const end = start + wordsPerChunk;
+        const chunkContent = words.slice(start, end).join(' ');
+
+        if (chunkContent.length > 0) {
+          documentChunks.push({
+            id: `${document.id}_chunk_${i}`,
+            content: chunkContent,
+            chunk_index: i,
+            word_count: this.countWords(chunkContent),
+          });
+        }
+      }
+
+      logger.info('Document successfully chunked into fixed number of chunks', {
+        documentId: document.id,
+        chunkCount: documentChunks.length,
+      });
+
+      return {
+        ...document,
+        chunks: documentChunks,
+      };
+    } catch (error) {
+      logger.error('Error chunking document into fixed number of chunks', {
+        documentId: document.id,
+        error: error instanceof Error ? error.message : 'Unknown error',
+      });
       return document;
     }
   }
@@ -70,11 +119,66 @@ export class SemanticChunker {
     chapter?: string;
     pageRange?: string;
   }> {
-    // Try to split by markdown headers
-    const headerRegex = /^(#{1,3})\s+(.+)$/gm;
-    const matches = Array.from(content.matchAll(headerRegex));
+    // Enhanced heading detection for both web content and PDF documents
+    const headingRegexes = [
+      // Standard markdown headers
+      /^(#{1,3})\s+(.+)$/gm,
+      // PDF/eBook chapter patterns
+      /^(CHAPTER\s+\d+[^\n]*?)$/gim,
+      /^(Chapter\s+\d+[^\n]*?)$/gim,
+      // Numbered sections
+      /^(\d+\.\s+[A-Z][^\n]{5,50})$/gm,
+      // All caps headings (common in PDFs)
+      /^([A-Z][A-Z\s]{2,30}[A-Z])$/gm,
+      // Title case headings with optional colon
+      /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*:?)$/gm,
+    ];
 
-    if (matches.length < 2) {
+    const allMatches: Array<{
+      text: string;
+      index: number;
+      level: number;
+      type: string;
+    }> = [];
+
+    // Collect all potential headings
+    headingRegexes.forEach((regex, regexIndex) => {
+      const matches = Array.from(content.matchAll(regex));
+      matches.forEach(match => {
+        if (match.index !== undefined) {
+          let headingText = '';
+          let level = 3; // Default level
+
+          if (regexIndex === 0) {
+            // Markdown headers - extract level and text
+            level = match[1]?.length || 3;
+            headingText = match[2]?.trim() || '';
+          } else {
+            // Other patterns - use the captured group
+            headingText = match[1]?.trim() || '';
+            // Assign levels based on pattern type
+            if (regexIndex <= 2) level = 1; // Chapter patterns
+            else if (regexIndex === 3) level = 2; // Numbered sections
+            else level = 3; // Other headings
+          }
+
+          if (headingText.length > 0 && this.isValidHeading(headingText)) {
+            allMatches.push({
+              text: headingText,
+              index: match.index,
+              level,
+              type: `pattern_${regexIndex}`
+            });
+          }
+        }
+      });
+    });
+
+    // Sort by position and filter duplicates
+    allMatches.sort((a, b) => a.index - b.index);
+    const filteredMatches = this.removeDuplicateHeadings(allMatches);
+
+    if (filteredMatches.length < 2) {
       // Not enough headers found, fallback to word count splitting
       return this.splitByWordCount(content);
     }
@@ -85,38 +189,87 @@ export class SemanticChunker {
       pageRange?: string;
     }> = [];
 
-    for (let i = 0; i < matches.length; i++) {
-      const currentMatch = matches[i];
-      const nextMatch = matches[i + 1];
+    for (let i = 0; i < filteredMatches.length; i++) {
+      const currentMatch = filteredMatches[i];
+      const nextMatch = filteredMatches[i + 1];
 
       if (!currentMatch) continue;
 
-      const startIndex = currentMatch.index || 0;
+      const startIndex = currentMatch.index;
       const endIndex = nextMatch?.index || content.length;
 
       const sectionContent = content.slice(startIndex, endIndex).trim();
-      const headerLevel = currentMatch[1]?.length || 1; // Number of # characters
-      const headerText = currentMatch[2]?.trim() || '';
+      const wordCount = this.countWords(sectionContent);
 
-      // Only create sections for H1 and H2 headers, or if content is substantial
-      if (headerLevel <= 2 || sectionContent.length > 500) {
-        const wordCount = this.countWords(sectionContent);
-        
+      // Only create sections for significant headings or substantial content
+      if (currentMatch.level <= 2 || sectionContent.length > 500) {
         if (wordCount > this.config.max_chunk_size) {
           // Section is too large, split it further
-          const subChunks = this.splitLargeSection(sectionContent, headerText);
+          const subChunks = this.splitLargeSection(sectionContent, currentMatch.text);
           sections.push(...subChunks);
         } else if (wordCount >= this.config.min_chunk_size) {
           // Section is good size
           sections.push({
             content: sectionContent,
-            chapter: headerText,
+            chapter: currentMatch.text,
           });
         }
       }
     }
 
     return sections.length > 0 ? sections : this.splitByWordCount(content);
+  }
+
+  private isValidHeading(text: string): boolean {
+    // Filter out false positive headings
+    const invalidPatterns = [
+      /^\d+$/, // Just numbers
+      /^[a-z\s]+$/, // All lowercase (likely not a heading)
+      /[.]{2,}/, // Multiple dots (likely table of contents)
+      /page\s+\d+/i, // Page numbers
+      /^(the|and|or|but|if|when|where|why|how|what|who)$/i, // Common words
+    ];
+
+    return text.length >= 3 && 
+           text.length <= 100 && 
+           !invalidPatterns.some(pattern => pattern.test(text));
+  }
+
+  private removeDuplicateHeadings(matches: Array<{
+    text: string;
+    index: number;
+    level: number;
+    type: string;
+  }>): Array<{
+    text: string;
+    index: number;
+    level: number;
+    type: string;
+  }> {
+    const filtered: typeof matches = [];
+    const seenTexts = new Set<string>();
+
+    for (const match of matches) {
+      const normalizedText = match.text.toLowerCase().replace(/[^\w\s]/g, '');
+      
+      // Skip if we've seen this heading text before (within close proximity)
+      let isDuplicate = false;
+      for (const seen of seenTexts) {
+        if (normalizedText === seen || 
+            (normalizedText.includes(seen) && seen.length > 5) ||
+            (seen.includes(normalizedText) && normalizedText.length > 5)) {
+          isDuplicate = true;
+          break;
+        }
+      }
+
+      if (!isDuplicate) {
+        filtered.push(match);
+        seenTexts.add(normalizedText);
+      }
+    }
+
+    return filtered;
   }
 
   private splitByWordCount(content: string): Array<{

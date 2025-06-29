@@ -74,6 +74,7 @@ export interface PDFIngestorConfig extends IngestorConfig {
   file_path: string;
   chunk_by_pages: boolean;
   pages_per_chunk: number;
+  total_chunks?: number;
 }
 
 // Processor types
@@ -127,13 +128,16 @@ export interface AIConfig {
 }
 
 // Knowledge base export format
+export interface KnowledgeBaseItem {
+  title: string;
+  content: string;
+  content_type: 'blog' | 'podcast_transcript' | 'call_transcript' | 'linkedin_post' | 'reddit_comment' | 'book' | 'other';
+  source_url: string | undefined;
+  author: string | undefined;
+  user_id: string | undefined;
+}
+
 export interface KnowledgeBaseExport {
-  metadata: {
-    team_id: string;
-    export_date: string;
-    total_documents: number;
-    source_types: string[];
-    version: string;
-  };
-  documents: Document[];
+  team_id: string;
+  items: KnowledgeBaseItem[];
 } 

@@ -31,6 +31,16 @@ export declare class KnowledgeImporter {
     constructor(config: AppConfig);
     init(): Promise<void>;
     crawlWebsite(options: CrawlWebsiteOptions): Promise<ImportResult>;
+    private trySmartDiscovery;
+    private extractLinksFromContent;
+    private discoverBlogContent;
+    private detectWorkingUrlPattern;
+    private applyUrlPattern;
+    private titleToSlug;
+    private extractBlogPostTitles;
+    private isValidBlogTitle;
+    private generatePotentialUrls;
+    private normalizeUrl;
     extractSingleUrl(url: string, teamId: string): Promise<ImportResult>;
     processPDF(options: ProcessPDFOptions): Promise<ImportResult>;
     getStats(teamId?: string): Promise<{

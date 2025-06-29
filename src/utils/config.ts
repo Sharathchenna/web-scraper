@@ -11,7 +11,7 @@ export function loadConfig(): AppConfig {
     redis_url: process.env.REDIS_URL || 'redis://localhost:6379',
     database_path: process.env.DATABASE_PATH || './data/queue.db',
     output_dir: process.env.OUTPUT_DIR || './output',
-    log_level: (process.env.LOG_LEVEL as any) || 'info',
+    log_level: (process.env.LOG_LEVEL as 'error' | 'warn' | 'info' | 'debug') || 'info',
     max_workers: parseInt(process.env.NUM_WORKERS_PER_QUEUE || '4', 10),
     
     firecrawl: {

@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "team_id": "quill_enhanced",
+    "export_date": "2025-06-29T11:48:19.337Z",
+    "total_documents": 15,
+    "source_types": [
+      "blog"
+    ],
+    "version": "1.0.0"
+  },
+  "documents": [
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197675490",
+      "title": "Fullstack API Platform for Dashboards and Reporting",
+      "content": "[![Quill](https://quill.co/_next/static/media/quill.7847c2f3.svg)\\\n\\\nBlog\\\n====](https://quill.co/blog)\n\n[Product\\\n=======](https://quill.co/)\n[Docs\\\n====](https://docs.quillsql.com/)\n[Jobs\\\n====](https://www.ycombinator.com/companies/quill/jobs/)\n\n[See Quill](https://cal.com/quillsql/30min)\n\n![decisiontree](https://quill.co/_next/static/media/decisiontree.2829aade.svg)\n\nWhy Users Want Customer-Facing Analytics\n========================================\n\n#### Due to low barriers to entry, abundant capital, and tens of thousands of ambitious founders, the SaaS industry has become one of the most competitive markets in the world. As a result, customers’ expectations have risen dramatically.\n\nRead more\n\n#### Product\n\n#### October 1, 2024\n\nBrief Overview of the Modern Data Stack\n=======================================\n\n#### Ok, but what actually is the Modern Data Stack?\n\nRead more\n\n#### Product\n\n#### September 26, 2024\n\nThe Evolution of Business Intelligence and the Emergence of Embedded BI\n=======================================================================\n\n#### For many SaaS product managers, business intelligence (BI) is a familiar tool that has shaped decision-making and product development for decades. But the rise of embedded BI has introduced new possibilities and challenges, especially in the fast-evolving SaaS ecosystem. In this article, we’ll explore the history of traditional BI, its limitations, and how embedded BI emerged as a product category in the 2000s.\n\nRead more\n\n#### Product\n\n#### July 26, 2024\n\nWhy the Modern Data Stack Doesn’t Replace Embedded Analytics\n============================================================\n\n#### While the modern data stack offers robust data capabilities, it also has limitations.\n\nRead more\n\n#### Product\n\n#### July 23, 2024\n\nWhy Users Want Customer-Facing Analytics\n========================================\n\n#### Due to low barriers to entry, abundant capital, and tens of thousands of ambitious founders, the SaaS industry has become one of the most competitive markets in the world. As a result, customers’ expectations have risen dramatically.\n\nRead more\n\n#### Product\n\n#### July 19, 2024\n\nWhy SaaS Companies Offer Customer-Facing Analytics\n==================================================\n\n#### Just like the look & feel of analytics may differ, you’ll hear various explanations for why a specific company wants to offer customer-facing analytics\n\nRead more\n\n#### Product\n\n#### July 12, 2024\n\nDon’t build ChatGPT for X. Focus on where ChatGPT doesn’t solve X\n=================================================================\n\n#### A lot of AI products are essentially ChatGPT for X, but oftentimes ChatGPT is not the ideal user experience for X. Instead of trying to make a better chatbot than OpenAI, focusing on solving X specifically will often lead to a very different UX (not a chat interface).\n\nRead more\n\n#### Product\n\n#### July 5, 2024\n\nWhat is “customer-facing analytics”?\n====================================\n\n#### “Customer-facing analytics” describes any data or insights feature in your product that your end-users interact with. Customer-facing analytics are ubiquitous across all kinds of software products, whether consumer, B2B, marketplace, data app, or tech-enabled service. Some common examples of customer-facing analytics are charts & graphs, data tables, dashboards, reporting tools, or even self-service analytics.\n\nRead more",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog",
+      "date_scraped": "2025-06-29T11:47:55.490Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 431,
+        "reading_time_minutes": 3,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197675763",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/blog/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:47:55.763Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197677536",
+      "title": "Fullstack API Platform for Dashboards and Reporting",
+      "content": "Fullstack API Platform for Dashboards and Reporting\n\n![Quill](https://quill.co/_next/static/media/quill.7847c2f3.svg)\n\nBlog\n====\n\n[See Quill](https://cal.com/quillsql/30min)\n\n[Product\\\n=======](https://quill.co/)\n[Docs\\\n====](https://docs.quillsql.com/)\n[Jobs\\\n====](https://www.ycombinator.com/companies/quill/jobs/)\n\n![gradient](https://quill.co/_next/static/media/gradient.f3499069.svg)\n\n#### Want to learn more?\n\nWhy Users Want Customer-Facing Analytics\n========================================\n\n#### Users want analytics where they are\n\n#### SaaS vendor’s domain expertise leads to novel data insights\n\n#### Optimal UI/UX for end-users\n\n#### Summary\n\nJuly 23, 2024 · Product · 6 minute read\n\n![rishi](https://quill.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frishi.a87c0362.png&w=64&q=75)\n\nRishi Raman · Co-Founder at Quill\n\nDue to low barriers to entry, abundant capital, and tens of thousands of ambitious founders, the SaaS industry has become one of the most competitive markets in the world. As a result, customers’ expectations have risen dramatically. Access to data and insights is no exception. A trend that has gained significant traction is the demand for customer-facing analytics, also known as embedded analytics. Users now expect that high-quality analytics features are seamlessly integrated into their SaaS products/product experience. Below, I outline the reasons users want customer-facing analytics.\n\nUsers crave convenience. They want seamless access to analytics within their existing workflows. Customer-facing analytics that are embedded within the platform they already use for their day-to-day operations reduces the product friction to almost zero. Data and insights are surfaced naturally as users take action in the application or are at most a few clicks away. By providing users with actionable insights without the need to switch platforms, customer-facing or embedded analytics not only enhances user experience by eliminating the need for users to navigate multiple tools but also ensures that users can make informed decisions faster and more efficiently.\n\nUsers want easy wins. They want analytics that are relevant, accurate, & actionable; and SaaS vendors are best positioned to deliver on this. SaaS vendors have unique advantages when providing analytics: 1) they deeply understand their use cases, users, and best practices; and 2) they possess a wealth of data across their customer base, allowing them to aggregate and analyze data at scale, identifying trends, benchmarks, and patterns that individual customers might miss. This domain specific knowledge and data enables them to provide targeted insights that address industry-specific challenges or optimize domain-specific workflows. Overall this expertise gives SaaS vendors the opportunity to provide the highest-leverage analytics that are perfectly tailored to their customers' needs.\n\nUsers want products that are familiar and easy to use. When embedded or customer-facing analytics are well-designed, users can interact with data in a way that feels natural within the context of the application, leading to higher engagement and satisfaction. Just as SaaS vendors leverage their understanding of users, use cases, and best practices to surface the most valuable insights, they also have a significant advantage in providing the ideal UI/UX. By tailoring the user interface and experience to the specific needs of their users, SaaS vendors can ensure that analytics features are intuitive and accessible. This is especially important considering that most users are data scientists or analysts. While data professionals may prefer advanced analytics or BI applications, these tools are often not suitable for every user. Many important stakeholders—such as executives, managers, and business leaders— are non-technical business users that need insights to make strategic decisions but lack the expertise to navigate complex data platforms. Embedded analytics can provide the optimal UI/UX by offering familiar design patterns and aligning with users' natural workflows.\n\nAs businesses increasingly rely on data to drive decisions, the demand for customer-facing analytics within SaaS products will continue to grow. When designed well, the vast majority of users will prefer customer-facing or embedded analytics offered within their SaaS product over specialized analytics tool due the the natural advantages SaaS vendors have: they can offer unparalleled convenience, leverage their deep understanding of user needs, and deliver an optimal user experience. In a competitive market, offering embedded analytics can be a key differentiator that drives success for both you and your customers.\n\n[Book demo\\\n---------](https://cal.com/quillsql/30min)\n[See docs\\\n--------](https://docs.quillsql.com/)",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:47:57.536Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 643,
+        "reading_time_minutes": 4,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197679558",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/blog/why-users-want-customer-facing-analytics/",
+      "date_scraped": "2025-06-29T11:47:59.558Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197681592",
+      "title": "Fullstack API Platform for Dashboards and Reporting",
+      "content": "Fullstack API Platform for Dashboards and Reporting\n\n![Quill](https://quill.co/_next/static/media/quill.7847c2f3.svg)\n\nBlog\n====\n\n[See Quill](https://cal.com/quillsql/30min)\n\n[Product\\\n=======](https://quill.co/)\n[Docs\\\n====](https://docs.quillsql.com/)\n[Jobs\\\n====](https://www.ycombinator.com/companies/quill/jobs/)\n\n![gradient](https://quill.co/_next/static/media/gradient.f3499069.svg)\n\n#### Want to learn more?\n\nWhy Users Want Customer-Facing Analytics\n========================================\n\n#### Users want analytics where they are\n\n#### SaaS vendor’s domain expertise leads to novel data insights\n\n#### Optimal UI/UX for end-users\n\n#### Summary\n\nJuly 23, 2024 · Product · 6 minute read\n\n![rishi](https://quill.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frishi.a87c0362.png&w=64&q=75)\n\nRishi Raman · Co-Founder at Quill\n\nDue to low barriers to entry, abundant capital, and tens of thousands of ambitious founders, the SaaS industry has become one of the most competitive markets in the world. As a result, customers’ expectations have risen dramatically. Access to data and insights is no exception. A trend that has gained significant traction is the demand for customer-facing analytics, also known as embedded analytics. Users now expect that high-quality analytics features are seamlessly integrated into their SaaS products/product experience. Below, I outline the reasons users want customer-facing analytics.\n\nUsers crave convenience. They want seamless access to analytics within their existing workflows. Customer-facing analytics that are embedded within the platform they already use for their day-to-day operations reduces the product friction to almost zero. Data and insights are surfaced naturally as users take action in the application or are at most a few clicks away. By providing users with actionable insights without the need to switch platforms, customer-facing or embedded analytics not only enhances user experience by eliminating the need for users to navigate multiple tools but also ensures that users can make informed decisions faster and more efficiently.\n\nUsers want easy wins. They want analytics that are relevant, accurate, & actionable; and SaaS vendors are best positioned to deliver on this. SaaS vendors have unique advantages when providing analytics: 1) they deeply understand their use cases, users, and best practices; and 2) they possess a wealth of data across their customer base, allowing them to aggregate and analyze data at scale, identifying trends, benchmarks, and patterns that individual customers might miss. This domain specific knowledge and data enables them to provide targeted insights that address industry-specific challenges or optimize domain-specific workflows. Overall this expertise gives SaaS vendors the opportunity to provide the highest-leverage analytics that are perfectly tailored to their customers' needs.\n\nUsers want products that are familiar and easy to use. When embedded or customer-facing analytics are well-designed, users can interact with data in a way that feels natural within the context of the application, leading to higher engagement and satisfaction. Just as SaaS vendors leverage their understanding of users, use cases, and best practices to surface the most valuable insights, they also have a significant advantage in providing the ideal UI/UX. By tailoring the user interface and experience to the specific needs of their users, SaaS vendors can ensure that analytics features are intuitive and accessible. This is especially important considering that most users are data scientists or analysts. While data professionals may prefer advanced analytics or BI applications, these tools are often not suitable for every user. Many important stakeholders—such as executives, managers, and business leaders— are non-technical business users that need insights to make strategic decisions but lack the expertise to navigate complex data platforms. Embedded analytics can provide the optimal UI/UX by offering familiar design patterns and aligning with users' natural workflows.\n\nAs businesses increasingly rely on data to drive decisions, the demand for customer-facing analytics within SaaS products will continue to grow. When designed well, the vast majority of users will prefer customer-facing or embedded analytics offered within their SaaS product over specialized analytics tool due the the natural advantages SaaS vendors have: they can offer unparalleled convenience, leverage their deep understanding of user needs, and deliver an optimal user experience. In a competitive market, offering embedded analytics can be a key differentiator that drives success for both you and your customers.\n\n[Book demo\\\n---------](https://cal.com/quillsql/30min)\n[See docs\\\n--------](https://docs.quillsql.com/)",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/why-users-want-customer-facing-analytics/",
+      "date_scraped": "2025-06-29T11:48:01.592Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 643,
+        "reading_time_minutes": 4,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197683374",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/post/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:03.374Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197685147",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/article/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:05.147Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197686923",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/content/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:06.923Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197688690",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/blog/2025/01/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:08.690Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197690466",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/2025/01/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:10.466Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197692238",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/blog/2025/02/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:12.238Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197694021",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/2025/02/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:14.021Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197695788",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/blog/2025/03/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:15.788Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197697562",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/2025/03/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:17.562Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    },
+    {
+      "id": "doc_aHR0cHM6Ly9x_1751197699334",
+      "title": "404: This page could not be found.",
+      "content": "404: This page could not be found.Fullstack API Platform for Dashboards and Reporting\n\n404\n===\n\nThis page could not be found.\n-----------------------------",
+      "content_type": "markdown",
+      "source_url": "https://quill.co/blog/blog/2025/04/why-users-want-customer-facing-analytics",
+      "date_scraped": "2025-06-29T11:48:19.334Z",
+      "metadata": {
+        "team_id": "quill_enhanced",
+        "source_type": "blog",
+        "word_count": 22,
+        "reading_time_minutes": 1,
+        "description": "Fastest way to build dashboards and reporting in your app",
+        "language": "en",
+        "domain": "quill.co",
+        "tags": []
+      }
+    }
+  ]
+}

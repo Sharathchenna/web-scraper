@@ -8,6 +8,7 @@ import { loadConfig, validateConfig } from './utils/config.js';
 import { logger } from './utils/logger.js';
 import path from 'path';
 import fs from 'fs';
+import { GoogleDriveDownloader } from './utils/google-drive-downloader.js';
 
 const program = new Command();
 
@@ -259,22 +260,14 @@ program
 // PDF scraping command
 program
   .command('pdf <filePath>')
-  .description('Extract content from a PDF file')
+  .description('Extract content from a PDF file using a hybrid chunking strategy')
   .requiredOption('--team <teamId>', 'Team ID for the knowledge base')
-  .option('--chunk-by-pages', 'Split PDF by page ranges instead of content sections')
-  .option('--pages-per-chunk <pages>', 'Number of pages per chunk when using page-based chunking', '5')
   .option('--output <dir>', 'Output directory for results')
   .option('--verbose', 'Enable verbose logging')
   .action(async (filePath, options) => {
     const spinner = ora('Initializing PDF extractor...').start();
     
     try {
-      // Validate file exists
-      const resolvedPath = path.resolve(filePath);
-      if (!fs.existsSync(resolvedPath)) {
-        throw new Error(`PDF file not found: ${resolvedPath}`);
-      }
-
       // Load and validate configuration
       const config = loadConfig();
       validateConfig(config);
@@ -287,6 +280,23 @@ program
         config.output_dir = options.output;
       }
 
+      // Validate file exists or is a Google Drive URL
+      const isGoogleDriveLink = filePath.includes('drive.google.com');
+      let resolvedPath = filePath;
+
+      if (isGoogleDriveLink) {
+        spinner.text = 'Downloading PDF from Google Drive...';
+        resolvedPath = await GoogleDriveDownloader.downloadPublicFile(
+          filePath,
+          config.output_dir
+        );
+      } else {
+        resolvedPath = path.resolve(filePath);
+        if (!fs.existsSync(resolvedPath)) {
+          throw new Error(`PDF file not found: ${resolvedPath}`);
+        }
+      }
+
       spinner.text = 'Extracting PDF content...';
       
       const importer = new KnowledgeImporter(config);
@@ -295,12 +305,12 @@ program
       const result = await importer.processPDF({
         file_path: resolvedPath,
         team_id: options.team,
-        chunk_by_pages: options.chunkByPages || false,
-        pages_per_chunk: parseInt(options.pagesPerChunk),
+        chunk_by_pages: false,
+        pages_per_chunk: 5,
       });
 
       if (result.success) {
-        spinner.succeed(chalk.green(`✅ Successfully processed PDF into ${result.documents?.length || 0} documents`));
+        spinner.succeed(chalk.green(`✅ Successfully processed PDF`));
         
         if (result.output_file) {
           console.log(chalk.blue(`📄 Output saved to: ${result.output_file}`));

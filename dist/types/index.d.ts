@@ -107,14 +107,16 @@ export interface AIConfig {
     enable_summarization: boolean;
     enable_tagging: boolean;
 }
+export interface KnowledgeBaseItem {
+    title: string;
+    content: string;
+    content_type: 'blog' | 'podcast_transcript' | 'call_transcript' | 'linkedin_post' | 'reddit_comment' | 'book' | 'other';
+    source_url: string | undefined;
+    author: string | undefined;
+    user_id: string | undefined;
+}
 export interface KnowledgeBaseExport {
-    metadata: {
-        team_id: string;
-        export_date: string;
-        total_documents: number;
-        source_types: string[];
-        version: string;
-    };
-    documents: Document[];
+    team_id: string;
+    items: KnowledgeBaseItem[];
 }
 //# sourceMappingURL=index.d.ts.map

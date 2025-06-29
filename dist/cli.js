@@ -231,10 +231,14 @@ program
     .action(async (filePath, options) => {
     const spinner = ora('Initializing PDF extractor...').start();
     try {
-        // Validate file exists
-        const resolvedPath = path.resolve(filePath);
-        if (!fs.existsSync(resolvedPath)) {
-            throw new Error(`PDF file not found: ${resolvedPath}`);
+        // Validate file exists or is a Google Drive URL
+        const isGoogleDriveLink = filePath.includes('drive.google.com');
+        let resolvedPath = filePath;
+        if (!isGoogleDriveLink) {
+            resolvedPath = path.resolve(filePath);
+            if (!fs.existsSync(resolvedPath)) {
+                throw new Error(`PDF file not found: ${resolvedPath}`);
+            }
         }
         // Load and validate configuration
         const config = loadConfig();

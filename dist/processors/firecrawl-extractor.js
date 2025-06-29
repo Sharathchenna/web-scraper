@@ -57,7 +57,6 @@ export class FirecrawlExtractor {
             const title = responseData.metadata?.title || responseData.metadata?.ogTitle || this.extractTitleFromContent(responseData.markdown || '');
             const author = responseData.metadata?.author || responseData.metadata?.ogSiteName;
             const datePublished = this.extractDate(responseData.metadata);
-            const description = responseData.metadata?.description || responseData.metadata?.ogDescription;
             // Create document
             const document = {
                 id: this.generateDocumentId(url),
@@ -227,9 +226,9 @@ export class FirecrawlExtractor {
             'tensorflow.org', 'pytorch.org', 'reactjs.org'
         ];
         // Blog sites that work well with our improved settings
-        const blogSites = [
-            'nilmamano.com', 'interviewing.io', 'blog.', 'substack.com'
-        ];
+        // const blogSites = [
+        //   'nilmamano.com', 'interviewing.io', 'blog.', 'substack.com'
+        // ];
         if (heavyJSSites.some(site => domain.includes(site))) {
             return {
                 name: 'heavy-javascript',

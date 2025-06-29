@@ -2,19 +2,39 @@ import pdf from 'pdf-parse';
 import fs from 'fs';
 import path from 'path';
 import { logger } from '../utils/logger.js';
+import { GoogleDriveDownloader } from '../utils/google-drive-downloader.js';
 export class PDFExtractor {
     async extractFromPDF(filePath, config) {
         try {
-            logger.info('Starting PDF extraction', { filePath });
-            // Check if file exists
-            if (!fs.existsSync(filePath)) {
-                const error = `PDF file not found: ${filePath}`;
+            let localFilePath = filePath;
+            const isGoogleDriveLink = filePath.includes('drive.google.com');
+            if (isGoogleDriveLink) {
+                logger.info('Google Drive link detected, starting download', { url: filePath });
+                try {
+                    const tempDir = path.join(process.cwd(), 'temp', 'pdf-downloads');
+                    if (!fs.existsSync(tempDir)) {
+                        fs.mkdirSync(tempDir, { recursive: true });
+                    }
+                    localFilePath = await GoogleDriveDownloader.downloadPublicFile(filePath, tempDir);
+                }
+                catch (downloadError) {
+                    const errorMessage = downloadError instanceof Error ? downloadError.message : 'Unknown error';
+                    logger.error('Failed to download from Google Drive', { url: filePath, error: errorMessage });
+                    return { success: false, error: `Failed to download from Google Drive: ${errorMessage}` };
+                }
+            }
+            else if (!fs.existsSync(localFilePath)) {
+                const error = `PDF file not found: ${localFilePath}`;
                 logger.error(error);
                 return { success: false, error };
             }
+            logger.info('Starting PDF extraction', { filePath: localFilePath });
+            logger.debug('Reading PDF file into buffer', { localFilePath });
             // Read PDF file
-            const dataBuffer = fs.readFileSync(filePath);
+            const dataBuffer = fs.readFileSync(localFilePath);
+            logger.debug('PDF file read into buffer', { bufferLength: dataBuffer.length });
             const pdfData = await pdf(dataBuffer);
+            logger.debug('PDF data parsed', { numpages: pdfData.numpages });
             if (!pdfData.text || pdfData.text.trim().length === 0) {
                 const error = 'No text content found in PDF';
                 logger.error(error, { filePath });
