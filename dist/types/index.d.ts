@@ -64,6 +64,7 @@ export interface PDFIngestorConfig extends IngestorConfig {
     file_path: string;
     chunk_by_pages: boolean;
     pages_per_chunk: number;
+    total_chunks?: number;
 }
 export interface ProcessorResult {
     success: boolean;

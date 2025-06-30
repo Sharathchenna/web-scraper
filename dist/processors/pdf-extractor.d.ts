@@ -5,7 +5,12 @@ export interface PDFExtractResult {
     error?: string;
 }
 export declare class PDFExtractor {
+    private readonly MIN_SECTIONS_FOR_SEMANTIC;
     extractFromPDF(filePath: string, config: PDFIngestorConfig): Promise<PDFExtractResult>;
+    private extractWithHybridChunking;
+    private detectHeadingSections;
+    private chunkByPages;
+    private createDocumentsFromSections;
     private formatAsMarkdown;
     private createMetadata;
     private countWords;

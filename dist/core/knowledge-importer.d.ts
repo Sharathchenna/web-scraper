@@ -12,6 +12,7 @@ export interface ProcessPDFOptions {
     team_id: string;
     chunk_by_pages: boolean;
     pages_per_chunk: number;
+    total_chunks?: number;
 }
 export interface ImportResult {
     success: boolean;
@@ -28,6 +29,7 @@ export declare class KnowledgeImporter {
     private chunker;
     private serializer;
     private workerPool;
+    private linkDiscoverer;
     constructor(config: AppConfig);
     init(): Promise<void>;
     crawlWebsite(options: CrawlWebsiteOptions): Promise<ImportResult>;

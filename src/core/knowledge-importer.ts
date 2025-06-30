@@ -7,6 +7,7 @@ import { WorkerPool } from './worker-pool.js';
 import { AppConfig, Document, ProcessingStats } from '../types/index.js';
 import { logger } from '../utils/logger.js';
 import fs from 'fs';
+import { SmartLinkDiscoverer } from '../processors/smart-link-discoverer.js';
 
 export interface CrawlWebsiteOptions {
   root_url: string;
@@ -40,6 +41,7 @@ export class KnowledgeImporter {
   private chunker: SemanticChunker;
   private serializer: KnowledgeBaseSerializer;
   private workerPool: WorkerPool;
+  private linkDiscoverer: SmartLinkDiscoverer;
 
   constructor(private config: AppConfig) {
     this.database = new Database(config.database_path);
@@ -69,6 +71,7 @@ export class KnowledgeImporter {
     this.chunker = new SemanticChunker(config.chunking);
     this.serializer = new KnowledgeBaseSerializer(config.output_dir);
     this.workerPool = new WorkerPool(config.max_workers, this.database, this.firecrawlExtractor);
+    this.linkDiscoverer = new SmartLinkDiscoverer(logger);
 
     // Ensure output directory exists
     if (!fs.existsSync(config.output_dir)) {
@@ -179,15 +182,29 @@ export class KnowledgeImporter {
 
   private async trySmartDiscovery(directoryDoc: Document, options: CrawlWebsiteOptions, startTime: number): Promise<ImportResult> {
     try {
-      logger.info('Starting smart link discovery from directory page');
+      logger.info('Starting enhanced smart link discovery from directory page');
       
-      // Extract all potential URLs from the directory page content
-      const discoveredUrls = await this.extractLinksFromContent(directoryDoc.content, options.root_url);
+      // Use enhanced SmartLinkDiscoverer with JavaScript-heavy detection
+      const discoveryResult = await this.linkDiscoverer.discover(options.root_url, 10);
       
-      if (discoveredUrls.length === 0) {
-        logger.info('No additional URLs discovered');
+      if (!discoveryResult.success || discoveryResult.urls.length === 0) {
+        logger.info('Enhanced link discovery found no additional URLs', {
+          jsHeavy: discoveryResult.jsHeavy,
+          layer: discoveryResult.layer,
+          interactions: discoveryResult.interactions.length
+        });
         return { success: false, error: 'No links found' };
       }
+
+              logger.info('Enhanced link discovery completed', {
+          urlsFound: discoveryResult.urls.length,
+          jsHeavy: discoveryResult.jsHeavy,
+          layer: discoveryResult.layer,
+          interactions: discoveryResult.interactions.length,
+          score: discoveryResult.score
+        });
+
+      const discoveredUrls = discoveryResult.urls;
 
       // Limit URLs based on max_pages (minus 1 for the directory page itself)
       const maxAdditionalPages = Math.max(0, options.max_pages - 1);
@@ -284,7 +301,7 @@ export class KnowledgeImporter {
     const urls: string[] = [];
     const baseHostname = new URL(baseUrl).hostname;
     const baseDomain = baseUrl.replace(/\/$/, ''); // Remove trailing slash for consistent comparison
-    
+
     // Enhanced patterns for finding blog/content links
     const patterns = [
       // Standard HTML links with href
@@ -320,51 +337,39 @@ export class KnowledgeImporter {
     const filteredUrls = urls.filter(url => {
       // Remove malformed URLs with extra characters
       if (url.match(/[)\]}>]$/)) return false;
-      
+
       // Remove anchor links and query parameters
       if (url.includes('#') || url.includes('?')) return false;
-      
+
       // Remove asset files
       if (url.match(/\.(jpg|jpeg|png|gif|svg|css|js|ico|woff|woff2|ttf|eot|pdf|zip|mp4|mp3)$/i)) return false;
-      
+
       // Remove API endpoints and technical paths
       if (url.match(/\/(api|_next|static|assets|public|dist|build|node_modules)\//)) return false;
-      
+
       // Remove self-references
       if (url === baseUrl || url === baseDomain) return false;
-      
+
       // Keep blog-like paths
       if (url.match(/\/(blog|article|post|news|content|guide|tutorial|docs?|documentation)\//i)) return true;
-      
+
       // Keep paths that look like individual content (e.g., /some-title, /category/title)
       const path = url.replace(baseDomain, '');
-      if (path.match(/^\/[a-z0-9-_]+$/i) || // Simple slug
-          path.match(/^\/[a-z0-9-_]+\/[a-z0-9-_]+$/i) || // Category/slug
-          path.match(/^\/\d{4}\/\d{2}\//) // Date-based URLs
+      if (
+        path.match(/^\/[a-z0-9-_]+$/i) || // Simple slug
+        path.match(/^\/[a-z0-9-_]+\/[a-z0-9-_]+$/i) || // Category/slug
+        path.match(/^\/\d{4}\/\d{2}\//) // Date-based URLs
       ) {
         return true;
       }
-      
+
       // For blog directories, also look for any path that's not just navigation
       const blogKeywords = ['analytics', 'data', 'business', 'intelligence', 'embedded', 'modern', 'stack', 'customers', 'chatgpt', 'ai'];
       if (blogKeywords.some(keyword => url.toLowerCase().includes(keyword))) {
         return true;
       }
-      
+
       return false;
-    });
-
-    // Additional content discovery for blog sites
-    const contentUrls = await this.discoverBlogContent(content, baseUrl);
-    contentUrls.forEach(url => {
-      if (!filteredUrls.includes(url)) {
-        filteredUrls.push(url);
-      }
-    });
-
-    logger.info('Enhanced link extraction completed', { 
-      totalUrls: filteredUrls.length,
-      sampleUrls: filteredUrls.slice(0, 10)
     });
 
     return filteredUrls;
@@ -702,7 +707,7 @@ export class KnowledgeImporter {
         file_path: options.file_path,
         chunk_by_pages: options.chunk_by_pages,
         pages_per_chunk: options.pages_per_chunk,
-        total_chunks: options.total_chunks,
+        total_chunks: options.total_chunks || 0,
       });
 
       if (!extractResult.success || !extractResult.documents) {

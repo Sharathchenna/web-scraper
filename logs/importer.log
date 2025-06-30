@@ -2711,3 +2711,874 @@
 {"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_smart_2025-06-29_1.json","summaryFile":"output/quill_smart_2025-06-29_1_summary.md","timestamp":"2025-06-29 21:05:48","totalChunks":0}
 {"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_smart_2025-06-29_1.json","processingTimeMs":120319,"successfulExtractions":8,"timestamp":"2025-06-29 21:05:48"}
 {"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-29 21:05:48"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 02:18:46"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 02:18:46"}
+{"exclude_patterns":["*/docs/*","*/jobs/*","*/product/*"],"include_patterns":[],"level":"info","max_depth":3,"max_pages":20,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_blog","timestamp":"2025-06-30 02:18:46"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":["*/docs/*","*/jobs/*","*/product/*"],"includePaths":[],"limit":20,"maxDepth":3},"timestamp":"2025-06-30 02:18:46","url":"https://quill.co/blog"}
+{"error":"Request failed with status code 400. Error: Invalid regular expression: /*/docs/*/: Nothing to repeat ","level":"error","message":"Firecrawl crawl error","timestamp":"2025-06-30 02:18:46","url":"https://quill.co/blog"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 02:18:53"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 02:18:53"}
+{"exclude_patterns":[".*/docs/.*",".*/jobs/.*",".*/product/.*"],"include_patterns":[],"level":"info","max_depth":3,"max_pages":20,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_blog","timestamp":"2025-06-30 02:18:53"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[".*/docs/.*",".*/jobs/.*",".*/product/.*"],"includePaths":[],"limit":20,"maxDepth":3},"timestamp":"2025-06-30 02:18:53","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 02:19:03","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 02:19:03"}
+{"level":"info","message":"Starting smart link discovery from directory page","timestamp":"2025-06-30 02:19:03"}
+{"level":"info","message":"Discovered blog post titles","sampleTitles":["Why Users Want Customer-Facing Analytics","Brief Overview of the Modern Data Stack","The Evolution of Business Intelligence and the Emergence of Embedded BI","Why the Modern Data Stack Doesn’t Replace Embedded Analytics","Why SaaS Companies Offer Customer-Facing Analytics"],"timestamp":"2025-06-30 02:19:03","titleCount":7}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:19:03","url":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:19:03"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:19:14","title":"404: This page could not be found.","url":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics","wordCount":28}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:19:14","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:19:14"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:19:25","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"Found working URL pattern","pattern":":slug","testUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 02:19:25","title":"Fullstack API Platform for Dashboards and Reporting"}
+{"level":"info","message":"Detected working URL pattern","pattern":":slug","timestamp":"2025-06-30 02:19:25"}
+{"level":"info","message":"Enhanced link extraction completed","sampleUrls":["https://quill.co/blog/why-users-want-customer-facing-analytics","https://quill.co/blog/brief-overview-of-the-modern-data-stack","https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","https://quill.co/blog/what-is-customer-facing-analytics"],"timestamp":"2025-06-30 02:19:25","totalUrls":7}
+{"level":"info","maxPages":20,"message":"Discovered URLs for processing","timestamp":"2025-06-30 02:19:25","totalDiscovered":7,"willProcess":7}
+{"level":"info","message":"Processing discovered URL 1/7","timestamp":"2025-06-30 02:19:25","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:19:25","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:19:25"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:19:36","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 02:19:36"}
+{"level":"info","message":"Processing discovered URL 2/7","timestamp":"2025-06-30 02:19:37","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:19:37","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","processedUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","strategy":"standard-blog","timestamp":"2025-06-30 02:19:37"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:19:49","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","wordCount":634}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 02:19:49"}
+{"level":"info","message":"Processing discovered URL 3/7","timestamp":"2025-06-30 02:19:50","url":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:19:50","url":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","processedUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","strategy":"standard-blog","timestamp":"2025-06-30 02:19:50"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:20:01","title":"404: This page could not be found.","url":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:20:01"}
+{"level":"info","message":"Processing discovered URL 4/7","timestamp":"2025-06-30 02:20:03","url":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:20:03","url":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","processedUrl":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:20:03"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:20:14","title":"404: This page could not be found.","url":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:20:14"}
+{"level":"info","message":"Processing discovered URL 5/7","timestamp":"2025-06-30 02:20:15","url":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:20:15","url":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:20:15"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:20:26","title":"404: This page could not be found.","url":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:20:26"}
+{"level":"info","message":"Processing discovered URL 6/7","timestamp":"2025-06-30 02:20:27","url":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:20:27","url":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","processedUrl":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","strategy":"standard-blog","timestamp":"2025-06-30 02:20:27"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:20:39","title":"404: This page could not be found.","url":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:20:39"}
+{"level":"info","message":"Processing discovered URL 7/7","timestamp":"2025-06-30 02:20:40","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:20:40","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/what-is-customer-facing-analytics","processedUrl":"https://quill.co/blog/what-is-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:20:40"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:20:51","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/what-is-customer-facing-analytics","wordCount":348}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 02:20:51"}
+{"documentCount":8,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 02:20:51"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751230143794","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230143794","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":431}
+{"contentLength":4808,"documentId":"doc_aHR0cHM6Ly9x_1751230176484","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230176484","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":643}
+{"contentLength":4532,"documentId":"doc_aHR0cHM6Ly9x_1751230189173","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230189173","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":634}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230201563","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230201563","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":28}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230214231","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230214231","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":28}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230226408","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230226408","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":28}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230239094","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230239094","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":28}
+{"contentLength":2964,"documentId":"doc_aHR0cHM6Ly9x_1751230251950","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:20:51"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230251950","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:20:51","wordCount":348}
+{"documentCount":8,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_blog","timestamp":"2025-06-30 02:20:51"}
+{"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_blog_2025-06-29.json","summaryFile":"output/quill_blog_2025-06-29_summary.md","timestamp":"2025-06-30 02:20:51","totalChunks":0}
+{"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_blog_2025-06-29.json","processingTimeMs":118528,"successfulExtractions":8,"timestamp":"2025-06-30 02:20:51"}
+{"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 02:20:51"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 02:21:04"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 02:21:04"}
+{"exclude_patterns":[".*/docs/.*",".*/jobs/.*",".*/product/.*"],"include_patterns":[],"level":"info","max_depth":2,"max_pages":10,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_blog","timestamp":"2025-06-30 02:21:04"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[".*/docs/.*",".*/jobs/.*",".*/product/.*"],"includePaths":[],"limit":10,"maxDepth":2},"timestamp":"2025-06-30 02:21:04","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 02:21:15","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 02:21:15"}
+{"level":"info","message":"Starting smart link discovery from directory page","timestamp":"2025-06-30 02:21:15"}
+{"level":"info","message":"Discovered blog post titles","sampleTitles":["Why Users Want Customer-Facing Analytics","Brief Overview of the Modern Data Stack","The Evolution of Business Intelligence and the Emergence of Embedded BI","Why the Modern Data Stack Doesn’t Replace Embedded Analytics","Why SaaS Companies Offer Customer-Facing Analytics"],"timestamp":"2025-06-30 02:21:15","titleCount":7}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:21:15","url":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:21:15"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:21:26","title":"404: This page could not be found.","url":"https://quill.co/blog/blog/why-users-want-customer-facing-analytics","wordCount":28}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:21:26","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:21:26"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:21:37","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"Found working URL pattern","pattern":":slug","testUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 02:21:37","title":"Fullstack API Platform for Dashboards and Reporting"}
+{"level":"info","message":"Detected working URL pattern","pattern":":slug","timestamp":"2025-06-30 02:21:37"}
+{"level":"info","message":"Enhanced link extraction completed","sampleUrls":["https://quill.co/blog/why-users-want-customer-facing-analytics","https://quill.co/blog/brief-overview-of-the-modern-data-stack","https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","https://quill.co/blog/what-is-customer-facing-analytics"],"timestamp":"2025-06-30 02:21:37","totalUrls":7}
+{"level":"info","maxPages":10,"message":"Discovered URLs for processing","timestamp":"2025-06-30 02:21:37","totalDiscovered":7,"willProcess":7}
+{"level":"info","message":"Processing discovered URL 1/7","timestamp":"2025-06-30 02:21:37","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:21:37","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:21:37"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:21:48","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 02:21:48"}
+{"level":"info","message":"Processing discovered URL 2/7","timestamp":"2025-06-30 02:21:49","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:21:49","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","processedUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","strategy":"standard-blog","timestamp":"2025-06-30 02:21:49"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:22:01","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","wordCount":634}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 02:22:01"}
+{"level":"info","message":"Processing discovered URL 3/7","timestamp":"2025-06-30 02:22:02","url":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:22:02","url":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","processedUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","strategy":"standard-blog","timestamp":"2025-06-30 02:22:02"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:22:13","title":"404: This page could not be found.","url":"https://quill.co/blog/the-evolution-of-business-intelligence-and-the-emergence-of-embedded-bi","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:22:13"}
+{"level":"info","message":"Processing discovered URL 4/7","timestamp":"2025-06-30 02:22:14","url":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:22:14","url":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","processedUrl":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:22:14"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:22:26","title":"404: This page could not be found.","url":"https://quill.co/blog/why-the-modern-data-stack-doesnt-replace-embedded-analytics","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:22:26"}
+{"level":"info","message":"Processing discovered URL 5/7","timestamp":"2025-06-30 02:22:27","url":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:22:27","url":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:22:27"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:22:38","title":"404: This page could not be found.","url":"https://quill.co/blog/why-saas-companies-offer-customer-facing-analytics","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:22:38"}
+{"level":"info","message":"Processing discovered URL 6/7","timestamp":"2025-06-30 02:22:39","url":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:22:39","url":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","processedUrl":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","strategy":"standard-blog","timestamp":"2025-06-30 02:22:39"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:22:51","title":"404: This page could not be found.","url":"https://quill.co/blog/dont-build-chatgpt-for-x-focus-on-where-chatgpt-doesnt-solve-x","wordCount":28}
+{"level":"info","message":"✅ Successfully extracted: 404: This page could not be found.","timestamp":"2025-06-30 02:22:51"}
+{"level":"info","message":"Processing discovered URL 7/7","timestamp":"2025-06-30 02:22:52","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 02:22:52","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/what-is-customer-facing-analytics","processedUrl":"https://quill.co/blog/what-is-customer-facing-analytics","strategy":"standard-blog","timestamp":"2025-06-30 02:22:52"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 02:23:03","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/what-is-customer-facing-analytics","wordCount":348}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 02:23:03"}
+{"documentCount":8,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 02:23:03"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751230275304","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230275304","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":431}
+{"contentLength":4808,"documentId":"doc_aHR0cHM6Ly9x_1751230308271","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230308271","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":643}
+{"contentLength":4532,"documentId":"doc_aHR0cHM6Ly9x_1751230321201","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230321201","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":634}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230333363","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230333363","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":28}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230346038","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230346038","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":28}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230358191","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230358191","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":28}
+{"contentLength":206,"documentId":"doc_aHR0cHM6Ly9x_1751230371363","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230371363","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":28}
+{"contentLength":2964,"documentId":"doc_aHR0cHM6Ly9x_1751230383755","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:23:03"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751230383755","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:23:03","wordCount":348}
+{"documentCount":8,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_blog","timestamp":"2025-06-30 02:23:03"}
+{"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_blog_2025-06-29_1.json","summaryFile":"output/quill_blog_2025-06-29_1_summary.md","timestamp":"2025-06-30 02:23:03","totalChunks":0}
+{"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_blog_2025-06-29_1.json","processingTimeMs":118856,"successfulExtractions":8,"timestamp":"2025-06-30 02:23:03"}
+{"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 02:23:03"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 02:37:13"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 02:37:13"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_blog","timestamp":"2025-06-30 02:37:13"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":50,"maxDepth":3},"timestamp":"2025-06-30 02:37:13","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 02:37:24","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 02:37:24"}
+{"level":"info","message":"Starting smart link discovery from directory page","timestamp":"2025-06-30 02:37:24"}
+{"level":"info","message":"No additional URLs discovered","timestamp":"2025-06-30 02:37:24"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 02:37:24"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 02:37:24"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751231244242","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 02:37:24"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751231244242","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 02:37:24","wordCount":431}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_blog","timestamp":"2025-06-30 02:37:24"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_blog_2025-06-29_2.json","summaryFile":"output/quill_blog_2025-06-29_2_summary.md","timestamp":"2025-06-30 02:37:24","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_blog_2025-06-29_2.json","processingTimeMs":10294,"timestamp":"2025-06-30 02:37:24"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 06:33:56"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 06:33:56"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_blog","timestamp":"2025-06-30 06:33:56"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":50,"maxDepth":3},"timestamp":"2025-06-30 06:33:56","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 06:34:06","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 06:34:06"}
+{"level":"info","message":"Starting smart link discovery from directory page","timestamp":"2025-06-30 06:34:06"}
+{"level":"info","message":"No additional URLs discovered","timestamp":"2025-06-30 06:34:06"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 06:34:06"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 06:34:06"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751245446732","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:34:06"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751245446732","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 06:34:06","wordCount":431}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_blog","timestamp":"2025-06-30 06:34:06"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_blog_2025-06-30.json","summaryFile":"output/quill_blog_2025-06-30_summary.md","timestamp":"2025-06-30 06:34:06","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_blog_2025-06-30.json","processingTimeMs":10326,"timestamp":"2025-06-30 06:34:06"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 06:35:09"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 06:35:09"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_blog","timestamp":"2025-06-30 06:35:09"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":50,"maxDepth":3},"timestamp":"2025-06-30 06:35:09","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 06:35:19","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 06:35:19"}
+{"level":"info","message":"Starting smart link discovery from directory page","timestamp":"2025-06-30 06:35:19"}
+{"level":"info","message":"No additional URLs discovered","timestamp":"2025-06-30 06:35:19"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 06:35:19"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 06:35:19"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751245519413","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:35:19"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751245519413","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 06:35:19","wordCount":431}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_blog","timestamp":"2025-06-30 06:35:19"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_blog_2025-06-30_1.json","summaryFile":"output/quill_blog_2025-06-30_1_summary.md","timestamp":"2025-06-30 06:35:19","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_blog_2025-06-30_1.json","processingTimeMs":10258,"timestamp":"2025-06-30 06:35:19"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 06:44:04"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 06:44:04"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":5,"message":"Starting website crawl","root_url":"https://quill.org/blog","team_id":"quill_enhanced_js_test","timestamp":"2025-06-30 06:44:04"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":5,"maxDepth":3},"timestamp":"2025-06-30 06:44:04","url":"https://quill.org/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 06:44:41","url":"https://quill.org/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 06:44:41"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 06:44:41"}
+{"level":"info","message":"Starting link discovery with JS-heavy detection","timestamp":"2025-06-30 06:44:41","url":"https://quill.org/blog"}
+{"indicators":[],"level":"info","message":"JavaScript heaviness analysis","score":0,"threshold":50,"timestamp":"2025-06-30 06:44:43","url":"https://quill.org/blog"}
+{"currentUrlCount":0,"jsHeavy":false,"level":"info","message":"Using traditional extraction methods","timestamp":"2025-06-30 06:44:43"}
+{"level":"debug","message":"Layer 1 completed","timestamp":"2025-06-30 06:44:45","urlsFound":0}
+{"level":"debug","message":"Layer 2 completed","timestamp":"2025-06-30 06:45:00","urlsFound":0}
+{"level":"debug","message":"Layer 3 completed","timestamp":"2025-06-30 06:45:11","urlsFound":0}
+{"level":"debug","message":"Layer 4 completed","timestamp":"2025-06-30 06:45:22","urlsFound":0}
+{"interactions":0,"jsHeavy":false,"layer":4,"level":"info","message":"Link discovery completed","success":false,"timestamp":"2025-06-30 06:45:22","totalUrls":0}
+{"interactions":0,"jsHeavy":false,"layer":4,"level":"info","message":"Enhanced link discovery found no additional URLs","timestamp":"2025-06-30 06:45:22"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 06:45:22"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 06:45:22"}
+{"contentLength":11579,"documentId":"doc_aHR0cHM6Ly9x_1751246081410","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:45:22"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751246081410","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 06:45:22","wordCount":730}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_enhanced_js_test","timestamp":"2025-06-30 06:45:22"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_enhanced_js_test_2025-06-30.json","summaryFile":"output/quill_enhanced_js_test_2025-06-30_summary.md","timestamp":"2025-06-30 06:45:22","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_enhanced_js_test_2025-06-30.json","processingTimeMs":78560,"timestamp":"2025-06-30 06:45:22"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 06:46:27"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 06:46:27"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":3,"message":"Starting website crawl","root_url":"https://nextjs.org/blog","team_id":"nextjs_js_test","timestamp":"2025-06-30 06:46:27"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":3,"maxDepth":3},"timestamp":"2025-06-30 06:46:27","url":"https://nextjs.org/blog"}
+{"documentCount":5,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 06:47:22","url":"https://nextjs.org/blog"}
+{"documentCount":5,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 06:47:22"}
+{"contentLength":53676,"documentId":"doc_aHR0cHM6Ly9u_1751246242335","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:47:22"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9u_1751246242335","level":"info","message":"Document successfully chunked","originalWordCount":2964,"timestamp":"2025-06-30 06:47:22"}
+{"contentLength":17536,"documentId":"doc_aHR0cHM6Ly9u_1751246242336","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:47:22"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9u_1751246242336","level":"info","message":"Document successfully chunked","originalWordCount":1424,"timestamp":"2025-06-30 06:47:22"}
+{"contentLength":25514,"documentId":"doc_aHR0cHM6Ly9u_1751246242337","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:47:22"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9u_1751246242337","level":"info","message":"Document successfully chunked","originalWordCount":2226,"timestamp":"2025-06-30 06:47:22"}
+{"contentLength":53676,"documentId":"doc_aHR0cHM6Ly9u_1751246242339","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:47:22"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9u_1751246242339","level":"info","message":"Document successfully chunked","originalWordCount":2964,"timestamp":"2025-06-30 06:47:22"}
+{"contentLength":53676,"documentId":"doc_aHR0cHM6Ly9u_1751246242340","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:47:22"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9u_1751246242340","level":"info","message":"Document successfully chunked","originalWordCount":2964,"timestamp":"2025-06-30 06:47:22"}
+{"documentCount":5,"level":"info","message":"Starting knowledge base serialization","teamId":"nextjs_js_test","timestamp":"2025-06-30 06:47:22"}
+{"documentCount":5,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/nextjs_js_test_2025-06-30.json","summaryFile":"output/nextjs_js_test_2025-06-30_summary.md","timestamp":"2025-06-30 06:47:22","totalChunks":18}
+{"documentCount":5,"level":"info","message":"Website crawl completed successfully","outputFile":"output/nextjs_js_test_2025-06-30.json","processingTimeMs":55127,"timestamp":"2025-06-30 06:47:22"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 06:48:04"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 06:48:04"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":3,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"nextjs_js_test","timestamp":"2025-06-30 06:48:04"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":3,"maxDepth":3},"timestamp":"2025-06-30 06:48:04","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 06:48:15","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 06:48:15"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 06:48:15"}
+{"level":"info","message":"Starting link discovery with JS-heavy detection","timestamp":"2025-06-30 06:48:15","url":"https://quill.co/blog"}
+{"indicators":[],"level":"info","message":"JavaScript heaviness analysis","score":0,"threshold":50,"timestamp":"2025-06-30 06:48:15","url":"https://quill.co/blog"}
+{"currentUrlCount":0,"jsHeavy":false,"level":"info","message":"Using traditional extraction methods","timestamp":"2025-06-30 06:48:15"}
+{"level":"debug","message":"Layer 1 completed","timestamp":"2025-06-30 06:48:15","urlsFound":0}
+{"level":"debug","message":"Layer 2 completed","timestamp":"2025-06-30 06:48:16","urlsFound":0}
+{"level":"debug","message":"Layer 3 completed","timestamp":"2025-06-30 06:48:30","urlsFound":3}
+{"interactions":0,"jsHeavy":false,"layer":3,"level":"info","message":"Link discovery completed","success":true,"timestamp":"2025-06-30 06:48:30","totalUrls":3}
+{"interactions":0,"jsHeavy":false,"layer":3,"level":"info","message":"Enhanced link discovery completed","timestamp":"2025-06-30 06:48:30","urlsFound":3}
+{"level":"info","maxPages":3,"message":"Discovered URLs for processing","timestamp":"2025-06-30 06:48:30","totalDiscovered":3,"willProcess":2}
+{"level":"info","message":"Processing discovered URL 1/2","timestamp":"2025-06-30 06:48:30","url":"https://quill.co"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 06:48:30","url":"https://quill.co"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co","processedUrl":"https://quill.co","strategy":"heavy-javascript","timestamp":"2025-06-30 06:48:30"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 06:48:46","title":"Untitled","url":"https://quill.co","wordCount":8}
+{"level":"info","message":"✅ Successfully extracted: Untitled","timestamp":"2025-06-30 06:48:46"}
+{"level":"info","message":"Processing discovered URL 2/2","timestamp":"2025-06-30 06:48:48","url":"'+e.props["}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 06:48:48","url":"'+e.props["}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"'+e.props[","processedUrl":"'+e.props[","strategy":"standard-blog","timestamp":"2025-06-30 06:48:48"}
+{"error":"Failed to scrape URL. Status code: 400. Error: Bad Request - [{\"validation\":\"url\",\"code\":\"invalid_string\",\"message\":\"Invalid url\",\"path\":[\"url\"]},{\"code\":\"custom\",\"message\":\"URL must have a valid top-level domain or be a valid path\",\"path\":[\"url\"]},{\"code\":\"custom\",\"message\":\"Invalid URL\",\"path\":[\"url\"]}]","level":"error","message":"Advanced extraction error","timestamp":"2025-06-30 06:48:48","url":"'+e.props["}
+{"level":"warn","message":"❌ Failed to extract: '+e.props[ - Failed to scrape URL. Status code: 400. Error: Bad Request - [{\"validation\":\"url\",\"code\":\"invalid_string\",\"message\":\"Invalid url\",\"path\":[\"url\"]},{\"code\":\"custom\",\"message\":\"URL must have a valid top-level domain or be a valid path\",\"path\":[\"url\"]},{\"code\":\"custom\",\"message\":\"Invalid URL\",\"path\":[\"url\"]}]","timestamp":"2025-06-30 06:48:48"}
+{"documentCount":2,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 06:48:48"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751246295318","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:48:48"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751246295318","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 06:48:48","wordCount":431}
+{"contentLength":147,"documentId":"doc_aHR0cHM6Ly9x_1751246326779","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 06:48:48"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751246326779","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 06:48:48","wordCount":8}
+{"documentCount":2,"level":"info","message":"Starting knowledge base serialization","teamId":"nextjs_js_test","timestamp":"2025-06-30 06:48:48"}
+{"documentCount":2,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/nextjs_js_test_2025-06-30_1.json","summaryFile":"output/nextjs_js_test_2025-06-30_1_summary.md","timestamp":"2025-06-30 06:48:48","totalChunks":0}
+{"documentCount":2,"failedExtractions":1,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/nextjs_js_test_2025-06-30_1.json","processingTimeMs":43400,"successfulExtractions":2,"timestamp":"2025-06-30 06:48:48"}
+{"discoveredPages":2,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 06:48:48"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 06:59:47","url":"https://quill.org/blog"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 06:59:49","url":"https://quill.org/blog"}
+{"indicators":["Probe failed - assuming JS-heavy"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":100,"timestamp":"2025-06-30 06:59:49"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 06:59:49"}
+{"interactions":4,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":3,"networkRequests":105,"scrollAttempts":1,"urlsFound":0},"timestamp":"2025-06-30 07:00:03","urlsFound":0}
+{"interactions":4,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":15885,"success":false,"timestamp":"2025-06-30 07:00:03","totalUrls":0}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:00:03","url":"https://blog.stripe.com"}
+{"indicators":["Angular detected","Loading indicator: loading"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":30,"timestamp":"2025-06-30 07:00:06"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 07:00:06"}
+{"interactions":0,"jsHeavy":false,"layer":2,"level":"info","message":"Smart discovery completed","processingTime":16580,"success":true,"timestamp":"2025-06-30 07:00:20","totalUrls":90}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:00:20","url":"https://nextjs.org/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Dynamic data fetching detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":100,"timestamp":"2025-06-30 07:00:20"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:00:20"}
+{"interactions":4,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":3,"networkRequests":273,"scrollAttempts":1,"urlsFound":43},"timestamp":"2025-06-30 07:00:32","urlsFound":43}
+{"interactions":4,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":11935,"success":true,"timestamp":"2025-06-30 07:00:32","totalUrls":43}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:00:38"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:00:38"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":5,"message":"Starting website crawl","root_url":"https://quill.org/blog","team_id":"smart_quill_test","timestamp":"2025-06-30 07:00:38"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":5,"maxDepth":3},"timestamp":"2025-06-30 07:00:38","url":"https://quill.org/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:01:11","url":"https://quill.org/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:01:11"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:01:11"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:01:11","url":"https://quill.org/blog"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 07:01:13","url":"https://quill.org/blog"}
+{"indicators":["Probe failed - assuming JS-heavy"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":100,"timestamp":"2025-06-30 07:01:13"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:01:13"}
+{"index":0,"level":"debug","message":"Attempting to click expandable","selector":"[aria-expanded=\"false\"]","timestamp":"2025-06-30 07:01:19"}
+{"index":1,"level":"debug","message":"Attempting to click expandable","selector":"[aria-expanded=\"false\"]","timestamp":"2025-06-30 07:01:21"}
+{"index":2,"level":"debug","message":"Attempting to click expandable","selector":"[aria-expanded=\"false\"]","timestamp":"2025-06-30 07:01:23"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:01:26"}
+{"interactions":4,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":3,"networkRequests":105,"scrollAttempts":1,"urlsFound":0},"timestamp":"2025-06-30 07:01:26","urlsFound":0}
+{"interactions":4,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":14782,"success":false,"timestamp":"2025-06-30 07:01:26","totalUrls":0}
+{"interactions":4,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery found no additional URLs","timestamp":"2025-06-30 07:01:26"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 07:01:26"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 07:01:26"}
+{"contentLength":11579,"documentId":"doc_aHR0cHM6Ly9x_1751247071475","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:01:26"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751247071475","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:01:26","wordCount":730}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"smart_quill_test","timestamp":"2025-06-30 07:01:26"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/smart_quill_test_2025-06-30.json","summaryFile":"output/smart_quill_test_2025-06-30_summary.md","timestamp":"2025-06-30 07:01:26","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/smart_quill_test_2025-06-30.json","processingTimeMs":47715,"timestamp":"2025-06-30 07:01:26"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:02:09"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:02:09"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":8,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_co_test","timestamp":"2025-06-30 07:02:09"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":8,"maxDepth":3},"timestamp":"2025-06-30 07:02:09","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:02:19","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:02:19"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:02:19"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:02:19","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:02:19","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:02:19"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:02:19"}
+{"index":0,"level":"debug","message":"Attempting to click readMore","selector":"button:has-text(\"read more\")","timestamp":"2025-06-30 07:02:29"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:02:35"}
+{"interactions":2,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":1,"networkRequests":59,"scrollAttempts":1,"urlsFound":1},"timestamp":"2025-06-30 07:02:35","urlsFound":1}
+{"interactions":2,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":15784,"success":false,"timestamp":"2025-06-30 07:02:35","totalUrls":1}
+{"interactions":2,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery found no additional URLs","timestamp":"2025-06-30 07:02:35"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 07:02:35"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 07:02:35"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751247139482","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:02:35"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751247139482","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:02:35","wordCount":431}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_co_test","timestamp":"2025-06-30 07:02:35"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_co_test_2025-06-30.json","summaryFile":"output/quill_co_test_2025-06-30_summary.md","timestamp":"2025-06-30 07:02:35","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_co_test_2025-06-30.json","processingTimeMs":26040,"timestamp":"2025-06-30 07:02:35"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:04:53"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:04:53"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":8,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_enhanced_test","timestamp":"2025-06-30 07:04:53"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":8,"maxDepth":3},"timestamp":"2025-06-30 07:04:53","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:05:03","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:05:03"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:05:03"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:05:03","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:05:04","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:05:04"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:05:04"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"load more\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"show more\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"load more posts\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"view more\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"a:has-text(\"load more\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"a:has-text(\"show more\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".load-more","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".show-more","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".btn-load-more","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".view-more","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-testid*=\"load\"]","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-cy*=\"load\"]","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-action*=\"load\"]","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"Read more\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 8 elements for readMore","selector":"button:has-text(\"Read more\")","timestamp":"2025-06-30 07:05:14"}
+{"index":0,"level":"debug","message":"Attempting to click readMore","selector":"button:has-text(\"Read more\")","timestamp":"2025-06-30 07:05:14"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"read more\")","timestamp":"2025-06-30 07:05:17"}
+{"level":"debug","message":"Found 8 elements for readMore","selector":"button:has-text(\"read more\")","timestamp":"2025-06-30 07:05:17"}
+{"index":0,"level":"debug","message":"Attempting to click readMore","selector":"button:has-text(\"read more\")","timestamp":"2025-06-30 07:05:17"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"continue reading\")","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"read full\")","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"button:has-text(\"continue reading\")","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-more","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".continue-reading","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-full","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-more-link","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".post-read-more","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-action=\"read-more\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-testid*=\"read\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-cy*=\"read\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"article a[href*=\"blog\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".post a[href*=\"blog\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".article a[href*=\"blog\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/blog/\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/post/\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/article/\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a[aria-label*=\"next\" i]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"button[aria-label*=\"next\" i]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"Next\")","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"button:has-text(\"Next\")","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"→\")","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"›\")","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":".pagination a:not(.disabled)","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":".pager a:not(.disabled)","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"[data-testid*=\"next\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"[aria-label*=\"next\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[data-testid*=\"expand\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[aria-expanded=\"false\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".expandable","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".collapsible","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"details summary","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[data-toggle=\"collapse\"]","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".accordion-toggle","timestamp":"2025-06-30 07:05:20"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:05:21"}
+{"interactions":5,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":2,"networkRequests":105,"scrollAttempts":1,"urlsFound":1},"timestamp":"2025-06-30 07:05:21","urlsFound":1}
+{"interactions":5,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":18000,"success":false,"timestamp":"2025-06-30 07:05:21","totalUrls":1}
+{"interactions":5,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery found no additional URLs","timestamp":"2025-06-30 07:05:21"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 07:05:21"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 07:05:21"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751247303927","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:05:21"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751247303927","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:05:21","wordCount":431}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_enhanced_test","timestamp":"2025-06-30 07:05:21"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_enhanced_test_2025-06-30.json","summaryFile":"output/quill_enhanced_test_2025-06-30_summary.md","timestamp":"2025-06-30 07:05:21","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_enhanced_test_2025-06-30.json","processingTimeMs":28299,"timestamp":"2025-06-30 07:05:21"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:06:04"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:06:04"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":8,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_final_test","timestamp":"2025-06-30 07:06:04"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":8,"maxDepth":3},"timestamp":"2025-06-30 07:06:04","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:06:14","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:06:14"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:06:14"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:06:14","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:06:14","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:06:14"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:06:14"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"load more\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"show more\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"load more posts\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"view more\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"a:has-text(\"load more\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"a:has-text(\"show more\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".load-more","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".show-more","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".btn-load-more","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".view-more","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-testid*=\"load\"]","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-cy*=\"load\"]","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-action*=\"load\"]","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"Read more\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 8 elements for readMore","selector":"button:has-text(\"Read more\")","timestamp":"2025-06-30 07:06:24"}
+{"index":0,"level":"debug","message":"Attempting to click readMore","selector":"button:has-text(\"Read more\")","timestamp":"2025-06-30 07:06:24"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"read more\")","timestamp":"2025-06-30 07:06:29"}
+{"level":"debug","message":"Found 8 elements for readMore","selector":"button:has-text(\"read more\")","timestamp":"2025-06-30 07:06:29"}
+{"index":0,"level":"debug","message":"Attempting to click readMore","selector":"button:has-text(\"read more\")","timestamp":"2025-06-30 07:06:29"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"continue reading\")","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"read full\")","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"button:has-text(\"continue reading\")","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-more","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".continue-reading","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-full","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-more-link","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".post-read-more","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-action=\"read-more\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-testid*=\"read\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-cy*=\"read\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"article a[href*=\"blog\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".post a[href*=\"blog\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".article a[href*=\"blog\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/blog/\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/post/\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/article/\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a[aria-label*=\"next\" i]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"button[aria-label*=\"next\" i]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"Next\")","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"button:has-text(\"Next\")","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"→\")","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"›\")","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":".pagination a:not(.disabled)","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":".pager a:not(.disabled)","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"[data-testid*=\"next\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"[aria-label*=\"next\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[data-testid*=\"expand\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[aria-expanded=\"false\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".expandable","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".collapsible","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"details summary","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[data-toggle=\"collapse\"]","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".accordion-toggle","timestamp":"2025-06-30 07:06:36"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:06:37"}
+{"interactions":5,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":2,"networkRequests":137,"scrollAttempts":1,"urlsFound":1},"timestamp":"2025-06-30 07:06:37","urlsFound":1}
+{"interactions":5,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":23342,"success":false,"timestamp":"2025-06-30 07:06:37","totalUrls":1}
+{"interactions":5,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery found no additional URLs","timestamp":"2025-06-30 07:06:37"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 07:06:37"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 07:06:37"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751247374636","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:06:37"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751247374636","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:06:37","wordCount":431}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_final_test","timestamp":"2025-06-30 07:06:37"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_test_2025-06-30.json","summaryFile":"output/quill_final_test_2025-06-30_summary.md","timestamp":"2025-06-30 07:06:37","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_final_test_2025-06-30.json","processingTimeMs":33603,"timestamp":"2025-06-30 07:06:37"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:14:43"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:14:43"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":3,"message":"Starting website crawl","root_url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","team_id":"nextjs_js_test","timestamp":"2025-06-30 07:14:43"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":3,"maxDepth":3},"timestamp":"2025-06-30 07:14:43","url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:14:55","url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:14:55"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:14:55"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:14:55","url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/"}
+{"indicators":["React/Next.js detected","Angular detected","Loading indicator: loading"],"level":"debug","message":"Quick probe completed","score":50,"threshold":50,"timestamp":"2025-06-30 07:14:55","url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/"}
+{"indicators":["React/Next.js detected","Angular detected","Loading indicator: loading"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":50,"timestamp":"2025-06-30 07:14:55"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:14:55"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","timestamp":"2025-06-30 07:14:56"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","timestamp":"2025-06-30 07:14:56"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","timestamp":"2025-06-30 07:14:56"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/user-context?referrer=&verso=true&location=https%3A%2F%2Fwww.wired.com%2Fstory%2Fopenai-meta-leadership-talent-rivalry%2F","timestamp":"2025-06-30 07:14:57"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/user-context?referrer=&verso=true&location=https%3A%2F%2Fwww.wired.com%2Fstory%2Fopenai-meta-leadership-talent-rivalry%2F","timestamp":"2025-06-30 07:14:57"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:57"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:57"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:57"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:14:57"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:14:57"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_enhanced_navigation_test","timestamp":"2025-06-30 07:14:57"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":15,"maxDepth":3},"timestamp":"2025-06-30 07:14:57","url":"https://quill.co/blog"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:58"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:58"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:58"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:59"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:59"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:59"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:14:59"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:15:01"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:15:01"}
+{"level":"debug","message":"📡 Captured navigation URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:15:01"}
+{"level":"debug","message":"📥 Captured response URL: https://www.wired.com/com.condenast/yv8","timestamp":"2025-06-30 07:15:01"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","timestamp":"2025-06-30 07:15:06"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:15:08","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:15:08"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:15:08"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:15:08","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:15:08","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:15:08"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:15:08"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"load more\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"show more\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"load more posts\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"button:has-text(\"view more\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"a:has-text(\"load more\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"a:has-text(\"show more\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".load-more","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".show-more","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".btn-load-more","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":".view-more","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-testid*=\"load\"]","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-cy*=\"load\"]","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for loadMore","selector":"[data-action*=\"load\"]","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"Read more\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"Found 8 elements for readMore","selector":"button:has-text(\"Read more\")","timestamp":"2025-06-30 07:15:18"}
+{"index":0,"level":"debug","message":"Attempting to click readMore","selector":"button:has-text(\"Read more\")","timestamp":"2025-06-30 07:15:18"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:15:19"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:15:19"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:15:19"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:15:19"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:15:19"}
+{"level":"debug","message":"🎯 Navigation URL captured: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:15:21"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"read more\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"button:has-text(\"read more\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"continue reading\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a:has-text(\"read full\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"button:has-text(\"continue reading\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-more","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".continue-reading","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-full","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".read-more-link","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".post-read-more","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-action=\"read-more\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-testid*=\"read\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"[data-cy*=\"read\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"article a[href*=\"blog\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".post a[href*=\"blog\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":".article a[href*=\"blog\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/blog/\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/post/\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for readMore","selector":"a[href*=\"/article/\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a[aria-label*=\"next\" i]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"button[aria-label*=\"next\" i]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"Next\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"button:has-text(\"Next\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"→\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"a:has-text(\"›\")","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":".pagination a:not(.disabled)","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":".pager a:not(.disabled)","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"[data-testid*=\"next\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for pagination","selector":"[aria-label*=\"next\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[data-testid*=\"expand\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[aria-expanded=\"false\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".expandable","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".collapsible","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"details summary","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":"[data-toggle=\"collapse\"]","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"Found 0 elements for expandable","selector":".accordion-toggle","timestamp":"2025-06-30 07:15:22"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:15:24"}
+{"interactions":8,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":1,"networkRequests":65,"scrollAttempts":1,"urlsFound":1},"timestamp":"2025-06-30 07:15:24","urlsFound":1}
+{"interactions":8,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":16024,"success":false,"timestamp":"2025-06-30 07:15:24","totalUrls":1}
+{"interactions":8,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery found no additional URLs","timestamp":"2025-06-30 07:15:24"}
+{"level":"info","message":"Smart discovery did not find additional pages, using original result","timestamp":"2025-06-30 07:15:24"}
+{"documentCount":1,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 07:15:24"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751247908167","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:15:24"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751247908167","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:15:24","wordCount":431}
+{"documentCount":1,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_enhanced_navigation_test","timestamp":"2025-06-30 07:15:24"}
+{"documentCount":1,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_enhanced_navigation_test_2025-06-30.json","summaryFile":"output/quill_enhanced_navigation_test_2025-06-30_summary.md","timestamp":"2025-06-30 07:15:24","totalChunks":0}
+{"documentCount":1,"level":"info","message":"Website crawl completed successfully","outputFile":"output/quill_enhanced_navigation_test_2025-06-30.json","processingTimeMs":26456,"timestamp":"2025-06-30 07:15:24"}
+{"error":{"name":"TimeoutError"},"level":"error","message":"Playwright mode failed","timestamp":"2025-06-30 07:15:26"}
+{"interactions":24,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":0,"networkRequests":639,"scrollAttempts":0,"urlsFound":0},"timestamp":"2025-06-30 07:15:26","urlsFound":3}
+{"interactions":24,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":30874,"success":true,"timestamp":"2025-06-30 07:15:26","totalUrls":3}
+{"interactions":24,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery completed","score":50,"timestamp":"2025-06-30 07:15:26","urlsFound":3}
+{"level":"info","maxPages":3,"message":"Discovered URLs for processing","timestamp":"2025-06-30 07:15:26","totalDiscovered":3,"willProcess":2}
+{"level":"info","message":"Processing discovered URL 1/2","timestamp":"2025-06-30 07:15:26","url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:15:26","url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","processedUrl":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","strategy":"standard-blog","timestamp":"2025-06-30 07:15:26"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 07:15:40","title":"OpenAI Leadership Responds to Meta Offers: ‘Someone Has Broken Into Our Home’ | WIRED","url":"https://www.wired.com/story/openai-meta-leadership-talent-rivalry/","wordCount":2035}
+{"level":"info","message":"✅ Successfully extracted: OpenAI Leadership Responds to Meta Offers: ‘Someone Has Broken Into Our Home’ | WIRED","timestamp":"2025-06-30 07:15:40"}
+{"level":"info","message":"Processing discovered URL 2/2","timestamp":"2025-06-30 07:15:41","url":"https://www.wired.com/user-context?referrer=&verso=true&location=https%3A%2F%2Fwww.wired.com%2Fstory%2Fopenai-meta-leadership-talent-rivalry%2F"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:15:41","url":"https://www.wired.com/user-context?referrer=&verso=true&location=https%3A%2F%2Fwww.wired.com%2Fstory%2Fopenai-meta-leadership-talent-rivalry%2F"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://www.wired.com/user-context?referrer=&verso=true&location=https%3A%2F%2Fwww.wired.com%2Fstory%2Fopenai-meta-leadership-talent-rivalry%2F","processedUrl":"https://www.wired.com/user-context?referrer=&verso=true&location=https%3A%2F%2Fwww.wired.com%2Fstory%2Fopenai-meta-leadership-talent-rivalry%2F","strategy":"standard-blog","timestamp":"2025-06-30 07:15:41"}
+{"level":"info","message":"Successfully extracted document","strategy":"standard-blog","timestamp":"2025-06-30 07:15:52","title":"try {","url":"https://www.wired.com/user-context?referrer=&verso=true&location=https%3A%2F%2Fwww.wired.com%2Fstory%2Fopenai-meta-leadership-talent-rivalry%2F","wordCount":21}
+{"level":"info","message":"✅ Successfully extracted: try {","timestamp":"2025-06-30 07:15:52"}
+{"documentCount":3,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 07:15:52"}
+{"contentLength":23140,"documentId":"doc_aHR0cHM6Ly93_1751247895511","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:15:52"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly93_1751247895511","level":"info","message":"Document successfully chunked","originalWordCount":2197,"timestamp":"2025-06-30 07:15:52"}
+{"contentLength":20381,"documentId":"doc_aHR0cHM6Ly93_1751247940340","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:15:52"}
+{"chunkCount":3,"documentId":"doc_aHR0cHM6Ly93_1751247940340","level":"info","message":"Document successfully chunked","originalWordCount":2035,"timestamp":"2025-06-30 07:15:52"}
+{"contentLength":172,"documentId":"doc_aHR0cHM6Ly93_1751247952500","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:15:52"}
+{"documentId":"doc_aHR0cHM6Ly93_1751247952500","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:15:52","wordCount":21}
+{"documentCount":3,"level":"info","message":"Starting knowledge base serialization","teamId":"nextjs_js_test","timestamp":"2025-06-30 07:15:52"}
+{"documentCount":3,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/nextjs_js_test_2025-06-30_2.json","summaryFile":"output/nextjs_js_test_2025-06-30_2_summary.md","timestamp":"2025-06-30 07:15:52","totalChunks":7}
+{"documentCount":3,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/nextjs_js_test_2025-06-30_2.json","processingTimeMs":69255,"successfulExtractions":3,"timestamp":"2025-06-30 07:15:52"}
+{"discoveredPages":3,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 07:15:52"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:21:36"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:21:36"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_final_rapid_test","timestamp":"2025-06-30 07:21:36"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":15,"maxDepth":3},"timestamp":"2025-06-30 07:21:36","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:21:46","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:21:46"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:21:46"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:21:46","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:21:47","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:21:47"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:21:47"}
+{"level":"debug","message":"Found 8 \"Read more\" buttons","timestamp":"2025-06-30 07:21:56"}
+{"level":"debug","message":"Clicking button 1/8","timestamp":"2025-06-30 07:21:56"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:21:57"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:21:57"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:21:57"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:21:57"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:21:57"}
+{"level":"debug","message":"Clicking button 2/8","timestamp":"2025-06-30 07:21:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:21:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:21:58"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:21:58"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:21:58"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:21:58"}
+{"level":"debug","message":"Clicking button 3/8","timestamp":"2025-06-30 07:22:00"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:22:00"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:22:00"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:22:00"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:22:00"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:22:00"}
+{"level":"debug","message":"Clicking button 4/8","timestamp":"2025-06-30 07:22:01"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:22:01"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:22:01"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:22:02"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:22:02"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:22:02"}
+{"level":"debug","message":"Clicking button 5/8","timestamp":"2025-06-30 07:22:03"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:22:03"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:22:03"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:22:03"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:22:03"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:22:03"}
+{"level":"debug","message":"Clicking button 6/8","timestamp":"2025-06-30 07:22:05"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:22:05"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:22:05"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:22:05"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:22:05"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:22:05"}
+{"level":"debug","message":"Clicking button 7/8","timestamp":"2025-06-30 07:22:06"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:22:06"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:22:06"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:22:06"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:22:06"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:22:07"}
+{"level":"debug","message":"Clicking button 8/8","timestamp":"2025-06-30 07:22:08"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:22:08"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:22:08"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:22:08"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:22:08"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:22:08"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:22:11"}
+{"interactions":50,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":8,"networkRequests":412,"scrollAttempts":1,"urlsFound":7},"timestamp":"2025-06-30 07:22:11","urlsFound":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":24935,"success":true,"timestamp":"2025-06-30 07:22:11","totalUrls":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery completed","score":80,"timestamp":"2025-06-30 07:22:11","urlsFound":7}
+{"level":"info","maxPages":15,"message":"Discovered URLs for processing","timestamp":"2025-06-30 07:22:11","totalDiscovered":7,"willProcess":7}
+{"level":"info","message":"Processing discovered URL 1/7","timestamp":"2025-06-30 07:22:11","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:22:11","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:22:11"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:22:27","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:22:27"}
+{"level":"info","message":"Processing discovered URL 2/7","timestamp":"2025-06-30 07:22:29","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:22:29","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","processedUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","strategy":"heavy-javascript","timestamp":"2025-06-30 07:22:29"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:22:45","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","wordCount":634}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:22:45"}
+{"level":"info","message":"Processing discovered URL 3/7","timestamp":"2025-06-30 07:22:46","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:22:46","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","processedUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","strategy":"heavy-javascript","timestamp":"2025-06-30 07:22:46"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:22:56"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:22:56"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_final_rapid_test","timestamp":"2025-06-30 07:22:56"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":15,"maxDepth":3},"timestamp":"2025-06-30 07:22:56","url":"https://quill.co/blog"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:03","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","wordCount":1209}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:23:03"}
+{"level":"info","message":"Processing discovered URL 4/7","timestamp":"2025-06-30 07:23:04","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:23:04","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","processedUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:04"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:23:06","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:23:06"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:23:06"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:23:06","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:23:07","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:23:07"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:23:07"}
+{"level":"debug","message":"Found 8 \"Read more\" buttons","timestamp":"2025-06-30 07:23:17"}
+{"level":"debug","message":"Clicking button 1/8","timestamp":"2025-06-30 07:23:17"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:17"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:17"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:17"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:17"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:17"}
+{"level":"debug","message":"Clicking button 2/8","timestamp":"2025-06-30 07:23:18"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:23:19"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:23:19"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:23:19"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:23:19"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:23:19"}
+{"level":"debug","message":"Clicking button 3/8","timestamp":"2025-06-30 07:23:20"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:23:20"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:23:20"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:23:20"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:23:20"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:23:20"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:20","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","wordCount":1419}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:23:20"}
+{"level":"debug","message":"Clicking button 4/8","timestamp":"2025-06-30 07:23:22"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:23:22"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:23:22"}
+{"level":"info","message":"Processing discovered URL 5/7","timestamp":"2025-06-30 07:23:22","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:23:22","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:22"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:23:22"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:23:22"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:23:22"}
+{"level":"debug","message":"Clicking button 5/8","timestamp":"2025-06-30 07:23:23"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:23"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:23"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:23"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:23"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:23:24"}
+{"level":"debug","message":"Clicking button 6/8","timestamp":"2025-06-30 07:23:25"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:23:25"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:23:25"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:23:25"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:23:25"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:23:25"}
+{"level":"debug","message":"Clicking button 7/8","timestamp":"2025-06-30 07:23:27"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:23:27"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:23:27"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:23:27"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:23:27"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:23:27"}
+{"level":"debug","message":"Clicking button 8/8","timestamp":"2025-06-30 07:23:28"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:23:28"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:23:28"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:23:28"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:23:28"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:23:28"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:23:31"}
+{"interactions":50,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":8,"networkRequests":407,"scrollAttempts":1,"urlsFound":7},"timestamp":"2025-06-30 07:23:32","urlsFound":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":25253,"success":true,"timestamp":"2025-06-30 07:23:32","totalUrls":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery completed","score":80,"timestamp":"2025-06-30 07:23:32","urlsFound":7}
+{"level":"info","maxPages":15,"message":"Discovered URLs for processing","timestamp":"2025-06-30 07:23:32","totalDiscovered":7,"willProcess":7}
+{"level":"info","message":"Processing discovered URL 1/7","timestamp":"2025-06-30 07:23:32","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:23:32","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:32"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:38","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-offer-customer-facing-analytics","wordCount":668}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:23:38"}
+{"level":"info","message":"Processing discovered URL 6/7","timestamp":"2025-06-30 07:23:39","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:23:39","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","processedUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:39"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:48","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:23:48"}
+{"level":"info","message":"Processing discovered URL 2/7","timestamp":"2025-06-30 07:23:50","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:23:50","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","processedUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:50"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:55","title":"Untitled","url":"https://quill.co/blog/dont-build-chatgpt-for-x","wordCount":8}
+{"level":"info","message":"✅ Successfully extracted: Untitled","timestamp":"2025-06-30 07:23:55"}
+{"level":"info","message":"Processing discovered URL 7/7","timestamp":"2025-06-30 07:23:57","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:23:57","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/what-is-customer-facing-analytics","processedUrl":"https://quill.co/blog/what-is-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:23:57"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:06","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","wordCount":634}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:24:06"}
+{"level":"info","message":"Processing discovered URL 3/7","timestamp":"2025-06-30 07:24:08","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:24:08","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","processedUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:08"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:13","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/what-is-customer-facing-analytics","wordCount":348}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:24:13"}
+{"documentCount":8,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 07:24:13"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751248306792","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248306792","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:24:13","wordCount":431}
+{"contentLength":4808,"documentId":"doc_aHR0cHM6Ly9x_1751248347952","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248347952","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:24:13","wordCount":643}
+{"contentLength":4532,"documentId":"doc_aHR0cHM6Ly9x_1751248365111","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248365111","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:24:13","wordCount":634}
+{"contentLength":8549,"documentId":"doc_aHR0cHM6Ly9x_1751248383091","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751248383091","level":"info","message":"Document successfully chunked","originalWordCount":1209,"timestamp":"2025-06-30 07:24:13"}
+{"contentLength":9440,"documentId":"doc_aHR0cHM6Ly9x_1751248400812","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751248400812","level":"info","message":"Document successfully chunked","originalWordCount":1419,"timestamp":"2025-06-30 07:24:13"}
+{"contentLength":4835,"documentId":"doc_aHR0cHM6Ly9x_1751248418066","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248418066","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:24:13","wordCount":668}
+{"contentLength":147,"documentId":"doc_aHR0cHM6Ly9x_1751248435550","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248435550","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:24:13","wordCount":8}
+{"contentLength":2964,"documentId":"doc_aHR0cHM6Ly9x_1751248453265","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:24:13"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248453265","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:24:13","wordCount":348}
+{"documentCount":8,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_final_rapid_test","timestamp":"2025-06-30 07:24:13"}
+{"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_rapid_test_2025-06-30.json","summaryFile":"output/quill_final_rapid_test_2025-06-30_summary.md","timestamp":"2025-06-30 07:24:13","totalChunks":4}
+{"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_final_rapid_test_2025-06-30.json","processingTimeMs":156776,"successfulExtractions":8,"timestamp":"2025-06-30 07:24:13"}
+{"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 07:24:13"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:23","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","wordCount":1209}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:24:23"}
+{"level":"info","message":"Processing discovered URL 4/7","timestamp":"2025-06-30 07:24:25","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:24:25","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","processedUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:25"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:41","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","wordCount":1419}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:24:41"}
+{"level":"info","message":"Processing discovered URL 5/7","timestamp":"2025-06-30 07:24:43","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:24:43","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:43"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:24:58","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-offer-customer-facing-analytics","wordCount":668}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:24:58"}
+{"level":"info","message":"Processing discovered URL 6/7","timestamp":"2025-06-30 07:25:00","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:25:00","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","processedUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","strategy":"heavy-javascript","timestamp":"2025-06-30 07:25:00"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:25:16","title":"Untitled","url":"https://quill.co/blog/dont-build-chatgpt-for-x","wordCount":8}
+{"level":"info","message":"✅ Successfully extracted: Untitled","timestamp":"2025-06-30 07:25:16"}
+{"level":"info","message":"Processing discovered URL 7/7","timestamp":"2025-06-30 07:25:18","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:25:18","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/what-is-customer-facing-analytics","processedUrl":"https://quill.co/blog/what-is-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:25:18"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:25:33","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/what-is-customer-facing-analytics","wordCount":348}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:25:33"}
+{"documentCount":8,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 07:25:33"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751248386774","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248386774","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:25:33","wordCount":431}
+{"contentLength":4808,"documentId":"doc_aHR0cHM6Ly9x_1751248428604","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248428604","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:25:33","wordCount":643}
+{"contentLength":4532,"documentId":"doc_aHR0cHM6Ly9x_1751248446563","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248446563","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:25:33","wordCount":634}
+{"contentLength":8549,"documentId":"doc_aHR0cHM6Ly9x_1751248463785","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751248463785","level":"info","message":"Document successfully chunked","originalWordCount":1209,"timestamp":"2025-06-30 07:25:33"}
+{"contentLength":9440,"documentId":"doc_aHR0cHM6Ly9x_1751248481520","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751248481520","level":"info","message":"Document successfully chunked","originalWordCount":1419,"timestamp":"2025-06-30 07:25:33"}
+{"contentLength":4835,"documentId":"doc_aHR0cHM6Ly9x_1751248498775","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248498775","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:25:33","wordCount":668}
+{"contentLength":147,"documentId":"doc_aHR0cHM6Ly9x_1751248516504","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248516504","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:25:33","wordCount":8}
+{"contentLength":2964,"documentId":"doc_aHR0cHM6Ly9x_1751248533710","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:25:33"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751248533710","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:25:33","wordCount":348}
+{"documentCount":8,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_final_rapid_test","timestamp":"2025-06-30 07:25:33"}
+{"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_rapid_test_2025-06-30_1.json","summaryFile":"output/quill_final_rapid_test_2025-06-30_1_summary.md","timestamp":"2025-06-30 07:25:33","totalChunks":4}
+{"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_final_rapid_test_2025-06-30_1.json","processingTimeMs":157166,"successfulExtractions":8,"timestamp":"2025-06-30 07:25:33"}
+{"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 07:25:33"}

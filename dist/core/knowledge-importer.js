@@ -6,6 +6,7 @@ import { KnowledgeBaseSerializer } from '../processors/knowledge-serializer.js';
 import { WorkerPool } from './worker-pool.js';
 import { logger } from '../utils/logger.js';
 import fs from 'fs';
+import { SmartLinkDiscoverer } from '../processors/smart-link-discoverer.js';
 export class KnowledgeImporter {
     config;
     database;
@@ -14,6 +15,7 @@ export class KnowledgeImporter {
     chunker;
     serializer;
     workerPool;
+    linkDiscoverer;
     constructor(config) {
         this.config = config;
         this.database = new Database(config.database_path);
@@ -35,6 +37,7 @@ export class KnowledgeImporter {
         this.chunker = new SemanticChunker(config.chunking);
         this.serializer = new KnowledgeBaseSerializer(config.output_dir);
         this.workerPool = new WorkerPool(config.max_workers, this.database, this.firecrawlExtractor);
+        this.linkDiscoverer = new SmartLinkDiscoverer(logger);
         // Ensure output directory exists
         if (!fs.existsSync(config.output_dir)) {
             fs.mkdirSync(config.output_dir, { recursive: true });
@@ -126,13 +129,25 @@ export class KnowledgeImporter {
     }
     async trySmartDiscovery(directoryDoc, options, startTime) {
         try {
-            logger.info('Starting smart link discovery from directory page');
-            // Extract all potential URLs from the directory page content
-            const discoveredUrls = await this.extractLinksFromContent(directoryDoc.content, options.root_url);
-            if (discoveredUrls.length === 0) {
-                logger.info('No additional URLs discovered');
+            logger.info('Starting enhanced smart link discovery from directory page');
+            // Use enhanced SmartLinkDiscoverer with JavaScript-heavy detection
+            const discoveryResult = await this.linkDiscoverer.discover(options.root_url, 10);
+            if (!discoveryResult.success || discoveryResult.urls.length === 0) {
+                logger.info('Enhanced link discovery found no additional URLs', {
+                    jsHeavy: discoveryResult.jsHeavy,
+                    layer: discoveryResult.layer,
+                    interactions: discoveryResult.interactions.length
+                });
                 return { success: false, error: 'No links found' };
             }
+            logger.info('Enhanced link discovery completed', {
+                urlsFound: discoveryResult.urls.length,
+                jsHeavy: discoveryResult.jsHeavy,
+                layer: discoveryResult.layer,
+                interactions: discoveryResult.interactions.length,
+                score: discoveryResult.score
+            });
+            const discoveredUrls = discoveryResult.urls;
             // Limit URLs based on max_pages (minus 1 for the directory page itself)
             const maxAdditionalPages = Math.max(0, options.max_pages - 1);
             const urlsToProcess = discoveredUrls.slice(0, maxAdditionalPages);
@@ -278,17 +293,6 @@ export class KnowledgeImporter {
                 return true;
             }
             return false;
-        });
-        // Additional content discovery for blog sites
-        const contentUrls = await this.discoverBlogContent(content, baseUrl);
-        contentUrls.forEach(url => {
-            if (!filteredUrls.includes(url)) {
-                filteredUrls.push(url);
-            }
-        });
-        logger.info('Enhanced link extraction completed', {
-            totalUrls: filteredUrls.length,
-            sampleUrls: filteredUrls.slice(0, 10)
         });
         return filteredUrls;
     }
@@ -585,6 +589,7 @@ export class KnowledgeImporter {
                 file_path: options.file_path,
                 chunk_by_pages: options.chunk_by_pages,
                 pages_per_chunk: options.pages_per_chunk,
+                total_chunks: options.total_chunks || 0,
             });
             if (!extractResult.success || !extractResult.documents) {
                 return {
@@ -599,7 +604,7 @@ export class KnowledgeImporter {
             // Process documents through chunker
             const chunkedDocuments = [];
             for (const doc of documents) {
-                const chunked = await this.chunker.chunkDocument(doc);
+                const chunked = await this.chunker.chunkDocument(doc, options.total_chunks);
                 chunkedDocuments.push(chunked);
             }
             // Serialize to knowledge base format

@@ -4,16 +4,31 @@ export interface FirecrawlConfig {
     apiUrl?: string;
     useLocalFirecrawl?: boolean;
     localFirecrawlUrl?: string;
+    maxDepth?: number;
+    maxPages?: number;
+    excludePaths?: string[];
+    includePaths?: string[];
+    error?: string;
 }
 export interface FirecrawlExtractResult {
     success: boolean;
     document?: Document;
     error?: string;
 }
+export interface ExtractedContent {
+    title: string;
+    content: string;
+    metadata: {
+        url: string;
+        timestamp: string;
+        wordCount: number;
+    };
+}
 export declare class FirecrawlExtractor {
     private config;
     private app;
     private pdfExtractor;
+    private logger;
     constructor(config: FirecrawlConfig);
     extractFromUrl(url: string, teamId: string): Promise<FirecrawlExtractResult>;
     private preprocessUrl;
@@ -38,5 +53,6 @@ export declare class FirecrawlExtractor {
     private countWords;
     private extractDomain;
     private generateDocumentId;
+    extractContent(url: string): Promise<ExtractedContent>;
 }
 //# sourceMappingURL=firecrawl-extractor.d.ts.map

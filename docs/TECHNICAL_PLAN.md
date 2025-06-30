@@ -443,3 +443,53 @@ node dist/cli.js single https://example.com/blog/specific-post --team my_team
 2. **Sitemap Detection**: Check for XML sitemaps first
 3. **JSON-LD Parsing**: Extract structured data from blog metadata
 4. **Rate Limiting**: Adaptive delays based on server response times 
+
+---
+
+## 11. Advanced Hidden-Link Discovery & "Read More" Handling (Roadmap)
+
+Modern SPA / JS-heavy blogs often hide canonical article URLs behind client-side interactions.  The table below outlines a layered strategy that scales from **cheap** heuristics to **heavy** headless browsing only when necessary.
+
+| Priority | Layer | Description | Cost | Failure Fallback |
+|----------|-------|-------------|------|------------------|
+| 1 | Static HTML parsing tweaks | • Parse `<script type="application/ld+json">` for `Article/BlogPosting` → `url`  <br/>• Read `<meta property="og:url">`  <br/>• Capture `data-href`, `data-url`, `onclick="location.href='…'"` attributes | 🟢 very low | ⬇ feeds |
+| 2 | RSS / Atom / Sitemap probe | Try `/*rss*.xml`, `/*feed*`, `/sitemap*.xml` and blog-specific sitemaps.  Use first 200 `<loc>` or `<entry>`. | 🟢 low | ⬇ heuristic slugs |
+| 3 | Heuristic slug reconstruction | Reuse `discoverBlogContent()`  ↔  *improve patterns*  (blog/:slug, posts/:slug, etc.).  Seed from titles or card attributes. | 🟡 medium | ⬇ network sniff |
+| 4 | Network-layer sniff | Look for `fetch("/api/posts")`, GraphQL `posts` queries in inline JS.  Hit the endpoint, extract `slug` list. | 🟡 medium | ⬇ headless |
+| 5 | Headless click simulation | Launch Puppeteer/Playwright **only** if layers 1-4 returned ≤ 1 article.  Click buttons/links containing "Read more", wait for navigation, collect `window.location.href`. | 🔴 high | give up |
+
+### Escalation Algorithm
+```text
+try static ➜ if urls ≤ 1 then try feed ➜ if urls ≤ 1 then slug-heuristic ➜ if urls ≤ 1 then XHR-sniff ➜ if urls ≤ 1 then headless
+```
+
+*Cache* the winning layer per-domain in SQLite (`domain_strategy` table) so repeated runs skip directly to the cheapest successful layer.
+
+### Implementation Tasks (Phase 7)
+1. **Extractor Enhancements**  
+   a. `KnowledgeImporter.extractLinksFromContent()` – add JSON-LD, OG meta & new regexes.  
+   b. Create `src/utils/feed-discoverer.ts` to probe & parse RSS/Atom/Sitemaps.  
+   c. Extend slug pattern list & title sources (`data-article-title`, card `aria-label`).
+2. **Network Sniff Helper**  
+   • Lightweight scanner that regex-hunts `fetch(` or `gql(` strings and fetches returned JSON.
+3. **Headless Worker**  
+   • New `BrowserWorker` extending `WorkerPool` – spun up only when escalated.  
+   • Shared Chromium instance behind semaphore to keep memory predictable.
+4. **Domain Strategy Cache**  
+   • New table `domain_strategy(domain TEXT PRIMARY KEY, layer INT, success_rate REAL)`.
+5. **Config Flags**  
+   • `--max-headless` (default 3) to cap expensive layer runs.  
+   • Allow disabling layers via env (`DISABLE_RSS_PROBE`, etc.).
+6. **Testing**  
+   • Integration tests against Quill, Hashnode, Medium, Ghost blogs.  
+   • Unit tests for JSON-LD & feed parsers.
+7. **Documentation & Samples**  
+   • Update README "Troubleshooting" with common causes (CORS, Cloudflare).  
+   • Ship sample feed-based extraction output.
+
+### Success Metrics
+* ≥ 80 % of target blogs yield ≥ 5 articles without headless step.
+* < 5 % of crawls invoke headless browser in production.
+* Average crawl time per blog ≤ 30 s at concurrency 8.
+
+---

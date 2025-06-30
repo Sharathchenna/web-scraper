@@ -5,12 +5,16 @@ import * as path from 'path';
 import * as https from 'https';
 import * as http from 'http';
 import { PDFExtractor } from './pdf-extractor.js';
+import { chromium } from 'playwright';
+import { createLogger } from '../utils/logger.js';
 export class FirecrawlExtractor {
     config;
     app;
     pdfExtractor;
+    logger;
     constructor(config) {
         this.config = config;
+        this.logger = createLogger();
         // Initialize Firecrawl with local or remote instance
         if (config.useLocalFirecrawl && config.localFirecrawlUrl) {
             this.app = new FirecrawlApp({
@@ -218,7 +222,7 @@ export class FirecrawlExtractor {
             'gitbook.io', 'vercel.com', 'netlify.com',
             'github.com', 'gitlab.com', 'stackoverflow.com',
             'reddit.com', 'twitter.com', 'x.com',
-            'youtube.com', 'vimeo.com'
+            'youtube.com', 'vimeo.com', 'quill.co'
         ];
         // Documentation sites that usually work well with standard settings
         const docSites = [
@@ -395,6 +399,53 @@ export class FirecrawlExtractor {
         // Create a deterministic ID based on URL
         const urlHash = Buffer.from(url).toString('base64').replace(/[^a-zA-Z0-9]/g, '').substring(0, 12);
         return `doc_${urlHash}_${Date.now()}`;
+    }
+    async extractContent(url) {
+        const browser = await chromium.launch();
+        const context = await browser.newContext({
+            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        });
+        try {
+            const page = await context.newPage();
+            // Navigate to the page and wait for content to load
+            await page.goto(url, { waitUntil: 'networkidle' });
+            // Wait for blog post elements to be visible
+            await page.waitForSelector('div[style*="cursor:pointer"]', { timeout: 10000 });
+            // Extract all blog post links
+            const links = await page.$$eval('div[style*="cursor:pointer"]', (elements) => {
+                return elements.map(element => {
+                    const titleElement = element.querySelector('h1');
+                    const title = titleElement ? titleElement.textContent : null;
+                    const dateElement = element.querySelector('h4.text-slate-500');
+                    const date = dateElement ? dateElement.textContent : null;
+                    const descriptionElement = element.querySelector('h4.text-slate-500.tracking-tight.py-\\[12px\\]');
+                    const description = descriptionElement ? descriptionElement.textContent : null;
+                    return {
+                        title,
+                        date,
+                        description
+                    };
+                });
+            });
+            // Combine all content
+            const content = links.map((link) => `Title: ${link.title || ''}\nDate: ${link.date || ''}\nDescription: ${link.description || ''}\n\n`).join('');
+            return {
+                title: 'Quill Blog',
+                content,
+                metadata: {
+                    url,
+                    timestamp: new Date().toISOString(),
+                    wordCount: content.split(/\s+/).length
+                }
+            };
+        }
+        catch (error) {
+            this.logger.error('Error extracting content:', error);
+            throw error;
+        }
+        finally {
+            await browser.close();
+        }
     }
 }
 //# sourceMappingURL=firecrawl-extractor.js.map
