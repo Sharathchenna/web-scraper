@@ -998,7 +998,12 @@ export class FirecrawlExtractor {
     try {
       // Parse subdomain from URL
       const urlObj = new URL(url);
-      const subdomain = urlObj.hostname.split('.')[0];
+      const hostnameParts = urlObj.hostname.split('.');
+      const subdomain = hostnameParts[0];
+      
+      if (!subdomain) {
+        throw new Error('Invalid Substack URL: cannot extract subdomain');
+      }
 
       // Fetch archive data
       const archiveResponse = await fetch(SUBSTACK_API.ARCHIVE(subdomain));
@@ -1028,9 +1033,6 @@ export class FirecrawlExtractor {
           title: post.title || 'Untitled Post',
           content: postData.body_html || '',
           content_type: 'html',
-          source_url: post.canonical_url || undefined,
-          author: post.author || undefined,
-          date_published: post.published_at || undefined,
           date_scraped: new Date().toISOString(),
           metadata: {
             team_id: this.config.team_id,
@@ -1040,6 +1042,17 @@ export class FirecrawlExtractor {
             domain: urlObj.hostname
           }
         };
+
+        // Add optional fields only if they have values
+        if (post.canonical_url) {
+          doc.source_url = post.canonical_url;
+        }
+        if (post.author) {
+          doc.author = post.author;
+        }
+        if (post.published_at) {
+          doc.date_published = post.published_at;
+        }
 
         return doc;
       }));
@@ -1057,8 +1070,8 @@ export class FirecrawlExtractor {
         metadata: {
           team_id: this.config.team_id,
           source_type: 'blog' as const,
-          word_count: posts.reduce((acc, p) => acc + p.metadata.word_count, 0),
-          reading_time_minutes: posts.reduce((acc, p) => acc + p.metadata.reading_time_minutes, 0),
+          word_count: posts.reduce((acc, p) => acc + (p.metadata.word_count || 0), 0),
+          reading_time_minutes: posts.reduce((acc, p) => acc + (p.metadata.reading_time_minutes || 0), 0),
           domain: urlObj.hostname
         }
       };

@@ -2,6 +2,7 @@ import { AppConfig, Document, ProcessingStats } from '../types/index.js';
 export interface CrawlWebsiteOptions {
     root_url: string;
     team_id: string;
+    user_id?: string;
     max_depth: number;
     max_pages: number;
     exclude_patterns: string[];
@@ -10,6 +11,7 @@ export interface CrawlWebsiteOptions {
 export interface ProcessPDFOptions {
     file_path: string;
     team_id: string;
+    user_id?: string;
     chunk_by_pages: boolean;
     pages_per_chunk: number;
     total_chunks?: number;
@@ -43,7 +45,7 @@ export declare class KnowledgeImporter {
     private isValidBlogTitle;
     private generatePotentialUrls;
     private normalizeUrl;
-    extractSingleUrl(url: string, teamId: string): Promise<ImportResult>;
+    extractSingleUrl(url: string, teamId: string, userId?: string): Promise<ImportResult>;
     processPDF(options: ProcessPDFOptions): Promise<ImportResult>;
     getStats(teamId?: string): Promise<{
         total: number;

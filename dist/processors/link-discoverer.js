@@ -769,29 +769,44 @@ export class LinkDiscoverer {
     }
     async discoverSubstackLinks(directoryUrl) {
         try {
-            const { hostname } = new URL(directoryUrl);
-            const apiUrl = `https://${hostname}/api/v1/archive`;
-            this.logger.info(`Fetching Substack archive from ${apiUrl}`);
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch archive: ${response.statusText}`);
+            const pubDomain = new URL(directoryUrl).hostname;
+            const archiveUrl = `https://${pubDomain}/api/v1/archive?sort=new&offset=0&limit=${LinkDiscoverer.MAX_FEED_ITEMS}`;
+            this.logger.debug('Fetching Substack archive', { archiveUrl });
+            const { posts } = await this.fetchJson(archiveUrl);
+            if (!posts || !Array.isArray(posts)) {
+                this.logger.warn('Invalid response from Substack archive API', { directoryUrl });
+                return { urls: [], layer: 0, success: false };
             }
-            const json = await response.json();
-            const urls = json.posts.map(post => post.canonical_url);
-            this.logger.info(`Found ${urls.length} posts from Substack archive API`);
+            // Filter out posts older than FRESH_ONLY_DAYS if date is available
+            const urls = posts
+                .filter(post => {
+                if (!post.post_date)
+                    return true;
+                const postDate = new Date(post.post_date);
+                const cutoffDate = new Date();
+                cutoffDate.setDate(cutoffDate.getDate() - LinkDiscoverer.FRESH_ONLY_DAYS);
+                return postDate >= cutoffDate;
+            })
+                .map(post => post.canonical_url)
+                .filter(url => url && typeof url === 'string');
+            this.logger.info('Discovered Substack posts', {
+                directoryUrl,
+                totalPosts: posts.length,
+                filteredPosts: urls.length
+            });
             return {
                 urls,
-                layer: 1,
-                success: true
+                layer: 0,
+                success: true,
+                jsHeavy: false // Substack API doesn't require JS
             };
         }
         catch (error) {
-            this.logger.error(`Failed to discover Substack links: ${error}`);
-            return {
-                urls: [],
-                layer: 0,
-                success: false
-            };
+            this.logger.error('Failed to fetch Substack archive', {
+                directoryUrl,
+                error: error instanceof Error ? error.message : String(error)
+            });
+            return { urls: [], layer: 0, success: false };
         }
     }
     /**

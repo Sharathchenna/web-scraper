@@ -181,11 +181,14 @@ approach automatically.
 
         // Check that documents have proper structure
         const firstDoc = result.documents![0];
-        expect(firstDoc).toHaveProperty('id');
-        expect(firstDoc).toHaveProperty('title');
-        expect(firstDoc).toHaveProperty('content');
-        expect(firstDoc).toHaveProperty('metadata');
-        expect(firstDoc.metadata.source_type).toBe('pdf');
+        expect(firstDoc).toBeDefined();
+        if (firstDoc) {
+          expect(firstDoc).toHaveProperty('id');
+          expect(firstDoc).toHaveProperty('title');
+          expect(firstDoc).toHaveProperty('content');
+          expect(firstDoc).toHaveProperty('metadata');
+          expect(firstDoc.metadata.source_type).toBe('pdf');
+        }
       } else {
         console.log('Test PDF not found, skipping integration test');
       }

@@ -1,5 +1,5 @@
 {
-  "name": "aline-knowledge-importer",
+  "name": "web-scraper",
   "version": "1.0.0",
   "description": "Automatically ingest technical knowledge from blogs, guides, and PDFs into Aline knowledge base",
   "main": "dist/index.js",
@@ -30,6 +30,7 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
+    "@google/genai": "^1.7.0",
     "@mendable/firecrawl-js": "^1.29.0",
     "@types/jsdom": "^21.1.7",
     "axios": "^1.10.0",

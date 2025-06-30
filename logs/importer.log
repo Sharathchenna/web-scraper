@@ -4198,3 +4198,148 @@
 {"documentCount":30,"level":"info","message":"Starting knowledge base serialization","teamId":"dev","timestamp":"2025-06-30 10:44:11"}
 {"documentCount":30,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_4.json","summaryFile":"output/dev_2025-06-30_4_summary.md","timestamp":"2025-06-30 10:44:11","totalChunks":61}
 {"documentCount":30,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_4.json","processingTimeMs":173902,"timestamp":"2025-06-30 10:44:11"}
+{"level":"warn","message":"Content cleaning requested but GEMINI_API_KEY not found, proceeding without cleaning","timestamp":"2025-06-30 23:53:41"}
+{"level":"info","message":"Content cleaning enabled with Gemini AI","timestamp":"2025-06-30 23:56:30"}
+{"level":"info","maxConcurrency":4,"message":"Worker pool initialized","timestamp":"2025-06-30 23:56:30"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":4,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 23:56:30"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://uxdesign.cc/","team_id":"dev","timestamp":"2025-06-30 23:56:30"}
+{"documentCount":10,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 23:56:41"}
+{"chunkCount":3,"documentId":"doc_aHR0cHM6Ly91_1751308001073","level":"info","message":"Document successfully chunked","originalWordCount":1411,"timestamp":"2025-06-30 23:56:41"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly91_1751308001074","level":"info","message":"Document successfully chunked","originalWordCount":2428,"timestamp":"2025-06-30 23:56:41"}
+{"cleaningEnabled":true,"documentCount":10,"level":"info","message":"Starting knowledge base serialization with cleaning","teamId":"dev","timestamp":"2025-06-30 23:56:41"}
+{"level":"info","message":"Cleaning content using Gemini AI...","timestamp":"2025-06-30 23:56:41"}
+{"documentCount":10,"level":"info","message":"Starting bulk content cleaning","teamId":"dev","timestamp":"2025-06-30 23:56:41"}
+{"contentLength":10293,"documentId":"doc_aHR0cHM6Ly91_1751308001071","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:56:41","title":"UX Collective"}
+{"cleanedLength":6313,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001071","level":"info","message":"Successfully cleaned document","originalLength":10293,"timestamp":"2025-06-30 23:56:52"}
+{"contentLength":1970,"documentId":"doc_aHR0cHM6Ly91_1751308001071","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:56:52","title":"About UX Collective"}
+{"cleanedLength":924,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001071","level":"info","message":"Successfully cleaned document","originalLength":1970,"timestamp":"2025-06-30 23:56:54"}
+{"contentLength":12984,"documentId":"doc_aHR0cHM6Ly91_1751308001071","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:56:55","title":"Editor Picks – UX Collective"}
+{"cleanedLength":6057,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001071","level":"info","message":"Successfully cleaned document","originalLength":12984,"timestamp":"2025-06-30 23:57:05"}
+{"contentLength":5877,"documentId":"doc_aHR0cHM6Ly91_1751308001072","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:57:06","title":"Publish a story with the UX Collective – UX Collective"}
+{"cleanedLength":2832,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001072","level":"info","message":"Successfully cleaned document","originalLength":5877,"timestamp":"2025-06-30 23:57:12"}
+{"contentLength":8994,"documentId":"doc_aHR0cHM6Ly91_1751308001072","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:57:12","title":"Goodbye Siri and thanks for all the fish | by Neel Dozome | Jun, 2025 | UX Collective"}
+{"cleanedLength":2615,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001072","level":"info","message":"Successfully cleaned document","originalLength":8994,"timestamp":"2025-06-30 23:57:17"}
+{"contentLength":9282,"documentId":"doc_aHR0cHM6Ly91_1751308001073","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:57:18","title":"Why AI Might Be Fuelling Cognitive Bankruptcy | UX Collective"}
+{"cleanedLength":1302,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001073","level":"info","message":"Successfully cleaned document","originalLength":9282,"timestamp":"2025-06-30 23:57:20"}
+{"contentLength":9479,"documentId":"doc_aHR0cHM6Ly91_1751308001073","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:57:21","title":"What the law says about deceptive design patterns | by Daley Wilhelm | Jun, 2025 | UX Collective"}
+{"cleanedLength":1599,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001073","level":"info","message":"Successfully cleaned document","originalLength":9479,"timestamp":"2025-06-30 23:57:24"}
+{"contentLength":17186,"documentId":"doc_aHR0cHM6Ly91_1751308001073","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:57:25","title":"The solo designer: One seat, all the hats | by Ed Orozco | Jun, 2025 | UX Collective"}
+{"cleanedLength":8242,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001073","level":"info","message":"Successfully cleaned document","originalLength":17186,"timestamp":"2025-06-30 23:57:35"}
+{"contentLength":15182,"documentId":"doc_aHR0cHM6Ly91_1751308001074","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:57:35","title":"Broken rhetoric of AI, goodbye Siri, accessible type, beyond journey maps | by Fabricio Teixeira | Jun, 2025 | UX Collective"}
+{"cleanedLength":6103,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001074","level":"info","message":"Successfully cleaned document","originalLength":15182,"timestamp":"2025-06-30 23:57:46"}
+{"contentLength":23254,"documentId":"doc_aHR0cHM6Ly91_1751308001074","level":"info","message":"Starting content cleaning for document","timestamp":"2025-06-30 23:57:46","title":"The broken rhetoric of AI. A detox guide for designers navigating… | by Mike Schindler | Jun, 2025 | UX Collective"}
+{"cleanedLength":8284,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308001074","level":"info","message":"Successfully cleaned document","originalLength":23254,"timestamp":"2025-06-30 23:57:57"}
+{"errors":0,"level":"info","message":"Bulk content cleaning completed","successfulCleanings":10,"timestamp":"2025-06-30 23:57:57","totalDocuments":10}
+{"cleanedCount":10,"level":"info","message":"Content cleaning completed successfully","originalCount":10,"timestamp":"2025-06-30 23:57:57"}
+{"cleaningUsed":true,"documentCount":10,"finalItemCount":10,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_5.json","summaryFile":"output/dev_2025-06-30_5_summary.md","timestamp":"2025-06-30 23:57:57","totalChunks":7}
+{"documentCount":10,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_5.json","processingTimeMs":87347,"timestamp":"2025-06-30 23:57:57"}
+{"level":"warn","message":"Content cleaning requested but GEMINI_API_KEY not found, proceeding without cleaning","timestamp":"2025-07-01 00:03:09"}
+{"level":"info","message":"Content cleaning enabled with Gemini AI","timestamp":"2025-07-01 00:10:16"}
+{"level":"info","maxConcurrency":4,"message":"Worker pool initialized","timestamp":"2025-07-01 00:10:16"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":4,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-07-01 00:10:16"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://uxdesign.cc/","team_id":"dev","timestamp":"2025-07-01 00:10:16"}
+{"documentCount":15,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-07-01 00:10:52"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Document successfully chunked","originalWordCount":2428,"timestamp":"2025-07-01 00:10:52"}
+{"chunkCount":18,"documentId":"doc_aHR0cHM6Ly91_1751308852601","level":"info","message":"Document successfully chunked","originalWordCount":16824,"timestamp":"2025-07-01 00:10:52"}
+{"cleaningEnabled":true,"documentCount":15,"level":"info","message":"Starting knowledge base serialization with cleaning","teamId":"dev","timestamp":"2025-07-01 00:10:52"}
+{"level":"info","message":"Cleaning content using Gemini AI...","timestamp":"2025-07-01 00:10:52"}
+{"documentCount":15,"level":"info","message":"Starting bulk content cleaning","teamId":"dev","timestamp":"2025-07-01 00:10:52"}
+{"contentLength":10293,"documentId":"doc_aHR0cHM6Ly91_1751308852563","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:10:52","title":"UX Collective"}
+{"cleanedLength":5313,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852563","level":"info","message":"Successfully cleaned document","originalLength":10293,"timestamp":"2025-07-01 00:11:02"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:03","title":"Just a moment..."}
+{"cleanedLength":513,"contentType":"other","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:04"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:05","title":"Just a moment..."}
+{"cleanedLength":217,"contentType":"other","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:06"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:06","title":"Just a moment..."}
+{"cleanedLength":214,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:08"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:08","title":"Just a moment..."}
+{"cleanedLength":290,"contentType":"other","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:09"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:10","title":"Just a moment..."}
+{"cleanedLength":515,"contentType":"other","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:11"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:12","title":"Just a moment..."}
+{"cleanedLength":178,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:13"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:13","title":"Just a moment..."}
+{"cleanedLength":217,"contentType":"other","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:14"}
+{"contentLength":130,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:15","title":"Just a moment..."}
+{"cleanedLength":138,"contentType":"other","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":130,"timestamp":"2025-07-01 00:11:16"}
+{"contentLength":23257,"documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:16","title":"The broken rhetoric of AI. A detox guide for designers navigating… | by Mike Schindler | Jun, 2025 | UX Collective"}
+{"cleanedLength":8320,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852564","level":"info","message":"Successfully cleaned document","originalLength":23257,"timestamp":"2025-07-01 00:11:29"}
+{"contentLength":8305,"documentId":"doc_aHR0cHM6Ly91_1751308852565","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:29","title":"Medium"}
+{"cleanedLength":2055,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852565","level":"info","message":"Successfully cleaned document","originalLength":8305,"timestamp":"2025-07-01 00:11:34"}
+{"contentLength":8337,"documentId":"doc_aHR0cHM6Ly91_1751308852566","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:34","title":"Medium"}
+{"cleanedLength":2849,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852566","level":"info","message":"Successfully cleaned document","originalLength":8337,"timestamp":"2025-07-01 00:11:39"}
+{"contentLength":10517,"documentId":"doc_aHR0cHM6Ly91_1751308852566","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:40","title":"UX Collective"}
+{"cleanedLength":5769,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852566","level":"info","message":"Successfully cleaned document","originalLength":10517,"timestamp":"2025-07-01 00:11:50"}
+{"contentLength":10499,"documentId":"doc_aHR0cHM6Ly91_1751308852566","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:11:50","title":"UX Collective"}
+{"cleanedLength":5314,"contentType":"blog","documentId":"doc_aHR0cHM6Ly91_1751308852566","level":"info","message":"Successfully cleaned document","originalLength":10499,"timestamp":"2025-07-01 00:11:59"}
+{"contentLength":1528337,"documentId":"doc_aHR0cHM6Ly91_1751308852601","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:12:00","title":"Untitled"}
+{"cleanedLength":4640,"contentType":"other","documentId":"doc_aHR0cHM6Ly91_1751308852601","level":"info","message":"Successfully cleaned document","originalLength":1528337,"timestamp":"2025-07-01 00:12:32"}
+{"errors":0,"level":"info","message":"Bulk content cleaning completed","successfulCleanings":15,"timestamp":"2025-07-01 00:12:32","totalDocuments":15}
+{"cleanedCount":15,"level":"info","message":"Content cleaning completed successfully","originalCount":15,"timestamp":"2025-07-01 00:12:32"}
+{"cleaningUsed":true,"documentCount":15,"finalItemCount":15,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_6.json","summaryFile":"output/dev_2025-06-30_6_summary.md","timestamp":"2025-07-01 00:12:32","totalChunks":22}
+{"documentCount":15,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_6.json","processingTimeMs":136109,"timestamp":"2025-07-01 00:12:32"}
+{"level":"info","message":"Content cleaning enabled with Gemini AI","timestamp":"2025-07-01 00:13:17"}
+{"level":"info","maxConcurrency":4,"message":"Worker pool initialized","timestamp":"2025-07-01 00:13:17"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":4,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-07-01 00:13:17"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-07-01 00:13:17"}
+{"documentCount":23,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-07-01 00:15:39"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751309139326","level":"info","message":"Document successfully chunked","originalWordCount":1208,"timestamp":"2025-07-01 00:15:39"}
+{"chunkCount":5,"documentId":"doc_aHR0cHM6Ly9z_1751309139327","level":"info","message":"Document successfully chunked","originalWordCount":2696,"timestamp":"2025-07-01 00:15:39"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751309139327","level":"info","message":"Document successfully chunked","originalWordCount":1159,"timestamp":"2025-07-01 00:15:39"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Document successfully chunked","originalWordCount":1208,"timestamp":"2025-07-01 00:15:39"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Document successfully chunked","originalWordCount":1027,"timestamp":"2025-07-01 00:15:39"}
+{"chunkCount":7,"documentId":"doc_aHR0cHM6Ly9z_1751309139329","level":"info","message":"Document successfully chunked","originalWordCount":2177,"timestamp":"2025-07-01 00:15:39"}
+{"chunkCount":5,"documentId":"doc_aHR0cHM6Ly9z_1751309139330","level":"info","message":"Document successfully chunked","originalWordCount":2696,"timestamp":"2025-07-01 00:15:39"}
+{"cleaningEnabled":true,"documentCount":23,"level":"info","message":"Starting knowledge base serialization with cleaning","teamId":"dev","timestamp":"2025-07-01 00:15:39"}
+{"level":"info","message":"Cleaning content using Gemini AI...","timestamp":"2025-07-01 00:15:39"}
+{"documentCount":23,"level":"info","message":"Starting bulk content cleaning","teamId":"dev","timestamp":"2025-07-01 00:15:39"}
+{"contentLength":661,"documentId":"doc_aHR0cHM6Ly9z_1751309139326","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:15:39","title":"Shreycation | Shrey G | Substack"}
+{"cleanedLength":374,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139326","level":"info","message":"Successfully cleaned document","originalLength":661,"timestamp":"2025-07-01 00:15:40"}
+{"contentLength":10177,"documentId":"doc_aHR0cHM6Ly9z_1751309139326","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:15:41","title":"Snacks: It's not too late for Euro Summer flights"}
+{"cleanedLength":6366,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139326","level":"info","message":"Successfully cleaned document","originalLength":10177,"timestamp":"2025-07-01 00:15:51"}
+{"contentLength":19065,"documentId":"doc_aHR0cHM6Ly9z_1751309139327","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:15:51","title":"Robinhood's Latest Quest - by Shrey G - Shreycation"}
+{"cleanedLength":8429,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139327","level":"info","message":"Successfully cleaned document","originalLength":19065,"timestamp":"2025-07-01 00:16:03"}
+{"contentLength":11674,"documentId":"doc_aHR0cHM6Ly9z_1751309139327","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:16:03","title":"Snacks: Alaska joins Bilt - by Shrey G - Shreycation"}
+{"cleanedLength":6102,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139327","level":"info","message":"Successfully cleaned document","originalLength":11674,"timestamp":"2025-07-01 00:16:15"}
+{"contentLength":3782,"documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:16:16","title":"Snacks: How to girl math your Lyfts - by Shrey G"}
+{"cleanedLength":2644,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Successfully cleaned document","originalLength":3782,"timestamp":"2025-07-01 00:16:21"}
+{"contentLength":10177,"documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:16:22","title":"Snacks: It's not too late for Euro Summer flights"}
+{"cleanedLength":6319,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Successfully cleaned document","originalLength":10177,"timestamp":"2025-07-01 00:16:32"}
+{"contentLength":1040,"documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:16:32","title":"Comments - Robinhood's Latest Quest - by Shrey G"}
+{"cleanedLength":171,"contentType":"other","documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Successfully cleaned document","originalLength":1040,"timestamp":"2025-07-01 00:16:34"}
+{"contentLength":8794,"documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:16:34","title":"Using Air Canada to fly cross-country for just 5k miles"}
+{"cleanedLength":6527,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139328","level":"info","message":"Successfully cleaned document","originalLength":8794,"timestamp":"2025-07-01 00:16:46"}
+{"contentLength":18146,"documentId":"doc_aHR0cHM6Ly9z_1751309139329","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:16:46","title":"Let the government pay for your next flight - by Shrey G"}
+{"cleanedLength":8275,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139329","level":"info","message":"Successfully cleaned document","originalLength":18146,"timestamp":"2025-07-01 00:16:59"}
+{"contentLength":2162,"documentId":"doc_aHR0cHM6Ly9z_1751309139329","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:00","title":"Comments - Snacks: Alaska joins Bilt - by Shrey G"}
+{"cleanedLength":611,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139329","level":"info","message":"Successfully cleaned document","originalLength":2162,"timestamp":"2025-07-01 00:17:02"}
+{"contentLength":19065,"documentId":"doc_aHR0cHM6Ly9z_1751309139330","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:02","title":"Robinhood's Latest Quest - by Shrey G - Shreycation"}
+{"cleanedLength":7920,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139330","level":"info","message":"Successfully cleaned document","originalLength":19065,"timestamp":"2025-07-01 00:17:13"}
+{"contentLength":1164,"documentId":"doc_aHR0cHM6Ly9z_1751309139330","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:13","title":"Comments - Snacks: It's not too late for Euro Summer flights"}
+{"cleanedLength":184,"contentType":"other","documentId":"doc_aHR0cHM6Ly9z_1751309139330","level":"info","message":"Successfully cleaned document","originalLength":1164,"timestamp":"2025-07-01 00:17:15"}
+{"contentLength":2030,"documentId":"doc_aHR0cHM6Ly9z_1751309139330","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:15","title":"About - Shreycation"}
+{"cleanedLength":1163,"contentType":"other","documentId":"doc_aHR0cHM6Ly9z_1751309139330","level":"info","message":"Successfully cleaned document","originalLength":2030,"timestamp":"2025-07-01 00:17:18"}
+{"contentLength":1082,"documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:18","title":"Comments - Snacks: How to girl math your Lyfts - by Shrey G"}
+{"cleanedLength":173,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Successfully cleaned document","originalLength":1082,"timestamp":"2025-07-01 00:17:20"}
+{"contentLength":1168,"documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:20","title":"Comments - Using Air Canada to fly cross-country for just 5k miles"}
+{"cleanedLength":175,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Successfully cleaned document","originalLength":1168,"timestamp":"2025-07-01 00:17:21"}
+{"contentLength":2296,"documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:22","title":"Comments - Why you need a Bilt card in your wallet"}
+{"cleanedLength":1246,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Successfully cleaned document","originalLength":2296,"timestamp":"2025-07-01 00:17:24"}
+{"contentLength":8136,"documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:25","title":"Shreycation Snacks: earn free miles when shopping"}
+{"cleanedLength":5744,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Successfully cleaned document","originalLength":8136,"timestamp":"2025-07-01 00:17:36"}
+{"contentLength":3130,"documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:36","title":"Comments - How to get 10x the value from your points"}
+{"cleanedLength":1234,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139331","level":"info","message":"Successfully cleaned document","originalLength":3130,"timestamp":"2025-07-01 00:17:40"}
+{"contentLength":10495,"documentId":"doc_aHR0cHM6Ly9z_1751309139332","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:41","title":"Shreycation | Shrey G | Substack"}
+{"cleanedLength":4026,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139332","level":"info","message":"Successfully cleaned document","originalLength":10495,"timestamp":"2025-07-01 00:17:49"}
+{"contentLength":735,"documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:49","title":"Sitemap - Shreycation"}
+{"cleanedLength":157,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Successfully cleaned document","originalLength":735,"timestamp":"2025-07-01 00:17:51"}
+{"contentLength":7058,"documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:51","title":"Archive - Shreycation"}
+{"cleanedLength":2828,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Successfully cleaned document","originalLength":7058,"timestamp":"2025-07-01 00:17:57"}
+{"contentLength":1490,"documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:17:57","title":"Sitemap - 2024 - Shreycation"}
+{"cleanedLength":912,"contentType":"blog","documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Successfully cleaned document","originalLength":1490,"timestamp":"2025-07-01 00:18:00"}
+{"contentLength":739,"documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Starting content cleaning for document","timestamp":"2025-07-01 00:18:00","title":"Sitemap - 2025 - Shreycation"}
+{"cleanedLength":181,"contentType":"other","documentId":"doc_aHR0cHM6Ly9z_1751309139333","level":"info","message":"Successfully cleaned document","originalLength":739,"timestamp":"2025-07-01 00:18:02"}
+{"errors":0,"level":"info","message":"Bulk content cleaning completed","successfulCleanings":23,"timestamp":"2025-07-01 00:18:02","totalDocuments":23}
+{"cleanedCount":23,"level":"info","message":"Content cleaning completed successfully","originalCount":23,"timestamp":"2025-07-01 00:18:02"}
+{"cleaningUsed":true,"documentCount":23,"finalItemCount":23,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_7.json","summaryFile":"output/dev_2025-06-30_7_summary.md","timestamp":"2025-07-01 00:18:02","totalChunks":25}
+{"documentCount":23,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_7.json","processingTimeMs":284717,"timestamp":"2025-07-01 00:18:02"}

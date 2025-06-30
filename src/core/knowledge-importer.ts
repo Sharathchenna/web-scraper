@@ -1,8 +1,8 @@
 import { Database } from './database.js';
-import { FirecrawlExtractor } from '../processors/firecrawl-extractor.js';
+import { FirecrawlExtractor, FirecrawlConfig } from '../processors/firecrawl-extractor.js';
 import { PDFExtractor } from '../processors/pdf-extractor.js';
 import { SemanticChunker } from '../processors/semantic-chunker.js';
-import { KnowledgeBaseSerializer } from '../processors/knowledge-serializer.js';
+import { KnowledgeBaseSerializer, SerializerConfig } from '../processors/knowledge-serializer.js';
 import { WorkerPool } from './worker-pool.js';
 import { AppConfig, Document, ProcessingStats } from '../types/index.js';
 import { logger } from '../utils/logger.js';
@@ -12,6 +12,7 @@ import { SmartLinkDiscoverer } from '../processors/smart-link-discoverer.js';
 export interface CrawlWebsiteOptions {
   root_url: string;
   team_id: string;
+  user_id?: string;
   max_depth: number;
   max_pages: number;
   exclude_patterns: string[];
@@ -21,6 +22,7 @@ export interface CrawlWebsiteOptions {
 export interface ProcessPDFOptions {
   file_path: string;
   team_id: string;
+  user_id?: string;
   chunk_by_pages: boolean;
   pages_per_chunk: number;
   total_chunks?: number;
@@ -54,13 +56,9 @@ export class KnowledgeImporter {
     this.database = new Database(config.database_path);
     
     // Map old config to new FirecrawlExtractor config
-    const firecrawlConfig: {
-      apiKey?: string;
-      apiUrl?: string;
-      useLocalFirecrawl?: boolean;
-      localFirecrawlUrl?: string;
-    } = {
+    const firecrawlConfig: FirecrawlConfig = {
       useLocalFirecrawl: config.firecrawl.use_local,
+      team_id: 'default', // Default team_id, will be overridden in method calls
     };
     
     if (config.firecrawl.api_key) {
@@ -76,7 +74,19 @@ export class KnowledgeImporter {
     this.firecrawlExtractor = new FirecrawlExtractor(firecrawlConfig);
     this.pdfExtractor = new PDFExtractor();
     this.chunker = new SemanticChunker(config.chunking);
-    this.serializer = new KnowledgeBaseSerializer(config.output_dir);
+    // Configure serializer with cleaning enabled by default
+    const serializerConfig: Partial<SerializerConfig> = {
+      outputDir: config.output_dir,
+      enableCleaning: true, // Enable content cleaning by default
+      cleaningConfig: {
+        geminiApiKey: process.env.GEMINI_API_KEY || '',
+        model: 'gemini-2.0-flash-001',
+        temperature: 0.3,
+        maxOutputTokens: 2048
+      }
+    };
+    
+    this.serializer = new KnowledgeBaseSerializer(config.output_dir, serializerConfig);
     this.workerPool = new WorkerPool(config.max_workers, this.database, this.firecrawlExtractor);
     this.linkDiscoverer = new SmartLinkDiscoverer(logger);
 
@@ -151,8 +161,8 @@ export class KnowledgeImporter {
         chunkedDocuments.push(chunked);
       }
 
-      // Serialize to knowledge base format
-      const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
+      // Serialize to knowledge base format with automatic content cleaning
+      const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id, options.user_id);
 
       const processingTime = Date.now() - startTime;
       const stats: ProcessingStats = {
@@ -263,8 +273,8 @@ export class KnowledgeImporter {
       chunkedDocuments.push(chunked);
     }
 
-    // Serialize to knowledge base format
-    const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
+    // Serialize to knowledge base format with automatic content cleaning
+    const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id, options.user_id);
 
     const processingTime = Date.now() - startTime;
     const stats: ProcessingStats = {
@@ -632,7 +642,7 @@ export class KnowledgeImporter {
     }
   }
 
-  async extractSingleUrl(url: string, teamId: string): Promise<ImportResult> {
+  async extractSingleUrl(url: string, teamId: string, userId?: string): Promise<ImportResult> {
     const startTime = Date.now();
     
     try {
@@ -657,8 +667,8 @@ export class KnowledgeImporter {
       // Process document through chunker
       const chunkedDocument = await this.chunker.chunkDocument(document);
 
-      // Serialize to knowledge base format
-      const outputFile = await this.serializer.serialize([chunkedDocument], teamId);
+      // Serialize to knowledge base format with automatic content cleaning
+      const outputFile = await this.serializer.serialize([chunkedDocument], teamId, userId);
 
       const processingTime = Date.now() - startTime;
       const stats: ProcessingStats = {
@@ -733,8 +743,8 @@ export class KnowledgeImporter {
         chunkedDocuments.push(chunked);
       }
 
-      // Serialize to knowledge base format
-      const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
+      // Serialize to knowledge base format with automatic content cleaning
+      const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id, options.user_id);
 
       const processingTime = Date.now() - startTime;
       const stats: ProcessingStats = {

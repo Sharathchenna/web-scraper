@@ -4,6 +4,7 @@ export interface FirecrawlConfig {
     apiUrl?: string;
     useLocalFirecrawl?: boolean;
     localFirecrawlUrl?: string;
+    team_id: string;
     maxDepth?: number;
     maxPages?: number;
     excludePaths?: string[];
@@ -32,9 +33,9 @@ interface ExtractionData {
     error?: string;
 }
 export declare class FirecrawlExtractor {
-    private config;
     private app;
     private pdfExtractor;
+    private config;
     private logger;
     constructor(config: FirecrawlConfig);
     extractFromUrl(url: string, teamId: string): Promise<FirecrawlExtractResult>;
@@ -65,6 +66,8 @@ export declare class FirecrawlExtractor {
     private fetchJson;
     private extractSubstack;
     scrapeUrl(url: string): Promise<ExtractionData>;
+    private extractSubstackContent;
+    extract(url: string): Promise<Document>;
 }
 export {};
 //# sourceMappingURL=firecrawl-extractor.d.ts.map

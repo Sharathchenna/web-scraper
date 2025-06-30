@@ -8,10 +8,16 @@ import { PDFExtractor } from './pdf-extractor.js';
 import { chromium } from 'playwright';
 import { createLogger } from '../utils/logger.js';
 import { URL } from 'url';
+// Substack API endpoints
+const SUBSTACK_API = {
+    ARCHIVE: (subdomain) => `https://${subdomain}.substack.com/api/v1/archive`,
+    POST: (subdomain, postId) => `https://${subdomain}.substack.com/api/v1/posts/${postId}`,
+    COMMENTS: (subdomain, postId) => `https://${subdomain}.substack.com/api/v1/posts/${postId}/comments`,
+};
 export class FirecrawlExtractor {
-    config;
     app;
     pdfExtractor;
+    config;
     logger;
     constructor(config) {
         this.config = config;
@@ -255,6 +261,7 @@ export class FirecrawlExtractor {
     }
     determineExtractionStrategy(url) {
         const domain = new URL(url).hostname;
+        // Handle Substack domains
         if (domain.endsWith('substack.com')) {
             return { name: 'substack-json', options: {} };
         }
@@ -655,66 +662,181 @@ export class FirecrawlExtractor {
     async extractSubstack(url) {
         try {
             const { hostname, pathname } = new URL(url);
-            const slug = pathname.replace(/^\/p\/|\/$/, '');
+            const slug = pathname.replace(/^\/(p\/)?|\/$/g, '');
             const apiUrl = `https://${hostname}/api/v1/posts/${slug}`;
-            this.logger.info(`Fetching Substack post from ${apiUrl}`);
+            this.logger.debug('Fetching Substack post', { apiUrl });
             const response = await fetch(apiUrl);
-            if (!response.ok) {
-                if (response.status === 401) {
-                    return {
-                        success: false,
-                        metadata: {},
-                        error: 'paywalled'
-                    };
-                }
+            // Handle various error cases
+            if (response.status === 401 || response.status === 403) {
+                this.logger.warn('Paywalled Substack content detected', { url });
                 return {
                     success: false,
-                    metadata: {},
-                    error: `Failed to fetch post: ${response.statusText}`
+                    error: 'paywalled',
+                    metadata: {
+                        sourceURL: url,
+                        error_type: 'paywalled'
+                    }
                 };
             }
-            const json = await response.json();
-            const metadata = {
-                title: json.post.title,
-                author: json.post.author?.name,
-                date: json.post.published_at,
-                description: json.post.subtitle,
-                url: json.post.canonical_url,
-                platform: 'substack'
-            };
-            if (json.post.tags?.length) {
-                metadata.tags = json.post.tags.map(t => t.name);
+            if (response.status === 404) {
+                this.logger.warn('Substack post not found', { url });
+                return {
+                    success: false,
+                    error: 'not_found',
+                    metadata: {
+                        sourceURL: url,
+                        error_type: 'not_found'
+                    }
+                };
             }
-            if (json.post.audience) {
-                metadata.audience = json.post.audience;
+            if (!response.ok) {
+                throw new Error(`Failed to fetch post: ${response.statusText}`);
+            }
+            const json = await response.json();
+            const { post } = json;
+            // Handle soft-gated content (preview only)
+            const isPreviewOnly = post.audience === 'preview' || post.audience === 'everyone';
+            if (isPreviewOnly) {
+                this.logger.warn('Preview-only Substack content detected', { url });
+            }
+            // Extract metadata
+            const metadata = {
+                title: post.title,
+                subtitle: post.subtitle,
+                author: post.author?.name,
+                date_published: post.published_at,
+                source_url: post.canonical_url,
+                platform: 'substack',
+                is_preview: isPreviewOnly
+            };
+            // Add tags if available
+            if (post.tags && Array.isArray(post.tags)) {
+                metadata.tags = post.tags.map(t => t.name);
             }
             return {
-                html: json.post.body_html,
+                html: post.body_html,
                 metadata,
                 success: true
             };
         }
         catch (error) {
-            this.logger.error(`Failed to extract Substack post: ${error}`);
+            this.logger.error('Failed to extract Substack content', {
+                url,
+                error: error instanceof Error ? error.message : String(error)
+            });
             return {
                 success: false,
-                metadata: {},
-                error: error instanceof Error ? error.message : String(error)
+                error: error instanceof Error ? error.message : 'Unknown error',
+                metadata: {
+                    sourceURL: url,
+                    error_type: 'extraction_failed'
+                }
             };
         }
     }
     async scrapeUrl(url) {
+        const strategy = this.determineExtractionStrategy(url);
+        // Handle Substack content
+        if (strategy.name === 'substack-json') {
+            return this.extractSubstack(url);
+        }
+        // ... existing scraping code ...
+        return { success: false }; // Default return for unhandled cases
+    }
+    async extractSubstackContent(url) {
         try {
-            const strategy = this.determineExtractionStrategy(url);
-            if (strategy.name === 'substack-json') {
-                return this.extractSubstack(url);
+            // Parse subdomain from URL
+            const urlObj = new URL(url);
+            const hostnameParts = urlObj.hostname.split('.');
+            const subdomain = hostnameParts[0];
+            if (!subdomain) {
+                throw new Error('Invalid Substack URL: cannot extract subdomain');
             }
-            // ... existing scraping code ...
-            return { success: false }; // Default return for unhandled cases
+            // Fetch archive data
+            const archiveResponse = await fetch(SUBSTACK_API.ARCHIVE(subdomain));
+            const archiveData = (await archiveResponse.json());
+            // Extract posts
+            const posts = await Promise.all(archiveData.map(async (post) => {
+                if (!post.id) {
+                    throw new Error('Post ID is required but missing');
+                }
+                // Fetch full post content
+                const postResponse = await fetch(SUBSTACK_API.POST(subdomain, post.id));
+                const postData = await postResponse.json();
+                // Fetch comments if available
+                let comments = '';
+                if (postData.commentCount && postData.commentCount > 0) {
+                    const commentsResponse = await fetch(SUBSTACK_API.COMMENTS(subdomain, post.id));
+                    const commentsData = await commentsResponse.json();
+                    comments = JSON.stringify(commentsData);
+                }
+                // Create a document for each post
+                const doc = {
+                    id: `substack-${subdomain}-${post.id}`,
+                    title: post.title || 'Untitled Post',
+                    content: postData.body_html || '',
+                    content_type: 'html',
+                    date_scraped: new Date().toISOString(),
+                    metadata: {
+                        team_id: this.config.team_id,
+                        source_type: 'blog',
+                        word_count: postData.word_count || 0,
+                        reading_time_minutes: postData.reading_time || 0,
+                        domain: urlObj.hostname
+                    }
+                };
+                // Add optional fields only if they have values
+                if (post.canonical_url) {
+                    doc.source_url = post.canonical_url;
+                }
+                if (post.author) {
+                    doc.author = post.author;
+                }
+                if (post.published_at) {
+                    doc.date_published = post.published_at;
+                }
+                return doc;
+            }));
+            // Combine all posts into a single document
+            const combinedContent = posts.map(p => `<article><h1>${p.title}</h1>${p.content}</article>`).join('\n\n');
+            const combinedDoc = {
+                id: `substack-${subdomain}-${Date.now()}`,
+                title: `${subdomain} Substack Archive`,
+                content: combinedContent,
+                content_type: 'html',
+                source_url: url,
+                date_scraped: new Date().toISOString(),
+                metadata: {
+                    team_id: this.config.team_id,
+                    source_type: 'blog',
+                    word_count: posts.reduce((acc, p) => acc + (p.metadata.word_count || 0), 0),
+                    reading_time_minutes: posts.reduce((acc, p) => acc + (p.metadata.reading_time_minutes || 0), 0),
+                    domain: urlObj.hostname
+                }
+            };
+            return combinedDoc;
         }
         catch (error) {
-            this.logger.error(`Failed to scrape URL: ${error}`);
-            return { success: false };
+            this.logger.error('Failed to extract Substack content', { error: error instanceof Error ? error.message : 'Unknown error', url });
+            throw error;
+        }
+    }
+    async extract(url) {
+        try {
+            // Check if URL is a Substack publication
+            if (url.includes('substack.com')) {
+                return await this.extractSubstackContent(url);
+            }
+            // ... existing code for other URLs ...
+            const result = await this.extractFromUrl(url, this.config.team_id);
+            if (!result.success || !result.document) {
+                throw new Error(result.error || 'Failed to extract content');
+            }
+            return result.document;
+        }
+        catch (error) {
+            this.logger.error('Extraction failed', { error: error instanceof Error ? error.message : 'Unknown error', url });
+            throw error;
         }
     }
 }

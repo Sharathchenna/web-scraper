@@ -22,6 +22,7 @@ export class KnowledgeImporter {
         // Map old config to new FirecrawlExtractor config
         const firecrawlConfig = {
             useLocalFirecrawl: config.firecrawl.use_local,
+            team_id: 'default', // Default team_id, will be overridden in method calls
         };
         if (config.firecrawl.api_key) {
             firecrawlConfig.apiKey = config.firecrawl.api_key;
@@ -35,7 +36,18 @@ export class KnowledgeImporter {
         this.firecrawlExtractor = new FirecrawlExtractor(firecrawlConfig);
         this.pdfExtractor = new PDFExtractor();
         this.chunker = new SemanticChunker(config.chunking);
-        this.serializer = new KnowledgeBaseSerializer(config.output_dir);
+        // Configure serializer with cleaning enabled by default
+        const serializerConfig = {
+            outputDir: config.output_dir,
+            enableCleaning: true, // Enable content cleaning by default
+            cleaningConfig: {
+                geminiApiKey: process.env.GEMINI_API_KEY || '',
+                model: 'gemini-2.0-flash-001',
+                temperature: 0.3,
+                maxOutputTokens: 2048
+            }
+        };
+        this.serializer = new KnowledgeBaseSerializer(config.output_dir, serializerConfig);
         this.workerPool = new WorkerPool(config.max_workers, this.database, this.firecrawlExtractor);
         this.linkDiscoverer = new SmartLinkDiscoverer(logger);
         // Ensure output directory exists
@@ -96,8 +108,8 @@ export class KnowledgeImporter {
                 const chunked = await this.chunker.chunkDocument(doc);
                 chunkedDocuments.push(chunked);
             }
-            // Serialize to knowledge base format
-            const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
+            // Serialize to knowledge base format with automatic content cleaning
+            const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id, options.user_id);
             const processingTime = Date.now() - startTime;
             const stats = {
                 total_pages: documents.length,
@@ -190,8 +202,8 @@ export class KnowledgeImporter {
                 const chunked = await this.chunker.chunkDocument(doc);
                 chunkedDocuments.push(chunked);
             }
-            // Serialize to knowledge base format
-            const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
+            // Serialize to knowledge base format with automatic content cleaning
+            const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id, options.user_id);
             const processingTime = Date.now() - startTime;
             const stats = {
                 total_pages: allDocuments.length,
@@ -520,7 +532,7 @@ export class KnowledgeImporter {
             return null;
         }
     }
-    async extractSingleUrl(url, teamId) {
+    async extractSingleUrl(url, teamId, userId) {
         const startTime = Date.now();
         try {
             logger.info('Starting enhanced single URL extraction', { url, teamId });
@@ -539,8 +551,8 @@ export class KnowledgeImporter {
             });
             // Process document through chunker
             const chunkedDocument = await this.chunker.chunkDocument(document);
-            // Serialize to knowledge base format
-            const outputFile = await this.serializer.serialize([chunkedDocument], teamId);
+            // Serialize to knowledge base format with automatic content cleaning
+            const outputFile = await this.serializer.serialize([chunkedDocument], teamId, userId);
             const processingTime = Date.now() - startTime;
             const stats = {
                 total_pages: 1,
@@ -604,8 +616,8 @@ export class KnowledgeImporter {
                 const chunked = await this.chunker.chunkDocument(doc, options.total_chunks);
                 chunkedDocuments.push(chunked);
             }
-            // Serialize to knowledge base format
-            const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
+            // Serialize to knowledge base format with automatic content cleaning
+            const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id, options.user_id);
             const processingTime = Date.now() - startTime;
             const stats = {
                 total_pages: 1,

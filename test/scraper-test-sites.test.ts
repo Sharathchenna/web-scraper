@@ -259,7 +259,8 @@ describe('Substack Integration Tests', () => {
     firecrawlExtractor = new FirecrawlExtractor({
       logger,
       error: '',
-      success: true
+      success: true,
+      team_id: 'test-team'
     } as FirecrawlConfig);
   });
 
