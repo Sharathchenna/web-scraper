@@ -3582,3 +3582,430 @@
 {"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_rapid_test_2025-06-30_1.json","summaryFile":"output/quill_final_rapid_test_2025-06-30_1_summary.md","timestamp":"2025-06-30 07:25:33","totalChunks":4}
 {"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_final_rapid_test_2025-06-30_1.json","processingTimeMs":157166,"successfulExtractions":8,"timestamp":"2025-06-30 07:25:33"}
 {"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 07:25:33"}
+{"desiredLinkCount":5,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:29:39","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:29:40"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:29:40"}
+{"interactions":50,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":8,"networkRequests":411,"scrollAttempts":1,"urlsFound":7},"timestamp":"2025-06-30 07:30:04","urlsFound":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":25141,"success":true,"timestamp":"2025-06-30 07:30:04","totalUrls":7}
+{"error":"Unexpected error occurred while trying to scrape URL. Status code: 401","level":"error","message":"Advanced extraction error","timestamp":"2025-06-30 07:30:05","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"error":"Unexpected error occurred while trying to scrape URL. Status code: 401","level":"error","message":"Advanced extraction error","timestamp":"2025-06-30 07:30:07","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"error":"Unexpected error occurred while trying to scrape URL. Status code: 401","level":"error","message":"Advanced extraction error","timestamp":"2025-06-30 07:30:09","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:30:16","url":"https://quill.org/blog"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 07:30:18","url":"https://quill.org/blog"}
+{"indicators":["Probe failed - assuming JS-heavy"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":100,"timestamp":"2025-06-30 07:30:18"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:30:18"}
+{"interactions":2,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":0,"networkRequests":92,"scrollAttempts":1,"urlsFound":0},"timestamp":"2025-06-30 07:30:27","urlsFound":0}
+{"interactions":2,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":10729,"success":false,"timestamp":"2025-06-30 07:30:27","totalUrls":0}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:30:27","url":"https://blog.stripe.com"}
+{"indicators":["Angular detected","Loading indicator: loading"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":30,"timestamp":"2025-06-30 07:30:30"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 07:30:30"}
+{"interactions":0,"jsHeavy":false,"layer":2,"level":"info","message":"Smart discovery completed","processingTime":11624,"success":true,"timestamp":"2025-06-30 07:30:39","totalUrls":87}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:30:39","url":"https://nextjs.org/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Dynamic data fetching detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":100,"timestamp":"2025-06-30 07:30:39"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:30:39"}
+{"interactions":123,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":0,"networkRequests":147,"scrollAttempts":1,"urlsFound":325},"timestamp":"2025-06-30 07:30:45","urlsFound":325}
+{"interactions":123,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":6247,"success":true,"timestamp":"2025-06-30 07:30:45","totalUrls":325}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:39:20"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:39:20"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_final_rapid_test","timestamp":"2025-06-30 07:39:20"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":15,"maxDepth":3},"timestamp":"2025-06-30 07:39:20","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:39:30","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:39:30"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:39:30"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:39:30","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:39:30","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:39:30"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:39:30"}
+{"level":"debug","message":"Found 8 \"Read more\" buttons","timestamp":"2025-06-30 07:39:41"}
+{"level":"debug","message":"Clicking button 1/8","timestamp":"2025-06-30 07:39:41"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:41"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:41"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:41"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:41"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:41"}
+{"level":"debug","message":"Clicking button 2/8","timestamp":"2025-06-30 07:39:45"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:39:45"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:39:45"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:39:45"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:39:45"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:39:45"}
+{"level":"debug","message":"Clicking button 3/8","timestamp":"2025-06-30 07:39:47"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:39:47"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:39:47"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:39:47"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:39:47"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:39:47"}
+{"level":"debug","message":"Clicking button 4/8","timestamp":"2025-06-30 07:39:49"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:39:49"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:39:49"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:39:49"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:39:49"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:39:49"}
+{"level":"debug","message":"Clicking button 5/8","timestamp":"2025-06-30 07:39:50"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:51"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:51"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:51"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:51"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:39:51"}
+{"level":"debug","message":"Clicking button 6/8","timestamp":"2025-06-30 07:39:52"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:39:52"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:39:52"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:39:52"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:39:52"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:39:52"}
+{"level":"debug","message":"Clicking button 7/8","timestamp":"2025-06-30 07:39:54"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:39:54"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:39:54"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:39:54"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:39:54"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:39:54"}
+{"level":"debug","message":"Clicking button 8/8","timestamp":"2025-06-30 07:39:55"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:39:55"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:39:55"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:39:55"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:39:55"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:39:56"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:39:59"}
+{"interactions":50,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":8,"networkRequests":410,"scrollAttempts":1,"urlsFound":7},"timestamp":"2025-06-30 07:39:59","urlsFound":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":28791,"success":true,"timestamp":"2025-06-30 07:39:59","totalUrls":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery completed","score":80,"timestamp":"2025-06-30 07:39:59","urlsFound":7}
+{"level":"info","maxPages":15,"message":"Discovered URLs for processing","timestamp":"2025-06-30 07:39:59","totalDiscovered":7,"willProcess":7}
+{"level":"info","message":"Processing discovered URL 1/7","timestamp":"2025-06-30 07:39:59","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:39:59","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:39:59"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:40:15","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:40:15"}
+{"level":"info","message":"Processing discovered URL 2/7","timestamp":"2025-06-30 07:40:16","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:40:16","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","processedUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","strategy":"heavy-javascript","timestamp":"2025-06-30 07:40:16"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:40:32","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","wordCount":634}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:40:32"}
+{"level":"info","message":"Processing discovered URL 3/7","timestamp":"2025-06-30 07:40:33","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:40:33","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","processedUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","strategy":"heavy-javascript","timestamp":"2025-06-30 07:40:33"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:40:50","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","wordCount":1209}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:40:50"}
+{"level":"info","message":"Processing discovered URL 4/7","timestamp":"2025-06-30 07:40:51","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:40:51","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","processedUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:40:51"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:41:07","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","wordCount":1419}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:41:07"}
+{"level":"info","message":"Processing discovered URL 5/7","timestamp":"2025-06-30 07:41:08","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:41:08","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:41:08"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:41:25","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/why-offer-customer-facing-analytics","wordCount":668}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:41:25"}
+{"level":"info","message":"Processing discovered URL 6/7","timestamp":"2025-06-30 07:41:26","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:41:26","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","processedUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","strategy":"heavy-javascript","timestamp":"2025-06-30 07:41:26"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:41:43","title":"Untitled","url":"https://quill.co/blog/dont-build-chatgpt-for-x","wordCount":8}
+{"level":"info","message":"✅ Successfully extracted: Untitled","timestamp":"2025-06-30 07:41:43"}
+{"level":"info","message":"Processing discovered URL 7/7","timestamp":"2025-06-30 07:41:44","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:41:44","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/what-is-customer-facing-analytics","processedUrl":"https://quill.co/blog/what-is-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:41:44"}
+{"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:42:00","title":"Fullstack API Platform for Dashboards and Reporting","url":"https://quill.co/blog/what-is-customer-facing-analytics","wordCount":348}
+{"level":"info","message":"✅ Successfully extracted: Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:42:00"}
+{"documentCount":8,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 07:42:00"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751249370275","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751249370275","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:42:00","wordCount":431}
+{"contentLength":4808,"documentId":"doc_aHR0cHM6Ly9x_1751249415266","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751249415266","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:42:00","wordCount":643}
+{"contentLength":4532,"documentId":"doc_aHR0cHM6Ly9x_1751249432451","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751249432451","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:42:00","wordCount":634}
+{"contentLength":8549,"documentId":"doc_aHR0cHM6Ly9x_1751249450202","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751249450202","level":"info","message":"Document successfully chunked","originalWordCount":1209,"timestamp":"2025-06-30 07:42:00"}
+{"contentLength":9440,"documentId":"doc_aHR0cHM6Ly9x_1751249467451","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751249467451","level":"info","message":"Document successfully chunked","originalWordCount":1419,"timestamp":"2025-06-30 07:42:00"}
+{"contentLength":4835,"documentId":"doc_aHR0cHM6Ly9x_1751249485156","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751249485156","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:42:00","wordCount":668}
+{"contentLength":147,"documentId":"doc_aHR0cHM6Ly9x_1751249503123","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751249503123","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:42:00","wordCount":8}
+{"contentLength":2964,"documentId":"doc_aHR0cHM6Ly9x_1751249520884","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 07:42:00"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751249520884","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 07:42:00","wordCount":348}
+{"documentCount":8,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_final_rapid_test","timestamp":"2025-06-30 07:42:00"}
+{"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_rapid_test_2025-06-30.json","summaryFile":"output/quill_final_rapid_test_2025-06-30_summary.md","timestamp":"2025-06-30 07:42:00","totalChunks":4}
+{"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_final_rapid_test_2025-06-30.json","processingTimeMs":160894,"successfulExtractions":8,"timestamp":"2025-06-30 07:42:00"}
+{"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 07:42:00"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 07:57:27"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 07:57:27"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_final_rapid_test","timestamp":"2025-06-30 07:57:27"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":15,"maxDepth":3},"timestamp":"2025-06-30 07:57:27","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 07:57:37","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 07:57:37"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 07:57:37"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 07:57:37","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 07:57:37","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 07:57:37"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 07:57:37"}
+{"level":"debug","message":"Found 8 \"Read more\" buttons","timestamp":"2025-06-30 07:57:48"}
+{"level":"debug","message":"Clicking button 1/8","timestamp":"2025-06-30 07:57:48"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:48"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:48"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:48"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:48"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:49"}
+{"level":"debug","message":"Clicking button 2/8","timestamp":"2025-06-30 07:57:50"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:57:50"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:57:50"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:57:50"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:57:50"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 07:57:50"}
+{"level":"debug","message":"Clicking button 3/8","timestamp":"2025-06-30 07:57:52"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:57:52"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:57:52"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:57:52"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:57:52"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 07:57:52"}
+{"level":"debug","message":"Clicking button 4/8","timestamp":"2025-06-30 07:57:53"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:57:53"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:57:53"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:57:53"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:57:53"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 07:57:53"}
+{"level":"debug","message":"Clicking button 5/8","timestamp":"2025-06-30 07:57:55"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:55"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:55"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:55"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:55"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 07:57:55"}
+{"level":"debug","message":"Clicking button 6/8","timestamp":"2025-06-30 07:57:57"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:57:57"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:57:57"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:57:57"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:57:57"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 07:57:57"}
+{"level":"debug","message":"Clicking button 7/8","timestamp":"2025-06-30 07:57:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:57:58"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:57:58"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:57:58"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:57:58"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 07:57:58"}
+{"level":"debug","message":"Clicking button 8/8","timestamp":"2025-06-30 07:58:00"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:58:00"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:58:00"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:58:00"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:58:00"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 07:58:00"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 07:58:05"}
+{"interactions":50,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":8,"networkRequests":407,"scrollAttempts":1,"urlsFound":7},"timestamp":"2025-06-30 07:58:05","urlsFound":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":28200,"success":true,"timestamp":"2025-06-30 07:58:05","totalUrls":7}
+{"interactions":50,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery completed","score":80,"timestamp":"2025-06-30 07:58:05","urlsFound":7}
+{"level":"info","maxPages":15,"message":"Discovered URLs for processing","timestamp":"2025-06-30 07:58:05","totalDiscovered":7,"willProcess":7}
+{"level":"info","message":"Processing discovered URL 1/7","timestamp":"2025-06-30 07:58:05","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:58:05","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:58:05"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:58:22","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 07:58:22","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Extracted title from HTML","timestamp":"2025-06-30 07:58:22","title":"Blog","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:58:22","title":"Blog","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"✅ Successfully extracted: Blog","timestamp":"2025-06-30 07:58:22"}
+{"level":"info","message":"Processing discovered URL 2/7","timestamp":"2025-06-30 07:58:23","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:58:23","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","processedUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","strategy":"heavy-javascript","timestamp":"2025-06-30 07:58:23"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:58:39","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 07:58:39","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Extracted title from HTML","timestamp":"2025-06-30 07:58:39","title":"Blog","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:58:39","title":"Blog","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","wordCount":634}
+{"level":"info","message":"✅ Successfully extracted: Blog","timestamp":"2025-06-30 07:58:39"}
+{"level":"info","message":"Processing discovered URL 3/7","timestamp":"2025-06-30 07:58:41","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:58:41","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","processedUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","strategy":"heavy-javascript","timestamp":"2025-06-30 07:58:41"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:58:57","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 07:58:57","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Extracted title from HTML","timestamp":"2025-06-30 07:58:57","title":"Blog","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:58:57","title":"Blog","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","wordCount":1209}
+{"level":"info","message":"✅ Successfully extracted: Blog","timestamp":"2025-06-30 07:58:57"}
+{"level":"info","message":"Processing discovered URL 4/7","timestamp":"2025-06-30 07:58:58","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:58:58","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","processedUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:58:58"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:59:14","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 07:59:14","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Extracted title from HTML","timestamp":"2025-06-30 07:59:14","title":"Blog","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:59:14","title":"Blog","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","wordCount":1419}
+{"level":"info","message":"✅ Successfully extracted: Blog","timestamp":"2025-06-30 07:59:14"}
+{"level":"info","message":"Processing discovered URL 5/7","timestamp":"2025-06-30 07:59:16","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:59:16","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:59:16"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 07:59:32","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 07:59:32","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Extracted title from HTML","timestamp":"2025-06-30 07:59:32","title":"Blog","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:59:32","title":"Blog","url":"https://quill.co/blog/why-offer-customer-facing-analytics","wordCount":668}
+{"level":"info","message":"✅ Successfully extracted: Blog","timestamp":"2025-06-30 07:59:32"}
+{"level":"info","message":"Processing discovered URL 6/7","timestamp":"2025-06-30 07:59:34","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:59:34","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","processedUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","strategy":"heavy-javascript","timestamp":"2025-06-30 07:59:34"}
+{"hasHtml":true,"hasMarkdown":false,"level":"debug","message":"Title extraction attempt","timestamp":"2025-06-30 07:59:50","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","reason":"no_title","timestamp":"2025-06-30 07:59:50","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"extractedFromContent":true,"hasHtml":true,"hasMarkdown":false,"hasMetadataTitle":false,"hasOgTitle":false,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 07:59:50","title":"Untitled","url":"https://quill.co/blog/dont-build-chatgpt-for-x","wordCount":8}
+{"level":"info","message":"✅ Successfully extracted: Untitled","timestamp":"2025-06-30 07:59:50"}
+{"level":"info","message":"Processing discovered URL 7/7","timestamp":"2025-06-30 07:59:51","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 07:59:51","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/what-is-customer-facing-analytics","processedUrl":"https://quill.co/blog/what-is-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 07:59:51"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 08:00:07","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 08:00:07","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Extracted title from HTML","timestamp":"2025-06-30 08:00:07","title":"Blog","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:00:07","title":"Blog","url":"https://quill.co/blog/what-is-customer-facing-analytics","wordCount":348}
+{"level":"info","message":"✅ Successfully extracted: Blog","timestamp":"2025-06-30 08:00:07"}
+{"documentCount":8,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 08:00:07"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751250457745","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751250457745","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:00:07","wordCount":431}
+{"contentLength":4808,"documentId":"doc_aHR0cHM6Ly9x_1751250502140","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751250502140","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:00:07","wordCount":643}
+{"contentLength":4532,"documentId":"doc_aHR0cHM6Ly9x_1751250519583","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751250519583","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:00:07","wordCount":634}
+{"contentLength":8549,"documentId":"doc_aHR0cHM6Ly9x_1751250537325","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751250537325","level":"info","message":"Document successfully chunked","originalWordCount":1209,"timestamp":"2025-06-30 08:00:07"}
+{"contentLength":9440,"documentId":"doc_aHR0cHM6Ly9x_1751250554831","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751250554831","level":"info","message":"Document successfully chunked","originalWordCount":1419,"timestamp":"2025-06-30 08:00:07"}
+{"contentLength":4835,"documentId":"doc_aHR0cHM6Ly9x_1751250572581","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751250572581","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:00:07","wordCount":668}
+{"contentLength":147,"documentId":"doc_aHR0cHM6Ly9x_1751250590042","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751250590042","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:00:07","wordCount":8}
+{"contentLength":2964,"documentId":"doc_aHR0cHM6Ly9x_1751250607822","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:00:07"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751250607822","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:00:07","wordCount":348}
+{"documentCount":8,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_final_rapid_test","timestamp":"2025-06-30 08:00:07"}
+{"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_rapid_test_2025-06-30_1.json","summaryFile":"output/quill_final_rapid_test_2025-06-30_1_summary.md","timestamp":"2025-06-30 08:00:07","totalChunks":4}
+{"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_final_rapid_test_2025-06-30_1.json","processingTimeMs":160345,"successfulExtractions":8,"timestamp":"2025-06-30 08:00:07"}
+{"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 08:00:07"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 08:05:35"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 08:05:35"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":15,"message":"Starting website crawl","root_url":"https://quill.co/blog","team_id":"quill_final_rapid_test","timestamp":"2025-06-30 08:05:35"}
+{"level":"info","message":"Starting website crawl","options":{"excludePaths":[],"includePaths":[],"limit":15,"maxDepth":3},"timestamp":"2025-06-30 08:05:35","url":"https://quill.co/blog"}
+{"documentCount":1,"level":"info","message":"Successfully crawled website","timestamp":"2025-06-30 08:05:46","url":"https://quill.co/blog"}
+{"level":"info","message":"Only 1 page captured, attempting smart link discovery","timestamp":"2025-06-30 08:05:46"}
+{"level":"info","message":"Starting enhanced smart link discovery from directory page","timestamp":"2025-06-30 08:05:46"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 08:05:46","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"level":"debug","message":"Quick probe completed","score":80,"threshold":50,"timestamp":"2025-06-30 08:05:46","url":"https://quill.co/blog"}
+{"indicators":["React/Next.js detected","Angular detected","Next.js detected","Loading indicator: loading","SPA preload detected"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":80,"timestamp":"2025-06-30 08:05:46"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 08:05:46"}
+{"level":"debug","message":"Found 8 \"Read more\" buttons","timestamp":"2025-06-30 08:06:09"}
+{"level":"debug","message":"Clicking button 1/8","timestamp":"2025-06-30 08:06:09"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:09"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:09"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:09"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:09"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:09"}
+{"error":{"name":"TimeoutError"},"level":"debug","message":"Button 1 click failed","timestamp":"2025-06-30 08:06:13"}
+{"level":"debug","message":"Clicking button 2/8","timestamp":"2025-06-30 08:06:13"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 08:06:13"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 08:06:13"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 08:06:13"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 08:06:13"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/brief-overview-of-the-modern-data-stack","timestamp":"2025-06-30 08:06:13"}
+{"level":"debug","message":"Clicking button 3/8","timestamp":"2025-06-30 08:06:15"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 08:06:15"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 08:06:15"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 08:06:15"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 08:06:15"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/the-evolution-of-business-intelligence-part-1","timestamp":"2025-06-30 08:06:15"}
+{"level":"debug","message":"Clicking button 4/8","timestamp":"2025-06-30 08:06:17"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 08:06:17"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 08:06:17"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 08:06:17"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 08:06:17"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","timestamp":"2025-06-30 08:06:17"}
+{"level":"debug","message":"Clicking button 5/8","timestamp":"2025-06-30 08:06:19"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:19"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:19"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:19"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:19"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-users-want-customer-facing-analytics","timestamp":"2025-06-30 08:06:19"}
+{"level":"debug","message":"Clicking button 6/8","timestamp":"2025-06-30 08:06:21"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 08:06:21"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 08:06:21"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 08:06:21"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 08:06:21"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/why-offer-customer-facing-analytics","timestamp":"2025-06-30 08:06:21"}
+{"level":"debug","message":"Clicking button 7/8","timestamp":"2025-06-30 08:06:22"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 08:06:22"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 08:06:22"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 08:06:22"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 08:06:22"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/dont-build-chatgpt-for-x","timestamp":"2025-06-30 08:06:23"}
+{"level":"debug","message":"Clicking button 8/8","timestamp":"2025-06-30 08:06:24"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 08:06:24"}
+{"level":"debug","message":"📡 Captured navigation URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 08:06:24"}
+{"level":"debug","message":"📥 Captured response URL: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 08:06:24"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 08:06:24"}
+{"level":"debug","message":"🔄 Captured frame navigation: https://quill.co/blog/what-is-customer-facing-analytics","timestamp":"2025-06-30 08:06:24"}
+{"level":"debug","message":"No new content after scroll, stopping","timestamp":"2025-06-30 08:06:27"}
+{"interactions":51,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":8,"networkRequests":408,"scrollAttempts":1,"urlsFound":7},"timestamp":"2025-06-30 08:06:27","urlsFound":7}
+{"interactions":51,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":41734,"success":true,"timestamp":"2025-06-30 08:06:27","totalUrls":7}
+{"interactions":51,"jsHeavy":true,"layer":3,"level":"info","message":"Enhanced link discovery completed","score":80,"timestamp":"2025-06-30 08:06:27","urlsFound":7}
+{"level":"info","maxPages":15,"message":"Discovered URLs for processing","timestamp":"2025-06-30 08:06:27","totalDiscovered":7,"willProcess":7}
+{"level":"info","message":"Processing discovered URL 1/7","timestamp":"2025-06-30 08:06:27","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 08:06:27","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-users-want-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 08:06:27"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 08:06:43","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 08:06:43","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"level":"debug","message":"Extracted title from markdown","timestamp":"2025-06-30 08:06:43","title":"Why Users Want Customer-Facing Analytics","url":"https://quill.co/blog/why-users-want-customer-facing-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:06:43","title":"Why Users Want Customer-Facing Analytics","url":"https://quill.co/blog/why-users-want-customer-facing-analytics","wordCount":643}
+{"level":"info","message":"✅ Successfully extracted: Why Users Want Customer-Facing Analytics","timestamp":"2025-06-30 08:06:43"}
+{"level":"info","message":"Processing discovered URL 2/7","timestamp":"2025-06-30 08:06:45","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 08:06:45","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","processedUrl":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","strategy":"heavy-javascript","timestamp":"2025-06-30 08:06:45"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 08:07:01","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 08:07:01","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"level":"debug","message":"Extracted title from markdown","timestamp":"2025-06-30 08:07:01","title":"Brief Overview of the Modern Data Stack","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:01","title":"Brief Overview of the Modern Data Stack","url":"https://quill.co/blog/brief-overview-of-the-modern-data-stack","wordCount":634}
+{"level":"info","message":"✅ Successfully extracted: Brief Overview of the Modern Data Stack","timestamp":"2025-06-30 08:07:01"}
+{"level":"info","message":"Processing discovered URL 3/7","timestamp":"2025-06-30 08:07:02","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 08:07:02","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","processedUrl":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:02"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 08:07:19","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 08:07:19","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"level":"debug","message":"Extracted title from markdown","timestamp":"2025-06-30 08:07:19","title":"The Evolution of Business Intelligence and the Emergence of Embedded BI","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:19","title":"The Evolution of Business Intelligence and the Emergence of Embedded BI","url":"https://quill.co/blog/the-evolution-of-business-intelligence-part-1","wordCount":1209}
+{"level":"info","message":"✅ Successfully extracted: The Evolution of Business Intelligence and the Emergence of Embedded BI","timestamp":"2025-06-30 08:07:19"}
+{"level":"info","message":"Processing discovered URL 4/7","timestamp":"2025-06-30 08:07:20","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 08:07:20","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","processedUrl":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:20"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 08:07:36","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 08:07:36","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"level":"debug","message":"Extracted title from markdown","timestamp":"2025-06-30 08:07:36","title":"Why the Modern Data Stack Doesn’t Replace Embedded Analytics","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:36","title":"Why the Modern Data Stack Doesn’t Replace Embedded Analytics","url":"https://quill.co/blog/why-mds-doesnt-replace-embedded-analytics","wordCount":1419}
+{"level":"info","message":"✅ Successfully extracted: Why the Modern Data Stack Doesn’t Replace Embedded Analytics","timestamp":"2025-06-30 08:07:36"}
+{"level":"info","message":"Processing discovered URL 5/7","timestamp":"2025-06-30 08:07:37","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 08:07:37","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","processedUrl":"https://quill.co/blog/why-offer-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:37"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 08:07:54","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 08:07:54","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"level":"debug","message":"Extracted title from markdown","timestamp":"2025-06-30 08:07:54","title":"Why SaaS Companies Offer Customer-Facing Analytics","url":"https://quill.co/blog/why-offer-customer-facing-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:54","title":"Why SaaS Companies Offer Customer-Facing Analytics","url":"https://quill.co/blog/why-offer-customer-facing-analytics","wordCount":668}
+{"level":"info","message":"✅ Successfully extracted: Why SaaS Companies Offer Customer-Facing Analytics","timestamp":"2025-06-30 08:07:54"}
+{"level":"info","message":"Processing discovered URL 6/7","timestamp":"2025-06-30 08:07:55","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 08:07:55","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","processedUrl":"https://quill.co/blog/dont-build-chatgpt-for-x","strategy":"heavy-javascript","timestamp":"2025-06-30 08:07:55"}
+{"hasHtml":true,"hasMarkdown":false,"level":"debug","message":"Title extraction attempt","timestamp":"2025-06-30 08:08:11","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","reason":"no_title","timestamp":"2025-06-30 08:08:11","url":"https://quill.co/blog/dont-build-chatgpt-for-x"}
+{"extractedFromContent":true,"hasHtml":true,"hasMarkdown":false,"hasMetadataTitle":false,"hasOgTitle":false,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:08:11","title":"Untitled","url":"https://quill.co/blog/dont-build-chatgpt-for-x","wordCount":8}
+{"level":"info","message":"✅ Successfully extracted: Untitled","timestamp":"2025-06-30 08:08:11"}
+{"level":"info","message":"Processing discovered URL 7/7","timestamp":"2025-06-30 08:08:12","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Starting advanced URL extraction","timestamp":"2025-06-30 08:08:12","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Using extraction strategy","originalUrl":"https://quill.co/blog/what-is-customer-facing-analytics","processedUrl":"https://quill.co/blog/what-is-customer-facing-analytics","strategy":"heavy-javascript","timestamp":"2025-06-30 08:08:12"}
+{"hasHtml":true,"hasMarkdown":true,"level":"debug","message":"Title extraction attempt","metadataTitle":"Fullstack API Platform for Dashboards and Reporting","ogTitle":"Fullstack API Platform for Dashboards and Reporting","timestamp":"2025-06-30 08:08:29","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Generic or missing title detected, trying content extraction","originalTitle":"Fullstack API Platform for Dashboards and Reporting","reason":"generic_title","timestamp":"2025-06-30 08:08:29","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"level":"debug","message":"Extracted title from markdown","timestamp":"2025-06-30 08:08:29","title":"What is “customer-facing analytics”?","url":"https://quill.co/blog/what-is-customer-facing-analytics"}
+{"extractedFromContent":false,"hasHtml":true,"hasMarkdown":true,"hasMetadataTitle":true,"hasOgTitle":true,"level":"info","message":"Successfully extracted document","strategy":"heavy-javascript","timestamp":"2025-06-30 08:08:29","title":"What is “customer-facing analytics”?","url":"https://quill.co/blog/what-is-customer-facing-analytics","wordCount":348}
+{"level":"info","message":"✅ Successfully extracted: What is “customer-facing analytics”?","timestamp":"2025-06-30 08:08:29"}
+{"documentCount":8,"level":"info","message":"Processing discovered documents through chunker","timestamp":"2025-06-30 08:08:29"}
+{"contentLength":3430,"documentId":"doc_aHR0cHM6Ly9x_1751250946081","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751250946081","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:08:29","wordCount":431}
+{"contentLength":4808,"documentId":"doc_aHR0cHM6Ly9x_1751251003999","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751251003999","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:08:29","wordCount":643}
+{"contentLength":4532,"documentId":"doc_aHR0cHM6Ly9x_1751251021455","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751251021455","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:08:29","wordCount":634}
+{"contentLength":8549,"documentId":"doc_aHR0cHM6Ly9x_1751251039183","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751251039183","level":"info","message":"Document successfully chunked","originalWordCount":1209,"timestamp":"2025-06-30 08:08:29"}
+{"contentLength":9440,"documentId":"doc_aHR0cHM6Ly9x_1751251056351","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9x_1751251056351","level":"info","message":"Document successfully chunked","originalWordCount":1419,"timestamp":"2025-06-30 08:08:29"}
+{"contentLength":4835,"documentId":"doc_aHR0cHM6Ly9x_1751251074284","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751251074284","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:08:29","wordCount":668}
+{"contentLength":147,"documentId":"doc_aHR0cHM6Ly9x_1751251091482","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751251091482","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:08:29","wordCount":8}
+{"contentLength":2964,"documentId":"doc_aHR0cHM6Ly9x_1751251109203","level":"debug","message":"Starting document chunking","timestamp":"2025-06-30 08:08:29"}
+{"documentId":"doc_aHR0cHM6Ly9x_1751251109203","level":"debug","message":"Document is small enough, no chunking needed","timestamp":"2025-06-30 08:08:29","wordCount":348}
+{"documentCount":8,"level":"info","message":"Starting knowledge base serialization","teamId":"quill_final_rapid_test","timestamp":"2025-06-30 08:08:29"}
+{"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_rapid_test_2025-06-30_2.json","summaryFile":"output/quill_final_rapid_test_2025-06-30_2_summary.md","timestamp":"2025-06-30 08:08:29","totalChunks":4}
+{"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_final_rapid_test_2025-06-30_2.json","processingTimeMs":173397,"successfulExtractions":8,"timestamp":"2025-06-30 08:08:29"}
+{"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 08:08:29"}

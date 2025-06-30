@@ -47,6 +47,7 @@ export declare class FirecrawlExtractor {
         error?: string;
     }>;
     private createMetadata;
+    private isGenericTitle;
     private extractTitleFromContent;
     private extractDate;
     private extractTags;

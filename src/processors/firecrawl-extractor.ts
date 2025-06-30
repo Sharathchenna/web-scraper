@@ -103,8 +103,46 @@ export class FirecrawlExtractor {
         return { success: false, error };
       }
 
-      // Extract metadata
-      const title = responseData.metadata?.title || responseData.metadata?.ogTitle || this.extractTitleFromContent(responseData.markdown || '');
+      // Extract metadata with enhanced title extraction
+      let title = responseData.metadata?.title || responseData.metadata?.ogTitle;
+      
+      // Debug: log what we got from metadata
+      logger.debug('Title extraction attempt', {
+        url,
+        metadataTitle: responseData.metadata?.title,
+        ogTitle: responseData.metadata?.ogTitle,
+        hasMarkdown: !!responseData.markdown,
+        hasHtml: !!responseData.html
+      });
+      
+      // If no title in metadata OR if it appears to be a generic site title, try extracting from content
+      const shouldExtractFromContent = !title || (title && this.isGenericTitle(title, url));
+      if (shouldExtractFromContent) {
+        logger.debug('Generic or missing title detected, trying content extraction', { 
+          originalTitle: title,
+          url,
+          reason: !title ? 'no_title' : 'generic_title'
+        });
+        
+        // Try markdown content first
+        if (responseData.markdown) {
+          const markdownTitle = this.extractTitleFromContent(responseData.markdown, url);
+          if (markdownTitle && !this.isGenericTitle(markdownTitle, url)) {
+            title = markdownTitle;
+            logger.debug('Extracted title from markdown', { title, url });
+          }
+        }
+        
+        // If still no good title, try HTML content
+        if ((!title || this.isGenericTitle(title, url)) && responseData.html) {
+          const htmlTitle = this.extractTitleFromContent(responseData.html, url);
+          if (htmlTitle && !this.isGenericTitle(htmlTitle, url)) {
+            title = htmlTitle;
+            logger.debug('Extracted title from HTML', { title, url });
+          }
+        }
+      }
+      
       const author = responseData.metadata?.author || responseData.metadata?.ogSiteName;
       const datePublished = this.extractDate(responseData.metadata);
 
@@ -125,7 +163,12 @@ export class FirecrawlExtractor {
         url, 
         title: document.title, 
         wordCount: document.metadata.word_count,
-        strategy: extractionStrategy.name
+        strategy: extractionStrategy.name,
+        hasMetadataTitle: !!responseData.metadata?.title,
+        hasOgTitle: !!responseData.metadata?.ogTitle,
+        hasMarkdown: !!responseData.markdown,
+        hasHtml: !!responseData.html,
+        extractedFromContent: !responseData.metadata?.title && !responseData.metadata?.ogTitle
       });
 
       return { success: true, document };
@@ -400,7 +443,30 @@ export class FirecrawlExtractor {
       if (crawlResult.data) {
         for (const item of crawlResult.data) {
           if (item.markdown || item.html) {
-            const title = item.metadata?.title || item.metadata?.ogTitle || this.extractTitleFromContent(item.markdown || '');
+            // Enhanced title extraction for crawled items
+            let title = item.metadata?.title || item.metadata?.ogTitle;
+            
+            // If no title in metadata OR if it appears to be a generic site title, try extracting from content
+            const itemUrl = item.metadata?.sourceURL || url;
+            const shouldExtractFromContent = !title || this.isGenericTitle(title, itemUrl);
+            if (shouldExtractFromContent) {
+              // Try markdown content first
+              if (item.markdown) {
+                const markdownTitle = this.extractTitleFromContent(item.markdown, itemUrl);
+                if (markdownTitle && !this.isGenericTitle(markdownTitle, itemUrl)) {
+                  title = markdownTitle;
+                }
+              }
+              
+              // If still no good title, try HTML content
+              if ((!title || this.isGenericTitle(title, itemUrl)) && item.html) {
+                const htmlTitle = this.extractTitleFromContent(item.html, itemUrl);
+                if (htmlTitle && !this.isGenericTitle(htmlTitle, itemUrl)) {
+                  title = htmlTitle;
+                }
+              }
+            }
+            
             const author = item.metadata?.author || item.metadata?.ogSiteName;
             const datePublished = this.extractDate(item.metadata);
 
@@ -453,15 +519,177 @@ export class FirecrawlExtractor {
     };
   }
 
-  private extractTitleFromContent(content: string): string {
-    // Extract title from first H1 or first line
+  private isGenericTitle(title: string, url: string): boolean {
+    if (!title) return true;
+    
+    // Extract domain for context
+    const domain = this.extractDomain(url);
+    const siteName = domain.split('.')[0]; // e.g., 'quill' from 'quill.co'
+    
+    // Common generic patterns
+    const genericPatterns = [
+      'untitled',
+      'home',
+      'homepage',
+      'welcome',
+      'main page',
+      'index',
+      'default',
+      'loading',
+      'page not found',
+      '404',
+      'error'
+    ];
+    
+    const lowerTitle = title.toLowerCase();
+    
+    // Check if title is just the site name
+    if (lowerTitle === siteName || lowerTitle === domain) {
+      return true;
+    }
+    
+    // Check against generic patterns
+    if (genericPatterns.some(pattern => lowerTitle.includes(pattern))) {
+      return true;
+    }
+    
+    // Check if title appears to be a generic tagline (contains common business words)
+    const businessKeywords = ['platform', 'solution', 'software', 'tool', 'service', 'api', 'dashboard', 'app', 'application'];
+    const hasMultipleBusinessWords = businessKeywords.filter(keyword => lowerTitle.includes(keyword)).length >= 2;
+    
+    // If title is very long and contains multiple business keywords, likely a tagline
+    if (title.length > 40 && hasMultipleBusinessWords) {
+      return true;
+    }
+    
+    // Check if title contains the site name and business keywords (likely a tagline)
+    if (lowerTitle && siteName && lowerTitle.includes(siteName) && hasMultipleBusinessWords) {
+      return true;
+    }
+    
+    return false;
+  }
+
+  private extractTitleFromContent(content: string, url: string): string {
+    // Extract domain info for context
+    const domain = this.extractDomain(url);
+    const siteName = domain.split('.')[0];
+    
+    // Dynamic skip patterns based on site context
+    const commonNavigation = [
+      'blog', 'product', 'docs', 'documentation', 'home', 'about', 'contact', 
+      'login', 'signup', 'sign up', 'register', 'pricing', 'features',
+      'learn more', 'get started', 'book demo', 'try now', 'download',
+      'support', 'help', 'careers', 'jobs', 'news', 'press'
+    ];
+    
+    // Add site-specific patterns
+    const skipPatterns = [
+      ...commonNavigation,
+      siteName,
+      domain,
+      `${siteName} ${siteName}`, // duplicate site names
+      'want to learn more?',
+      'book a demo',
+      'get in touch'
+    ];
+
+    // Extract title from first H1 in markdown
     const h1Match = content.match(/^#\s+(.+)$/m);
     if (h1Match && h1Match[1]) {
-      return h1Match[1].trim();
+      const title = h1Match[1].trim();
+      if (title && !this.isGenericTitle(title, url) && !skipPatterns.some(pattern => pattern && title.includes(pattern))) {
+        return title;
+      }
     }
 
-    const firstLine = content.split('\n')[0]?.trim();
-    return firstLine?.replace(/^#+\s*/, '') || '';
+    // Try to extract from HTML h1 tags
+    const htmlH1Match = content.match(/<h1[^>]*>([^<]+)<\/h1>/i);
+    if (htmlH1Match && htmlH1Match[1]) {
+      const title = htmlH1Match[1].trim();
+      if (title && !this.isGenericTitle(title, url) && !skipPatterns.some(pattern => pattern && title.includes(pattern))) {
+        return title;
+      }
+    }
+
+    // Look for content title patterns (often appear after navigation)
+    // Pattern: lines that look like article/page titles (longer, descriptive)
+    const lines = content.split('\n');
+    for (let i = 0; i < Math.min(lines.length, 50); i++) {
+      const line = lines[i]?.trim() || '';
+      
+      // Skip empty lines and markdown markers
+      if (!line || line.startsWith('#') || line.startsWith('!') || line.startsWith('[')) {
+        continue;
+      }
+      
+      // Skip navigation and common elements (case-insensitive)
+      if (skipPatterns.some(pattern => pattern && line.toLowerCase().includes(pattern.toLowerCase()))) {
+        continue;
+      }
+      
+      // Skip lines with URLs, image paths, or technical content
+      if (line.includes('http') || line.includes('.svg') || line.includes('.png') || 
+          line.includes('.jpg') || line.includes('.gif') || line.includes('://')) {
+        continue;
+      }
+      
+      // Skip very short lines, separators, and formatting
+      if (line.length < 15 || line.includes('===') || line.includes('---') || 
+          line.includes('***') || line.includes('```')) {
+        continue;
+      }
+      
+      // Skip lines that are all caps (likely nav elements)
+      if (line === line.toUpperCase() && line.length < 50) {
+        continue;
+      }
+      
+      // Skip common metadata patterns
+      if (line.match(/^\w+ \d+, \d+$/) || line.includes('minute read') || 
+          line.includes('min read') || line.match(/^\d+\s*(minute|min|hour|day)s?/i)) {
+        continue;
+      }
+      
+      // Skip author/byline patterns
+      if (line.match(/^(by|author|written by)/i) || line.includes(' · ')) {
+        continue;
+      }
+      
+      // Look for article/page-like titles (reasonable length, contains letters, not too technical)
+      if (line.length > 15 && line.length < 200 && /[a-zA-Z]/.test(line)) {
+        // Should contain some common words (not just technical jargon)
+        const commonWords = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by'];
+        const hasCommonWords = commonWords.some(word => line.toLowerCase().includes(word));
+        
+        // Should look like a title (not a sentence with punctuation at the end)
+        const looksLikeTitle = !line.endsWith('.') || line.endsWith('?') || line.endsWith('!');
+        
+        if (hasCommonWords && looksLikeTitle && !this.isGenericTitle(line, url)) {
+          return line;
+        }
+      }
+    }
+
+    // Look for markdown headers (##, ###, etc.) that might be the main title
+    const anyHeaderMatch = content.match(/^#{2,6}\s+(.+)$/m);
+    if (anyHeaderMatch && anyHeaderMatch[1]) {
+      const title = anyHeaderMatch[1].trim();
+      if (title && !this.isGenericTitle(title, url) && !skipPatterns.some(pattern => pattern && title.includes(pattern)) && title.length > 15) {
+        return title;
+      }
+    }
+
+    // Look for HTML headers (h2, h3, etc.)
+    const anyHtmlHeaderMatch = content.match(/<h[2-6][^>]*>([^<]+)<\/h[2-6]>/i);
+    if (anyHtmlHeaderMatch && anyHtmlHeaderMatch.length > 1 && anyHtmlHeaderMatch[1]) {
+      const title = anyHtmlHeaderMatch[1].trim();
+      if (title && !this.isGenericTitle(title, url) && !skipPatterns.some(pattern => pattern && title.includes(pattern)) && title.length > 15) {
+        return title;
+      }
+    }
+
+    return '';
   }
 
   private extractDate(metadata: any): string | undefined {
