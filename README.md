@@ -111,6 +111,22 @@ npx scrape status --team aline123
 npx scrape clean --days 7
 ```
 
+#### Scraping Substack Content
+
+```bash
+# Scrape a Substack publication
+npm run cli scrape https://example.substack.com --team dev
+
+# Scrape a specific Substack post
+npm run cli scrape https://example.substack.com/p/post-slug --team dev
+```
+
+The scraper will automatically:
+1. Detect Substack URLs
+2. Use the Archive API to discover posts
+3. Extract content using the Post API
+4. Handle paywalled and preview content appropriately
+
 ### Programmatic Usage
 
 ```typescript
@@ -238,6 +254,9 @@ npm test
 
 # Test with a real website
 npx scrape url https://firecrawl.dev --team test-team --max-pages 5
+
+# Run Substack integration tests only
+npm test -- -t "Substack Integration"
 ```
 
 ## 🛠️ Development

@@ -134,18 +134,15 @@ export class KnowledgeImporter {
             const discoveryResult = await this.linkDiscoverer.discover(options.root_url, 10);
             if (!discoveryResult.success || discoveryResult.urls.length === 0) {
                 logger.info('Enhanced link discovery found no additional URLs', {
-                    jsHeavy: discoveryResult.jsHeavy,
-                    layer: discoveryResult.layer,
+                    durationMs: discoveryResult.durationMs,
                     interactions: discoveryResult.interactions.length
                 });
                 return { success: false, error: 'No links found' };
             }
             logger.info('Enhanced link discovery completed', {
                 urlsFound: discoveryResult.urls.length,
-                jsHeavy: discoveryResult.jsHeavy,
-                layer: discoveryResult.layer,
-                interactions: discoveryResult.interactions.length,
-                score: discoveryResult.score
+                durationMs: discoveryResult.durationMs,
+                interactions: discoveryResult.interactions.length
             });
             const discoveredUrls = discoveryResult.urls;
             // Limit URLs based on max_pages (minus 1 for the directory page itself)

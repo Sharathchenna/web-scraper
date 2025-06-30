@@ -62,6 +62,8 @@ export declare class LinkDiscoverer {
      * Simulates user interactions like clicking "Load More" buttons and infinite scroll
      */
     private simulateUserBehavior;
+    private fetchJson;
+    private discoverSubstackLinks;
     /**
      * Main entry point for discovering hidden links with JavaScript-heavy site detection
      */

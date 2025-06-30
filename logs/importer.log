@@ -4009,3 +4009,192 @@
 {"documentCount":8,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/quill_final_rapid_test_2025-06-30_2.json","summaryFile":"output/quill_final_rapid_test_2025-06-30_2_summary.md","timestamp":"2025-06-30 08:08:29","totalChunks":4}
 {"documentCount":8,"failedExtractions":0,"level":"info","message":"Smart discovery completed successfully","outputFile":"output/quill_final_rapid_test_2025-06-30_2.json","processingTimeMs":173397,"successfulExtractions":8,"timestamp":"2025-06-30 08:08:29"}
 {"discoveredPages":8,"level":"info","message":"Smart discovery successful","originalPages":1,"timestamp":"2025-06-30 08:08:29"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:35:56","url":"https://books.toscrape.com"}
+{"indicators":["Low word count: 317","Angular detected","Loading indicator: loading"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":45,"timestamp":"2025-06-30 09:35:57"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:35:57"}
+{"interactions":0,"jsHeavy":false,"layer":2,"level":"info","message":"Smart discovery completed","processingTime":4406,"success":true,"timestamp":"2025-06-30 09:36:00","totalUrls":73}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:00","url":"http://quotes.toscrape.com"}
+{"indicators":["Low word count: 279"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":15,"timestamp":"2025-06-30 09:36:01"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:01"}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:04"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:05","url":"https://www.scrapethissite.com/pages/simple/"}
+{"indicators":[],"isJSHeavy":false,"level":"info","message":"Probe completed","score":0,"timestamp":"2025-06-30 09:36:07"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:07"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:10","url":"https://webscraper.io/test-sites/e-commerce/static"}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:10"}
+{"indicators":["Low word count: 163","Angular detected"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":35,"timestamp":"2025-06-30 09:36:11"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:11"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:15","url":"https://www.scrapethissite.com/pages/forms/"}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:16"}
+{"indicators":["Loading indicator: placeholder"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":10,"timestamp":"2025-06-30 09:36:16"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:16"}
+{"interactions":7,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":12067,"success":false,"timestamp":"2025-06-30 09:36:17","totalUrls":1}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:19"}
+{"interactions":2,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":18723,"success":false,"timestamp":"2025-06-30 09:36:19","totalUrls":0}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:20","url":"http://quotes.toscrape.com/scroll"}
+{"indicators":["Low word count: 123","Few static links: 4","React/Next.js detected","Loading indicator: loading"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":60,"timestamp":"2025-06-30 09:36:21"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 09:36:21"}
+{"interactions":6,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":10881,"success":false,"timestamp":"2025-06-30 09:36:21","totalUrls":1}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:25","url":"http://quotes.toscrape.com/js-delayed?delay=5000"}
+{"indicators":["Low word count: 436","Loading indicator: placeholder"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":25,"timestamp":"2025-06-30 09:36:26"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:26"}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:29"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:30","url":"https://webscraper.io/test-sites/e-commerce/ajax"}
+{"indicators":["Low word count: 159","Angular detected"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":35,"timestamp":"2025-06-30 09:36:31"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:31"}
+{"interactions":6,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":0,"networkRequests":12,"scrollAttempts":5,"urlsFound":0},"timestamp":"2025-06-30 09:36:35","urlsFound":0}
+{"interactions":6,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":14483,"success":false,"timestamp":"2025-06-30 09:36:35","totalUrls":0}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:35"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:35","url":"https://webscraper.io/test-sites/e-commerce/load-more"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 09:36:36","url":"https://webscraper.io/test-sites/e-commerce/load-more"}
+{"indicators":["Probe failed - assuming JS-heavy"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":100,"timestamp":"2025-06-30 09:36:36"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 09:36:36"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:40","url":"https://webscraper.io/test-sites/e-commerce/scroll"}
+{"interactions":6,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":10473,"success":false,"timestamp":"2025-06-30 09:36:41","totalUrls":1}
+{"indicators":["Low word count: 155","Angular detected"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":35,"timestamp":"2025-06-30 09:36:41"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:41"}
+{"interactions":2,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":0,"networkRequests":1,"scrollAttempts":1,"urlsFound":0},"timestamp":"2025-06-30 09:36:41","urlsFound":0}
+{"interactions":2,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":5857,"success":false,"timestamp":"2025-06-30 09:36:41","totalUrls":0}
+{"interactions":2,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":17546,"success":false,"timestamp":"2025-06-30 09:36:43","totalUrls":0}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:45"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:45","url":"http://quotes.toscrape.com/login"}
+{"indicators":["Low word count: 14","Few static links: 4"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":30,"timestamp":"2025-06-30 09:36:46"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:46"}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:49"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:50","url":"http://quotes.toscrape.com/search.aspx"}
+{"interactions":6,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":10310,"success":false,"timestamp":"2025-06-30 09:36:51","totalUrls":1}
+{"indicators":["Low word count: 147","Few static links: 4"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":30,"timestamp":"2025-06-30 09:36:52"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:52"}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:55"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:36:55","url":"https://www.scrapethissite.com/pages/frames/"}
+{"interactions":2,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":10406,"success":false,"timestamp":"2025-06-30 09:36:56","totalUrls":0}
+{"indicators":["Low word count: 256","Loading indicator: loading"],"isJSHeavy":false,"level":"info","message":"Probe completed","score":25,"timestamp":"2025-06-30 09:36:56"}
+{"level":"info","message":"Traditional site detected, trying cheap methods","timestamp":"2025-06-30 09:36:56"}
+{"desired":10,"found":0,"level":"info","message":"Insufficient URLs from cheap methods, escalating to Playwright","timestamp":"2025-06-30 09:36:59"}
+{"desiredLinkCount":10,"level":"info","message":"Starting smart link discovery","timestamp":"2025-06-30 09:37:00","url":"https://httpbin.org"}
+{"interactions":2,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":10732,"success":false,"timestamp":"2025-06-30 09:37:01","totalUrls":0}
+{"indicators":["Low word count: 164","React/Next.js detected","Angular detected","Dynamic data fetching detected","Loading indicator: loading"],"isJSHeavy":true,"level":"info","message":"Probe completed","score":85,"timestamp":"2025-06-30 09:37:01"}
+{"level":"info","message":"JS-heavy site detected, using Playwright mode","timestamp":"2025-06-30 09:37:01"}
+{"interactions":13,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":9792,"success":false,"timestamp":"2025-06-30 09:37:05","totalUrls":1}
+{"interactions":2,"level":"info","message":"Playwright mode completed","stats":{"buttonsClicked":0,"networkRequests":10,"scrollAttempts":1,"urlsFound":0},"timestamp":"2025-06-30 09:37:09","urlsFound":0}
+{"interactions":2,"jsHeavy":true,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":8226,"success":false,"timestamp":"2025-06-30 09:37:09","totalUrls":0}
+{"interactions":59,"jsHeavy":false,"layer":3,"level":"info","message":"Smart discovery completed","processingTime":59624,"success":false,"timestamp":"2025-06-30 09:37:15","totalUrls":1}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 09:51:27"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 09:51:27"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 09:51:27"}
+{"documentCount":0,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 09:53:31"}
+{"documentCount":0,"level":"info","message":"Starting knowledge base serialization","teamId":"dev","timestamp":"2025-06-30 09:53:31"}
+{"documentCount":0,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30.json","summaryFile":"output/dev_2025-06-30_summary.md","timestamp":"2025-06-30 09:53:31","totalChunks":0}
+{"documentCount":0,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30.json","processingTimeMs":123785,"timestamp":"2025-06-30 09:53:31"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 09:54:51"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 09:54:51"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 09:54:51"}
+{"documentCount":37,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751257649026","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751257649032","level":"info","message":"Document successfully chunked","originalWordCount":1166,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":5,"documentId":"doc_aHR0cHM6Ly9z_1751257649033","level":"info","message":"Document successfully chunked","originalWordCount":2703,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":5,"documentId":"doc_aHR0cHM6Ly9z_1751257649035","level":"info","message":"Document successfully chunked","originalWordCount":2642,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":7,"documentId":"doc_aHR0cHM6Ly9z_1751257649036","level":"info","message":"Document successfully chunked","originalWordCount":2184,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":3,"documentId":"doc_aHR0cHM6Ly9z_1751257649036","level":"info","message":"Document successfully chunked","originalWordCount":2198,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":3,"documentId":"doc_aHR0cHM6Ly9z_1751257649037","level":"info","message":"Document successfully chunked","originalWordCount":1435,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751257649037","level":"info","message":"Document successfully chunked","originalWordCount":1264,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":8,"documentId":"doc_aHR0cHM6Ly9z_1751257649038","level":"info","message":"Document successfully chunked","originalWordCount":2384,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751257649039","level":"info","message":"Document successfully chunked","originalWordCount":2363,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751257649040","level":"info","message":"Document successfully chunked","originalWordCount":1208,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":5,"documentId":"doc_aHR0cHM6Ly9z_1751257649040","level":"info","message":"Document successfully chunked","originalWordCount":2696,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751257649041","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":5,"documentId":"doc_aHR0cHM6Ly9z_1751257649042","level":"info","message":"Document successfully chunked","originalWordCount":2642,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751257649043","level":"info","message":"Document successfully chunked","originalWordCount":1045,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":6,"documentId":"doc_aHR0cHM6Ly9z_1751257649043","level":"info","message":"Document successfully chunked","originalWordCount":4258,"timestamp":"2025-06-30 09:57:29"}
+{"chunkCount":6,"documentId":"doc_aHR0cHM6Ly9z_1751257649045","level":"info","message":"Document successfully chunked","originalWordCount":4258,"timestamp":"2025-06-30 09:57:29"}
+{"documentCount":37,"level":"info","message":"Starting knowledge base serialization","teamId":"dev","timestamp":"2025-06-30 09:57:29"}
+{"documentCount":37,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_1.json","summaryFile":"output/dev_2025-06-30_1_summary.md","timestamp":"2025-06-30 09:57:29","totalChunks":73}
+{"documentCount":37,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_1.json","processingTimeMs":157539,"timestamp":"2025-06-30 09:57:29"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 09:59:59"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 09:59:59"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 09:59:59"}
+{"documentCount":18,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 10:03:18"}
+{"chunkCount":6,"documentId":"doc_aHR0cHM6Ly9z_1751257998292","level":"info","message":"Document successfully chunked","originalWordCount":4274,"timestamp":"2025-06-30 10:03:18"}
+{"chunkCount":6,"documentId":"doc_aHR0cHM6Ly9z_1751257998301","level":"info","message":"Document successfully chunked","originalWordCount":2803,"timestamp":"2025-06-30 10:03:18"}
+{"documentCount":18,"level":"info","message":"Starting knowledge base serialization","teamId":"dev","timestamp":"2025-06-30 10:03:18"}
+{"documentCount":18,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_2.json","summaryFile":"output/dev_2025-06-30_2_summary.md","timestamp":"2025-06-30 10:03:18","totalChunks":12}
+{"documentCount":18,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_2.json","processingTimeMs":198670,"timestamp":"2025-06-30 10:03:18"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:07:46","url":"https://webscraper.io/test-sites/e-commerce/load-more"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:08:39","url":"https://httpbin.org/status/500"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:08:51","url":"https://httpbin.org/delay/10"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:09:19","url":"https://httpbin.org/status/404"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:09:24","url":"not-a-valid-url"}
+{"error":{"name":"Error"},"level":"warn","message":"Attempt 1 failed","timestamp":"2025-06-30 10:09:24"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:09:25","url":"not-a-valid-url"}
+{"error":{"name":"Error"},"level":"warn","message":"Attempt 2 failed","timestamp":"2025-06-30 10:09:25"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:09:27","url":"not-a-valid-url"}
+{"error":{"name":"Error"},"level":"warn","message":"Attempt 3 failed","timestamp":"2025-06-30 10:09:27"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:09:28","url":"https://httpbin.org/status/429"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:09:28","url":"https://httpbin.org/status/429"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:09:28","url":"https://httpbin.org/status/429"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:10:08","url":"https://shreycation.substack.com/p/example-post"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:10:09","url":"https://shreycation.substack.com/p/paywalled-post"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:10:09","url":"https://shreycation.substack.com/p/preview-post"}
+{"error":"Cannot read properties of undefined (reading 'audience')","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:10:19","url":"https://shreycation.substack.com/p/snacks-its-not-too-late-for-euro"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:10:19","url":"https://shreycation.substack.com/p/paywalled-post"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:12:39","url":"https://webscraper.io/test-sites/e-commerce/load-more"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:13:31","url":"https://httpbin.org/status/500"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:13:41","url":"https://httpbin.org/delay/10"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:14:07","url":"https://httpbin.org/status/404"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:14:11","url":"not-a-valid-url"}
+{"error":{"name":"Error"},"level":"warn","message":"Attempt 1 failed","timestamp":"2025-06-30 10:14:11"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:14:13","url":"not-a-valid-url"}
+{"error":{"name":"Error"},"level":"warn","message":"Attempt 2 failed","timestamp":"2025-06-30 10:14:13"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:14:15","url":"not-a-valid-url"}
+{"error":{"name":"Error"},"level":"warn","message":"Attempt 3 failed","timestamp":"2025-06-30 10:14:15"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:14:16","url":"https://httpbin.org/status/429"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:14:16","url":"https://httpbin.org/status/429"}
+{"error":{},"level":"warn","message":"Quick probe failed, assuming JS-heavy","timestamp":"2025-06-30 10:14:16","url":"https://httpbin.org/status/429"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:14:51","url":"https://shreycation.substack.com/p/example-post"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:14:51","url":"https://shreycation.substack.com/p/paywalled-post"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:14:51","url":"https://shreycation.substack.com/p/preview-post"}
+{"error":"Cannot read properties of undefined (reading 'audience')","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:14:56","url":"https://shreycation.substack.com/p/snacks-its-not-too-late-for-euro"}
+{"error":"Failed to fetch post: Not Found","level":"error","message":"Failed to extract Substack content","timestamp":"2025-06-30 10:14:56","url":"https://shreycation.substack.com/p/paywalled-post"}
+{"level":"warn","message":"Substack post not found","timestamp":"2025-06-30 10:20:11","url":"https://shreycation.substack.com/p/example-post"}
+{"level":"warn","message":"Substack post not found","timestamp":"2025-06-30 10:20:11","url":"https://shreycation.substack.com/p/paywalled-post"}
+{"level":"warn","message":"Substack post not found","timestamp":"2025-06-30 10:20:11","url":"https://shreycation.substack.com/p/preview-post"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 10:22:33"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 10:22:33"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":2,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 10:22:33"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 10:24:11"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 10:24:11"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 10:24:11"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 10:29:12"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 10:29:12"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 10:29:23"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 10:29:23"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 10:29:23"}
+{"documentCount":0,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 10:33:12"}
+{"documentCount":0,"level":"info","message":"Starting knowledge base serialization","teamId":"dev","timestamp":"2025-06-30 10:33:12"}
+{"documentCount":0,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_3.json","summaryFile":"output/dev_2025-06-30_3_summary.md","timestamp":"2025-06-30 10:33:12","totalChunks":0}
+{"documentCount":0,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_3.json","processingTimeMs":228364,"timestamp":"2025-06-30 10:33:12"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 10:33:32"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 10:33:32"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 10:33:32"}
+{"level":"info","maxConcurrency":8,"message":"Worker pool initialized","timestamp":"2025-06-30 10:41:17"}
+{"databasePath":"./data/queue.db","level":"info","maxWorkers":8,"message":"Knowledge Importer initialized","outputDir":"./output","timestamp":"2025-06-30 10:41:17"}
+{"exclude_patterns":[],"include_patterns":[],"level":"info","max_depth":3,"max_pages":50,"message":"Starting website crawl","root_url":"https://shreycation.substack.com","team_id":"dev","timestamp":"2025-06-30 10:41:17"}
+{"documentCount":30,"level":"info","message":"Documents extracted, starting chunking process","timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751260451043","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":5,"documentId":"doc_aHR0cHM6Ly9z_1751260451044","level":"info","message":"Document successfully chunked","originalWordCount":2642,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":3,"documentId":"doc_aHR0cHM6Ly9z_1751260451044","level":"info","message":"Document successfully chunked","originalWordCount":1364,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":6,"documentId":"doc_aHR0cHM6Ly9z_1751260451045","level":"info","message":"Document successfully chunked","originalWordCount":2898,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":7,"documentId":"doc_aHR0cHM6Ly9z_1751260451046","level":"info","message":"Document successfully chunked","originalWordCount":2184,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":3,"documentId":"doc_aHR0cHM6Ly9z_1751260451046","level":"info","message":"Document successfully chunked","originalWordCount":1435,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":3,"documentId":"doc_aHR0cHM6Ly9z_1751260451046","level":"info","message":"Document successfully chunked","originalWordCount":2198,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751260451047","level":"info","message":"Document successfully chunked","originalWordCount":1264,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751260451048","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751260451049","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751260451050","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":2,"documentId":"doc_aHR0cHM6Ly9z_1751260451051","level":"info","message":"Document successfully chunked","originalWordCount":1034,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751260451052","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":4,"documentId":"doc_aHR0cHM6Ly9z_1751260451052","level":"info","message":"Document successfully chunked","originalWordCount":4077,"timestamp":"2025-06-30 10:44:11"}
+{"chunkCount":6,"documentId":"doc_aHR0cHM6Ly9z_1751260451053","level":"info","message":"Document successfully chunked","originalWordCount":2898,"timestamp":"2025-06-30 10:44:11"}
+{"documentCount":30,"level":"info","message":"Starting knowledge base serialization","teamId":"dev","timestamp":"2025-06-30 10:44:11"}
+{"documentCount":30,"level":"info","message":"Knowledge base serialization completed","outputFile":"output/dev_2025-06-30_4.json","summaryFile":"output/dev_2025-06-30_4_summary.md","timestamp":"2025-06-30 10:44:11","totalChunks":61}
+{"documentCount":30,"level":"info","message":"Website crawl completed successfully","outputFile":"output/dev_2025-06-30_4.json","processingTimeMs":173902,"timestamp":"2025-06-30 10:44:11"}

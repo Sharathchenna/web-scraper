@@ -3,15 +3,14 @@ import type { Logger } from 'winston';
 import { XMLParser } from 'fast-xml-parser';
 import { chromium, Page, Browser, BrowserContext } from 'playwright';
 import { JSDOM } from 'jsdom';
+import { InteractionEngine, InteractionConfig } from './interaction-engine.js';
+import { AuthEngine, AuthConfig } from './auth-engine.js';
 
 interface SmartDiscoveryResult {
   urls: string[];
-  jsHeavy: boolean;
   interactions: string[];
-  layer: number;
   success: boolean;
-  processingTime: number;
-  score: number;
+  durationMs: number;
 }
 
 interface ProbeResult {
@@ -27,9 +26,39 @@ interface InteractionStats {
   networkRequests: number;
 }
 
+interface JsonData {
+  [key: string]: unknown;
+}
+
+interface RSSItem {
+  link?: string;
+  guid?: string;
+  url?: string;
+}
+
+interface AtomEntry {
+  link?: string;
+  id?: string;
+  url?: string;
+}
+
+interface RSSFeed {
+  rss?: {
+    channel?: {
+      item?: RSSItem[];
+    };
+  };
+  feed?: {
+    entry?: AtomEntry[];
+  };
+}
+
 export class SmartLinkDiscoverer {
-  private logger: Logger;
-  private xmlParser: XMLParser;
+  private readonly logger: Logger;
+  private readonly interactionEngine: InteractionEngine;
+  private readonly authEngine: AuthEngine;
+  private readonly xmlParser: XMLParser;
+  private readonly config: InteractionConfig & AuthConfig;
   
   // Configuration constants
   private static readonly JS_HEAVY_THRESHOLD = 50;
@@ -38,79 +67,25 @@ export class SmartLinkDiscoverer {
   private static readonly INTERACTION_TIMEOUT = 2000;
   private static readonly NETWORK_TIMEOUT = 30000;
 
-  // Selector groups for different interaction types
-  private static readonly INTERACTION_SELECTORS = {
-    loadMore: [
-      'button:has-text("load more")',
-      'button:has-text("show more")',
-      'button:has-text("load more posts")',
-      'button:has-text("view more")',
-      'a:has-text("load more")',
-      'a:has-text("show more")',
-      '.load-more',
-      '.show-more',
-      '.btn-load-more',
-      '.view-more',
-      '[data-testid*="load"]',
-      '[data-cy*="load"]',
-      '[data-action*="load"]'
-    ],
-    readMore: [
-      // Primary selectors for "Read more" text - most common pattern
-      'a:has-text("Read more")',
-      'button:has-text("Read more")',
-      'a:has-text("read more")',
-      'button:has-text("read more")',
-      'a:has-text("continue reading")',
-      'a:has-text("read full")',
-      'button:has-text("continue reading")',
-      // CSS class selectors
-      '.read-more',
-      '.continue-reading',
-      '.read-full',
-      '.read-more-link',
-      '.post-read-more',
-      // Data attribute selectors
-      '[data-action="read-more"]',
-      '[data-testid*="read"]',
-      '[data-cy*="read"]',
-      // Generic link selectors within article/post containers
-      'article a[href*="blog"]',
-      '.post a[href*="blog"]',
-      '.article a[href*="blog"]',
-      // Fallback: any link that contains blog-like paths
-      'a[href*="/blog/"]',
-      'a[href*="/post/"]',
-      'a[href*="/article/"]'
-    ],
-    pagination: [
-      'a[aria-label*="next" i]',
-      'button[aria-label*="next" i]',
-      'a:has-text("Next")',
-      'button:has-text("Next")',
-      'a:has-text("→")',
-      'a:has-text("›")',
-      '.pagination a:not(.disabled)',
-      '.pager a:not(.disabled)',
-      '[data-testid*="next"]',
-      '[aria-label*="next"]'
-    ],
-    expandable: [
-      '[data-testid*="expand"]',
-      '[aria-expanded="false"]',
-      '.expandable',
-      '.collapsible',
-      'details summary',
-      '[data-toggle="collapse"]',
-      '.accordion-toggle'
-    ]
-  };
-
-  constructor(logger?: Logger) {
+  constructor(logger?: Logger, config?: Partial<InteractionConfig & AuthConfig>) {
     this.logger = logger || createLogger();
+    this.config = {
+      maxPaginationHops: 3,
+      maxLoadMoreClicks: 5,
+      maxReadMoreClicks: 3,
+      throttleMs: 1000,
+      interactionTimeout: 5000,
+      networkTimeout: 30000,
+      username: process.env.SMART_DISCOVERY_TEST_USER || 'test_user',
+      password: process.env.SMART_DISCOVERY_TEST_PASS || 'test_pass',
+      maxAttempts: 1,
+      ...config
+    };
+    this.interactionEngine = new InteractionEngine(this.logger, this.config);
+    this.authEngine = new AuthEngine(this.logger, this.config);
     this.xmlParser = new XMLParser({
       ignoreAttributes: false,
-      attributeNamePrefix: '@_'
+      parseAttributeValue: true
     });
   }
 
@@ -135,7 +110,8 @@ export class SmartLinkDiscoverer {
 
       const html = await response.text();
       const dom = new JSDOM(html);
-      const document = dom.window.document;
+      const { window } = dom;
+      const { document } = window;
 
       // Score based on content sparsity
       const textContent = document.body?.textContent || '';
@@ -353,17 +329,28 @@ export class SmartLinkDiscoverer {
       });
       await page.waitForTimeout(2000); // Let lazy JS initialize
 
-      // Phase A: Click revealer buttons
-      const buttonResults = await this.clickRevealerButtons(page, url);
-      buttonResults.urls.forEach(url => discoveredUrls.add(url));
-      buttonResults.interactions.forEach(interaction => interactions.push(interaction));
-      stats.buttonsClicked = buttonResults.buttonsClicked;
+      // Create interaction engine and handle all interactive elements
+      const interactionEngine = new InteractionEngine(this.logger, this.config);
+      const interactionResults = await interactionEngine.clickInteractiveElements(
+        page, 
+        url, 
+        this.harvestAllUrls.bind(this),
+        this.looksLikeArticleUrl.bind(this)
+      );
+      
+      interactionResults.urls.forEach(url => discoveredUrls.add(url));
+      interactionResults.interactions.forEach(interaction => interactions.push(interaction));
+      stats.buttonsClicked = interactionResults.elementsInteracted;
 
-      // Phase B: Infinite scroll
+      // Phase B: Infinite scroll (keep existing behavior)
       const scrollResults = await this.performInfiniteScroll(page, url);
       scrollResults.urls.forEach(url => discoveredUrls.add(url));
       scrollResults.interactions.forEach(interaction => interactions.push(interaction));
-      stats.scrollAttempts = scrollResults.scrollAttempts;
+
+      // NEW: Phase C: Frame harvesting
+      const frameResults = await this.harvestFrameUrls(page, url);
+      frameResults.urls.forEach(url => discoveredUrls.add(url));
+      frameResults.interactions.forEach(interaction => interactions.push(interaction));
 
       // Final harvest of all URLs on page
       const finalUrls = await this.harvestAllUrls(page, url);
@@ -532,25 +519,18 @@ export class SmartLinkDiscoverer {
    * Extract all URLs from current page state
    */
   private async harvestAllUrls(page: Page, baseUrl: string): Promise<string[]> {
-    try {
-      const urls = await page.$$eval('a[href]', (links, base) => {
-        return links
-          .map(link => {
-            try {
-              const href = (link as HTMLAnchorElement).href;
-              return new URL(href, base).toString();
-            } catch {
-              return null;
-            }
-          })
-          .filter(href => href !== null) as string[];
-      }, baseUrl);
-
-      return urls.filter(url => this.looksLikeArticleUrl(url, baseUrl));
-    } catch (error) {
-      this.logger.debug('URL harvesting failed', { error });
-      return [];
+    const urls = new Set<string>();
+    
+    // Get all anchor elements
+    const anchors = await page.$$('a');
+    for (const anchor of anchors) {
+      const href = await anchor.getAttribute('href');
+      if (href && this.looksLikeArticleUrl(href, baseUrl)) {
+        urls.add(new URL(href, baseUrl).toString());
+      }
     }
+
+    return Array.from(urls);
   }
 
   /**
@@ -607,54 +587,43 @@ export class SmartLinkDiscoverer {
     return Array.from(urls);
   }
 
-  private extractUrlsFromXML(xml: any): string[] {
+  private extractUrlsFromXML(xml: RSSFeed): string[] {
     const urls: string[] = [];
     
-    // RSS
+    // Handle RSS format
     if (xml.rss?.channel?.item) {
-      const items = Array.isArray(xml.rss.channel.item) ? xml.rss.channel.item : [xml.rss.channel.item];
-      items.forEach((item: any) => {
-        if (item.link) urls.push(item.link);
-      });
+      urls.push(...xml.rss.channel.item
+        .map(item => item.link)
+        .filter((url): url is string => typeof url === 'string')
+      );
     }
 
-    // Atom
+    // Handle Atom format
     if (xml.feed?.entry) {
-      const entries = Array.isArray(xml.feed.entry) ? xml.feed.entry : [xml.feed.entry];
-      entries.forEach((entry: any) => {
-        if (entry.link?.['@_href']) urls.push(entry.link['@_href']);
-      });
-    }
-
-    // Sitemap
-    if (xml.urlset?.url) {
-      const urlEntries = Array.isArray(xml.urlset.url) ? xml.urlset.url : [xml.urlset.url];
-      urlEntries.forEach((entry: any) => {
-        if (entry.loc) urls.push(entry.loc);
-      });
+      urls.push(...xml.feed.entry
+        .map(entry => entry.link)
+        .filter((url): url is string => typeof url === 'string')
+      );
     }
 
     return urls;
   }
 
-  private extractUrlsFromJson(data: any, fields: string[] = ['url', 'href', 'link', '@id']): string[] {
+  private extractUrlsFromJson(data: JsonData | JsonData[], fields: string[] = ['url', 'href', 'link', '@id']): string[] {
     const urls: string[] = [];
     
-    if (typeof data === 'object' && data !== null) {
-      if (Array.isArray(data)) {
-        data.forEach(item => urls.push(...this.extractUrlsFromJson(item, fields)));
-      } else {
-        fields.forEach(field => {
-          if (typeof data[field] === 'string') {
-            urls.push(data[field]);
-          }
-        });
-        
-        Object.values(data).forEach(value => {
-          if (typeof value === 'object') {
-            urls.push(...this.extractUrlsFromJson(value, fields));
-          }
-        });
+    if (Array.isArray(data)) {
+      data.forEach(item => {
+        urls.push(...this.extractUrlsFromJson(item, fields));
+      });
+      return urls;
+    }
+
+    for (const [key, value] of Object.entries(data)) {
+      if (fields.includes(key) && typeof value === 'string') {
+        urls.push(value);
+      } else if (value && (typeof value === 'object' || Array.isArray(value))) {
+        urls.push(...this.extractUrlsFromJson(value as JsonData | JsonData[], fields));
       }
     }
     
@@ -662,37 +631,25 @@ export class SmartLinkDiscoverer {
   }
 
   private looksLikeArticleUrl(url: string, baseUrl: string): boolean {
+    // Common patterns for article URLs
+    const articlePatterns = [
+      /\/blog\//i,
+      /\/article\//i,
+      /\/post\//i,
+      /\/news\//i,
+      /\/story\//i,
+      /\/\d{4}\/\d{2}\//i, // Date-based URLs
+      /\.(html|htm)$/i
+    ];
+
     try {
-      const urlObj = new URL(url);
-      const baseObj = new URL(baseUrl);
-      
-      // Must be same domain
-      if (urlObj.hostname !== baseObj.hostname) return false;
-      
+      const urlObj = new URL(url, baseUrl);
       const path = urlObj.pathname;
-      
-      // Skip obvious non-article URLs
-      if (path.match(/\.(jpg|jpeg|png|gif|css|js|woff2?|ico|svg)$/i)) return false;
-      if (path.match(/^\/api\/|^\/static\/|^\/assets\/|^\/_next\//)) return false;
-      
-      // Skip homepage and common navigation pages
-      if (path === '/' || path === '/blog' || path === '/blog/') return false;
-      if (path.match(/^\/(about|contact|privacy|terms|jobs|careers)$/i)) return false;
-      
-      // Look for article-like patterns
-      const hasSlug = path.match(/\/[a-z0-9-]+$/i);
-      const hasDate = path.match(/\/\d{4}\/\d{2}\/\d{2}\//);
-      const hasCommonPath = path.match(/\/(post|article|blog|story|news)\//i);
-      
-      // For Quill specifically, look for blog post patterns
-      const isQuillBlogPost = path.match(/^\/blog\/[a-z0-9-]+$/i);
-      
-      // Also consider longer paths that might be content
-      const hasDeepPath = path.split('/').filter(segment => segment.length > 0).length >= 2;
-      const hasContentWords = path.match(/(analytics|data|business|intelligence|embedded|modern|stack|customers|chatgpt|ai|saas|dashboard|reporting)/i);
-      
-      return !!(hasSlug || hasDate || hasCommonPath || isQuillBlogPost || (hasDeepPath && hasContentWords));
-    } catch {
+
+      // Check if URL matches any article pattern
+      return articlePatterns.some(pattern => pattern.test(path));
+    } catch (error) {
+      this.logger.warn('Invalid URL in article check:', { url, error });
       return false;
     }
   }
@@ -702,95 +659,219 @@ export class SmartLinkDiscoverer {
    */
   public async discover(url: string, desiredLinkCount: number = 10): Promise<SmartDiscoveryResult> {
     const startTime = Date.now();
-    let discoveredUrls: string[] = [];
-    let interactions: string[] = [];
-    let layer = 1;
+    let attempt = 0;
+    let lastError: Error | null = null;
 
-    this.logger.info('Starting smart link discovery', { url, desiredLinkCount });
+    while (attempt < this.config.maxAttempts) {
+      try {
+        // If this is a retry, wait with exponential backoff
+        if (attempt > 0 && this.config.backoffMs) {
+          const backoffTime = this.config.backoffMs * Math.pow(2, attempt - 1);
+          this.logger.debug(`Retry attempt ${attempt}, waiting ${backoffTime}ms`);
+          await new Promise(resolve => setTimeout(resolve, backoffTime));
+        }
 
-    try {
-      // STEP 1: Quick probe (≤1s)
-      const probeResult = await this.quickProbe(url);
-      this.logger.info('Probe completed', { 
-        isJSHeavy: probeResult.isJSHeavy, 
-        score: probeResult.score,
-        indicators: probeResult.indicators
-      });
+        // Probe for JS-heavy indicators
+        const probeResult = await this.quickProbe(url);
+        this.logger.debug('Quick probe results', probeResult);
 
-      if (probeResult.isJSHeavy) {
-        // Skip cheap methods, go straight to Playwright
-        this.logger.info('JS-heavy site detected, using Playwright mode');
-        layer = 3;
-        
-        const playwrightResult = await this.playwrightMode(url);
-        discoveredUrls = playwrightResult.urls;
-        interactions = playwrightResult.interactions;
-        
-        this.logger.info('Playwright mode completed', {
-          urlsFound: discoveredUrls.length,
-          interactions: interactions.length,
-          stats: playwrightResult.stats
+        // Try cheap methods first
+        const cheapUrls = await this.cheapMethods(url);
+        if (cheapUrls.length >= desiredLinkCount && !probeResult.isJSHeavy) {
+          return {
+            urls: cheapUrls,
+            interactions: ['Used static extraction'],
+            success: true,
+            durationMs: Date.now() - startTime
+          };
+        }
+
+        // If cheap methods weren't enough or site is JS-heavy, use Playwright
+        const browser = await chromium.launch();
+        const context = await browser.newContext({
+          userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         });
-        
-      } else {
-        // STEP 2: Try cheap methods first
-        this.logger.info('Traditional site detected, trying cheap methods');
-        
-        discoveredUrls = await this.cheapMethods(url);
-        layer = 2;
-        
-        // STEP 3: If not enough URLs, escalate to Playwright
-        if (discoveredUrls.length < desiredLinkCount) {
-          this.logger.info('Insufficient URLs from cheap methods, escalating to Playwright', {
-            found: discoveredUrls.length,
-            desired: desiredLinkCount
+        const page = await context.newPage();
+
+        try {
+          await page.goto(url, { 
+            waitUntil: 'networkidle',
+            timeout: this.config.networkTimeout 
           });
-          
-          layer = 3;
-          const playwrightResult = await this.playwrightMode(url);
-          
-          // Merge results
-          const allUrls = new Set([...discoveredUrls, ...playwrightResult.urls]);
-          discoveredUrls = Array.from(allUrls);
-          interactions = playwrightResult.interactions;
+
+          const result = await this.processPage(page, url);
+          await browser.close();
+
+          // Combine results from both methods
+          const allUrls = [...new Set([...cheapUrls, ...result.urls])];
+          return {
+            urls: allUrls,
+            interactions: [
+              'Used hybrid extraction',
+              ...result.interactions
+            ],
+            success: true,
+            durationMs: Date.now() - startTime
+          };
+
+        } catch (error) {
+          await browser.close();
+          throw error;
+        }
+
+      } catch (err: unknown) {
+        const error = err instanceof Error ? err : new Error(String(err));
+        lastError = error;
+        this.logger.warn(`Attempt ${attempt + 1} failed`, { error });
+        attempt++;
+
+        // If this was our last attempt, return error result
+        if (attempt >= this.config.maxAttempts) {
+          return {
+            urls: [],
+            interactions: [`Failed after ${attempt} attempts: ${error.message}`],
+            success: false,
+            durationMs: Date.now() - startTime
+          };
         }
       }
+    }
 
-      const processingTime = Date.now() - startTime;
-      const success = discoveredUrls.length >= Math.min(desiredLinkCount, 2); // At least 2 URLs
+    // This should never happen due to the return in the catch block above
+    return {
+      urls: [],
+      interactions: [`Unexpected error after ${attempt} attempts: ${lastError?.message || 'Unknown error'}`],
+      success: false,
+      durationMs: Date.now() - startTime
+    };
+  }
 
-      this.logger.info('Smart discovery completed', {
-        totalUrls: discoveredUrls.length,
-        jsHeavy: probeResult.isJSHeavy,
-        layer,
-        interactions: interactions.length,
-        processingTime,
-        success
-      });
+  private async processPage(page: Page, baseUrl: string): Promise<SmartDiscoveryResult> {
+    const startTime = Date.now();
+    const discoveredUrls = new Set<string>();
+    const interactions: string[] = [];
+
+    try {
+      // Initial URL harvest
+      const initialUrls = await this.harvestAllUrls(page, baseUrl);
+      initialUrls.forEach(url => discoveredUrls.add(url));
+
+      // Check for authentication requirement
+      const authResult = await this.authEngine.handleAuthentication(page);
+      if (authResult.success) {
+        interactions.push(...authResult.interactions);
+        
+        // Re-harvest URLs after authentication
+        const postAuthUrls = await this.harvestAllUrls(page, baseUrl);
+        postAuthUrls.forEach(url => discoveredUrls.add(url));
+      } else if (authResult.interactions.length > 0) {
+        interactions.push(...authResult.interactions);
+      }
+
+      // Handle pagination and dynamic content
+      const interactionResult = await this.interactionEngine.clickInteractiveElements(
+        page,
+        baseUrl,
+        this.harvestAllUrls.bind(this),
+        this.looksLikeArticleUrl.bind(this)
+      );
+      interactions.push(...interactionResult.interactions);
+      interactionResult.urls.forEach((url: string) => discoveredUrls.add(url));
 
       return {
-        urls: discoveredUrls,
-        jsHeavy: probeResult.isJSHeavy,
+        urls: Array.from(discoveredUrls),
         interactions,
-        layer,
-        success,
-        processingTime,
-        score: probeResult.score
+        durationMs: Date.now() - startTime,
+        success: discoveredUrls.size > 0
       };
 
     } catch (error) {
-      const processingTime = Date.now() - startTime;
-      this.logger.error('Smart discovery failed', { error, processingTime });
-      
+      this.logger.error('Page processing failed', { error });
       return {
-        urls: discoveredUrls,
-        jsHeavy: false,
-        interactions,
-        layer,
-        success: false,
-        processingTime,
-        score: 0
+        urls: Array.from(discoveredUrls),
+        interactions: [...interactions, `Error: ${error instanceof Error ? error.message : 'Unknown error'}`],
+        durationMs: Date.now() - startTime,
+        success: false
       };
     }
+  }
+
+  /**
+   * Harvest URLs from all frames in the page
+   */
+  private async harvestFrameUrls(page: Page, baseUrl: string): Promise<{ urls: string[], interactions: string[] }> {
+    const discoveredUrls = new Set<string>();
+    const interactions: string[] = [];
+
+    try {
+      // Get all frames including main frame
+      const frames = page.frames();
+      
+      for (const frame of frames) {
+        // Skip the main frame as we already process it
+        if (frame === page.mainFrame()) {
+          continue;
+        }
+
+        try {
+          // Try to get frame URL and log it
+          const frameUrl = frame.url();
+          if (frameUrl) {
+            interactions.push(`Processing frame: ${frameUrl}`);
+          }
+
+          // Get all anchor elements in the frame
+          const anchors = await frame.$$('a[href]');
+          for (const anchor of anchors) {
+            try {
+              const href = await anchor.getAttribute('href');
+              if (href && this.looksLikeArticleUrl(href, baseUrl)) {
+                const absoluteUrl = new URL(href, baseUrl).toString();
+                discoveredUrls.add(absoluteUrl);
+                interactions.push(`Frame URL found: ${absoluteUrl}`);
+              }
+            } catch (error) {
+              // Skip individual anchor errors
+              this.logger.debug('Failed to process anchor in frame', { error });
+            }
+          }
+
+          // Also check for JSON-LD data in the frame
+          const scripts = await frame.$$('script[type="application/ld+json"]');
+          for (const script of scripts) {
+            try {
+              const content = await script.textContent();
+              if (content) {
+                const urls = this.extractUrlsFromJson(JSON.parse(content));
+                urls.forEach(url => {
+                  if (this.looksLikeArticleUrl(url, baseUrl)) {
+                    discoveredUrls.add(url);
+                    interactions.push(`Frame JSON-LD URL found: ${url}`);
+                  }
+                });
+              }
+            } catch (error) {
+              // Skip individual script errors
+              this.logger.debug('Failed to process JSON-LD in frame', { error });
+            }
+          }
+
+        } catch (error) {
+          // Log frame access errors but continue with other frames
+          this.logger.debug('Failed to access frame content', { 
+            error,
+            frameUrl: frame.url(),
+            reason: error instanceof Error ? error.message : 'Unknown error'
+          });
+        }
+      }
+    } catch (error) {
+      this.logger.error('Frame harvesting failed', { error });
+    }
+
+    return {
+      urls: Array.from(discoveredUrls),
+      interactions
+    };
   }
 } 

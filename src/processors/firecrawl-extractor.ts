@@ -6,15 +6,17 @@ import * as path from 'path';
 import * as https from 'https';
 import * as http from 'http';
 import { PDFExtractor } from './pdf-extractor.js';
-import { chromium, Page } from 'playwright';
+import { chromium } from 'playwright';
 import { Logger } from 'winston';
 import { createLogger } from '../utils/logger.js';
+import { URL } from 'url';
 
 export interface FirecrawlConfig {
   apiKey?: string;
   apiUrl?: string;
   useLocalFirecrawl?: boolean;
   localFirecrawlUrl?: string;
+  team_id: string;
   maxDepth?: number;
   maxPages?: number;
   excludePaths?: string[];
@@ -44,12 +46,93 @@ interface BlogPost {
   description: string | null;
 }
 
+interface ExtractionData {
+  html?: string;
+  markdown?: string;
+  metadata?: Record<string, unknown>;
+  success: boolean;
+  error?: string;
+}
+
+interface FirecrawlDocument {
+  markdown?: string;
+  html?: string;
+  metadata?: {
+    title?: string;
+    ogTitle?: string;
+    author?: string;
+    ogSiteName?: string;
+    date?: string | Date;
+    description?: string;
+    sourceURL?: string;
+    [key: string]: unknown;
+  };
+  success: boolean;
+  error?: string;
+}
+
+interface CrawlResult {
+  success: boolean;
+  error?: string;
+  data?: FirecrawlDocument[];
+}
+
+interface CrawlParams {
+  limit?: number;
+  excludePaths?: string[];
+  includePaths?: string[];
+  maxDepth?: number;
+  scrapeOptions: {
+    formats: Array<'markdown' | 'html' | 'json' | 'rawHtml' | 'content' | 'links' | 'screenshot' | 'screenshot@fullPage' | 'extract' | 'changeTracking'>;
+    onlyMainContent?: boolean;
+    waitFor?: number;
+    timeout?: number;
+  };
+}
+
+interface PostResponse {
+  post: {
+    title: string;
+    subtitle?: string;
+    body_html: string;
+    author?: {
+      name: string;
+    };
+    published_at: string;
+    canonical_url: string;
+    audience?: string;
+    tags?: { name: string }[];
+  };
+}
+
+// Substack API endpoints
+const SUBSTACK_API = {
+  ARCHIVE: (subdomain: string) => `https://${subdomain}.substack.com/api/v1/archive`,
+  POST: (subdomain: string, postId: string) => `https://${subdomain}.substack.com/api/v1/posts/${postId}`,
+  COMMENTS: (subdomain: string, postId: string) => `https://${subdomain}.substack.com/api/v1/posts/${postId}/comments`,
+};
+
+interface SubstackPost {
+  id: string;
+  title?: string;
+  subtitle?: string;
+  canonical_url?: string;
+  author?: string;
+  published_at?: string;
+  body_html?: string;
+  word_count?: number;
+  reading_time?: number;
+  commentCount?: number;
+}
+
 export class FirecrawlExtractor {
   private app: FirecrawlApp;
   private pdfExtractor: PDFExtractor;
+  private config: FirecrawlConfig;
   private logger: Logger;
 
-  constructor(private config: FirecrawlConfig) {
+  constructor(config: FirecrawlConfig) {
+    this.config = config;
     this.logger = createLogger();
     // Initialize Firecrawl with local or remote instance
     if (config.useLocalFirecrawl && config.localFirecrawlUrl) {
@@ -330,9 +413,14 @@ export class FirecrawlExtractor {
     }
   }
 
-  private determineExtractionStrategy(url: string): { name: string; options: any } {
-    const domain = this.extractDomain(url);
+  private determineExtractionStrategy(url: string): { name: string; options: Record<string, unknown> } {
+    const domain = new URL(url).hostname;
     
+    // Handle Substack domains
+    if (domain.endsWith('substack.com')) {
+      return { name: 'substack-json', options: {} };
+    }
+
     // Modern SPA/React sites that need aggressive JavaScript rendering
     const heavyJSSites = [
       'medium.com', 'dev.to', 'hashnode.com', 'notion.so',
@@ -410,113 +498,106 @@ export class FirecrawlExtractor {
     error?: string;
   }> {
     try {
-      logger.info('Starting website crawl', { url, options });
-
-      // Enhanced crawl configuration for better link discovery across any website
-      const crawlOptions: any = {
-        limit: options.limit || 50,
+      const crawlOptions: CrawlParams = {
+        limit: options.limit || 10,
         excludePaths: options.excludePaths || [],
         includePaths: options.includePaths || [],
-        maxDepth: options.maxDepth || 3,
+        maxDepth: options.maxDepth || 2,
         scrapeOptions: {
           formats: ['markdown', 'html'],
-          // Broader content capture for better link discovery
-          onlyMainContent: false,
-          // Wait longer for JavaScript-generated content and dynamic links
-          waitFor: 8000,
-          timeout: 45000,
-        },
+          onlyMainContent: true,
+          waitFor: 1000,
+          timeout: 30000
+        }
       };
 
+      const crawlResult = await this.app.crawlUrl(url, crawlOptions) as CrawlResult;
 
-
-      const crawlResult = await this.app.crawlUrl(url, crawlOptions);
-
-      if (!crawlResult.success) {
-        const error = `Firecrawl crawl failed: ${crawlResult.error}`;
+      if (!crawlResult.success || !crawlResult.data) {
+        const error = `Crawl failed: ${crawlResult.error || 'No data returned'}`;
         logger.error(error, { url });
         return { success: false, error };
       }
 
       const documents: Document[] = [];
-      
-      if (crawlResult.data) {
-        for (const item of crawlResult.data) {
-          if (item.markdown || item.html) {
-            // Enhanced title extraction for crawled items
-            let title = item.metadata?.title || item.metadata?.ogTitle;
-            
-            // If no title in metadata OR if it appears to be a generic site title, try extracting from content
-            const itemUrl = item.metadata?.sourceURL || url;
-            const shouldExtractFromContent = !title || this.isGenericTitle(title, itemUrl);
-            if (shouldExtractFromContent) {
-              // Try markdown content first
-              if (item.markdown) {
-                const markdownTitle = this.extractTitleFromContent(item.markdown, itemUrl);
-                if (markdownTitle && !this.isGenericTitle(markdownTitle, itemUrl)) {
-                  title = markdownTitle;
-                }
-              }
-              
-              // If still no good title, try HTML content
-              if ((!title || this.isGenericTitle(title, itemUrl)) && item.html) {
-                const htmlTitle = this.extractTitleFromContent(item.html, itemUrl);
-                if (htmlTitle && !this.isGenericTitle(htmlTitle, itemUrl)) {
-                  title = htmlTitle;
-                }
-              }
-            }
-            
-            const author = item.metadata?.author || item.metadata?.ogSiteName;
-            const datePublished = this.extractDate(item.metadata);
 
-            const document: Document = {
-              id: this.generateDocumentId(item.metadata?.sourceURL || url),
-              title: title || 'Untitled',
-              content: item.markdown || item.html || '',
-              content_type: 'markdown',
-              source_url: item.metadata?.sourceURL || url,
-              author,
-              date_published: datePublished,
-              date_scraped: new Date().toISOString(),
-              metadata: this.createMetadata(teamId, item, item.metadata?.sourceURL || url),
-            };
+      for (const item of crawlResult.data) {
+        let title = item.metadata?.title || item.metadata?.ogTitle || '';
+        const itemUrl = (item.metadata?.sourceURL || url) as string;
 
-            documents.push(document);
+        // If no title in metadata OR if it appears to be a generic site title, try extracting from content
+        const shouldExtractFromContent = !title || this.isGenericTitle(title, itemUrl);
+        
+        if (shouldExtractFromContent && item.markdown) {
+          const markdownTitle = this.extractTitleFromContent(item.markdown, itemUrl);
+          if (markdownTitle && !this.isGenericTitle(markdownTitle, itemUrl)) {
+            title = markdownTitle;
           }
         }
-      }
 
-      logger.info('Successfully crawled website', { 
-        url, 
-        documentCount: documents.length 
-      });
+        if ((!title || this.isGenericTitle(title, itemUrl)) && item.html) {
+          const htmlTitle = this.extractTitleFromContent(item.html, itemUrl);
+          if (htmlTitle && !this.isGenericTitle(htmlTitle, itemUrl)) {
+            title = htmlTitle;
+          }
+        }
+
+        const author = item.metadata?.author || item.metadata?.ogSiteName;
+        const datePublished = this.extractDate(item.metadata);
+
+        const document: Document = {
+          id: this.generateDocumentId(itemUrl),
+          title: title || 'Untitled',
+          content: item.markdown || item.html || '',
+          content_type: 'markdown',
+          metadata: this.createMetadata(teamId, item, itemUrl),
+          date_scraped: new Date().toISOString()
+        };
+
+        if (itemUrl) {
+          document.source_url = itemUrl;
+        }
+
+        if (author) {
+          document.author = author;
+        }
+
+        if (datePublished) {
+          document.date_published = datePublished;
+        }
+
+        documents.push(document);
+      }
 
       return { success: true, documents };
 
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      logger.error('Firecrawl crawl error', { url, error: errorMessage });
+      logger.error('Crawl error', { url, error: errorMessage });
       return { success: false, error: errorMessage };
     }
   }
 
-
-
-  private createMetadata(teamId: string, data: any, sourceUrl: string): DocumentMetadata {
-    const content = data.markdown || data.html || '';
-    const wordCount = this.countWords(content);
-    
-    return {
+  private createMetadata(teamId: string, data: ExtractionData, url: string): DocumentMetadata {
+    const wordCount = data.html ? this.countWords(data.html) : 0;
+    const metadata: DocumentMetadata = {
       team_id: teamId,
-      source_type: 'blog',
+      source_type: 'url',
       word_count: wordCount,
-      reading_time_minutes: Math.max(1, Math.ceil(wordCount / 200)), // Assume 200 words per minute
-      description: data.metadata?.description || data.metadata?.ogDescription,
-      language: data.metadata?.language || 'en',
-      domain: this.extractDomain(sourceUrl),
-      tags: this.extractTags(data.metadata),
+      reading_time_minutes: Math.ceil(wordCount / 200),
+      domain: this.extractDomain(url),
+      language: 'en'
     };
+
+    if (data.metadata?.description) {
+      metadata.description = data.metadata.description as string;
+    }
+
+    if (data.metadata?.tags) {
+      metadata.tags = data.metadata.tags as string[];
+    }
+
+    return metadata;
   }
 
   private isGenericTitle(title: string, url: string): boolean {
@@ -692,41 +773,43 @@ export class FirecrawlExtractor {
     return '';
   }
 
-  private extractDate(metadata: any): string | undefined {
+  private extractDate(metadata: Record<string, unknown> | undefined): string | undefined {
     if (!metadata) return undefined;
     
-    // Try various date fields
-    const dateFields = ['publishedTime', 'publishDate', 'datePublished', 'ogDate', 'articlePublishedTime'];
+    // Try to get date from various metadata fields
+    const dateFields = ['date', 'datePublished', 'publishedDate', 'created', 'createdAt'];
     
     for (const field of dateFields) {
-      if (metadata[field]) {
-        return new Date(metadata[field]).toISOString();
+      const value = metadata[field];
+      if (typeof value === 'string' || value instanceof Date) {
+        try {
+          const date = new Date(value);
+          return date.toISOString();
+        } catch (e) {
+          this.logger.debug('Failed to parse date', { field, value });
+        }
       }
     }
-
+    
     return undefined;
   }
 
-  private extractTags(metadata: any): string[] {
+  private extractTags(metadata: Record<string, unknown> | undefined): string[] {
     if (!metadata) return [];
     
     const tags: string[] = [];
+    const tagFields = ['tags', 'categories', 'keywords'];
     
-    // Extract from keywords
-    if (metadata.keywords) {
-      if (typeof metadata.keywords === 'string') {
-        tags.push(...metadata.keywords.split(',').map((k: string) => k.trim()));
-      } else if (Array.isArray(metadata.keywords)) {
-        tags.push(...metadata.keywords);
+    for (const field of tagFields) {
+      const value = metadata[field];
+      if (Array.isArray(value)) {
+        tags.push(...value.filter((tag): tag is string => typeof tag === 'string'));
+      } else if (typeof value === 'string') {
+        tags.push(value);
       }
     }
-
-    // Extract from article tags
-    if (metadata.articleTag && Array.isArray(metadata.articleTag)) {
-      tags.push(...metadata.articleTag);
-    }
-
-    return tags.filter(tag => tag && tag.length > 0);
+    
+    return tags;
   }
 
   private countWords(text: string): number {
@@ -800,6 +883,210 @@ export class FirecrawlExtractor {
       throw error;
     } finally {
       await browser.close();
+    }
+  }
+
+  private async fetchJson<T>(url: string): Promise<T> {
+    const response = await fetch(url);
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('paywalled');
+      }
+      throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+    }
+    return response.json();
+  }
+
+  private async extractSubstack(url: string): Promise<ExtractionData> {
+    try {
+      const { hostname, pathname } = new URL(url);
+      const slug = pathname.replace(/^\/(p\/)?|\/$/g, '');
+      const apiUrl = `https://${hostname}/api/v1/posts/${slug}`;
+      
+      this.logger.debug('Fetching Substack post', { apiUrl });
+      const response = await fetch(apiUrl);
+
+      // Handle various error cases
+      if (response.status === 401 || response.status === 403) {
+        this.logger.warn('Paywalled Substack content detected', { url });
+        return {
+          success: false,
+          error: 'paywalled',
+          metadata: {
+            sourceURL: url,
+            error_type: 'paywalled'
+          }
+        };
+      }
+
+      if (response.status === 404) {
+        this.logger.warn('Substack post not found', { url });
+        return {
+          success: false,
+          error: 'not_found',
+          metadata: {
+            sourceURL: url,
+            error_type: 'not_found'
+          }
+        };
+      }
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch post: ${response.statusText}`);
+      }
+
+      const json = await response.json() as PostResponse;
+      const { post } = json;
+
+      // Handle soft-gated content (preview only)
+      const isPreviewOnly = post.audience === 'preview' || post.audience === 'everyone';
+      if (isPreviewOnly) {
+        this.logger.warn('Preview-only Substack content detected', { url });
+      }
+
+      // Extract metadata
+      const metadata: Record<string, unknown> = {
+        title: post.title,
+        subtitle: post.subtitle,
+        author: post.author?.name,
+        date_published: post.published_at,
+        source_url: post.canonical_url,
+        platform: 'substack',
+        is_preview: isPreviewOnly
+      };
+
+      // Add tags if available
+      if (post.tags && Array.isArray(post.tags)) {
+        metadata.tags = post.tags.map(t => t.name);
+      }
+
+      return {
+        html: post.body_html,
+        metadata,
+        success: true
+      };
+
+    } catch (error) {
+      this.logger.error('Failed to extract Substack content', { 
+        url, 
+        error: error instanceof Error ? error.message : String(error)
+      });
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error',
+        metadata: {
+          sourceURL: url,
+          error_type: 'extraction_failed'
+        }
+      };
+    }
+  }
+
+  public async scrapeUrl(url: string): Promise<ExtractionData> {
+    const strategy = this.determineExtractionStrategy(url);
+    
+    // Handle Substack content
+    if (strategy.name === 'substack-json') {
+      return this.extractSubstack(url);
+    }
+
+    // ... existing scraping code ...
+    return { success: false }; // Default return for unhandled cases
+  }
+
+  private async extractSubstackContent(url: string): Promise<Document> {
+    try {
+      // Parse subdomain from URL
+      const urlObj = new URL(url);
+      const subdomain = urlObj.hostname.split('.')[0];
+
+      // Fetch archive data
+      const archiveResponse = await fetch(SUBSTACK_API.ARCHIVE(subdomain));
+      const archiveData = (await archiveResponse.json()) as SubstackPost[];
+
+      // Extract posts
+      const posts = await Promise.all(archiveData.map(async (post: SubstackPost) => {
+        if (!post.id) {
+          throw new Error('Post ID is required but missing');
+        }
+
+        // Fetch full post content
+        const postResponse = await fetch(SUBSTACK_API.POST(subdomain, post.id));
+        const postData = await postResponse.json() as SubstackPost;
+
+        // Fetch comments if available
+        let comments: string = '';
+        if (postData.commentCount && postData.commentCount > 0) {
+          const commentsResponse = await fetch(SUBSTACK_API.COMMENTS(subdomain, post.id));
+          const commentsData = await commentsResponse.json();
+          comments = JSON.stringify(commentsData);
+        }
+
+        // Create a document for each post
+        const doc: Document = {
+          id: `substack-${subdomain}-${post.id}`,
+          title: post.title || 'Untitled Post',
+          content: postData.body_html || '',
+          content_type: 'html',
+          source_url: post.canonical_url || undefined,
+          author: post.author || undefined,
+          date_published: post.published_at || undefined,
+          date_scraped: new Date().toISOString(),
+          metadata: {
+            team_id: this.config.team_id,
+            source_type: 'blog' as const,
+            word_count: postData.word_count || 0,
+            reading_time_minutes: postData.reading_time || 0,
+            domain: urlObj.hostname
+          }
+        };
+
+        return doc;
+      }));
+
+      // Combine all posts into a single document
+      const combinedContent = posts.map(p => `<article><h1>${p.title}</h1>${p.content}</article>`).join('\n\n');
+      
+      const combinedDoc: Document = {
+        id: `substack-${subdomain}-${Date.now()}`,
+        title: `${subdomain} Substack Archive`,
+        content: combinedContent,
+        content_type: 'html',
+        source_url: url,
+        date_scraped: new Date().toISOString(),
+        metadata: {
+          team_id: this.config.team_id,
+          source_type: 'blog' as const,
+          word_count: posts.reduce((acc, p) => acc + p.metadata.word_count, 0),
+          reading_time_minutes: posts.reduce((acc, p) => acc + p.metadata.reading_time_minutes, 0),
+          domain: urlObj.hostname
+        }
+      };
+
+      return combinedDoc;
+
+    } catch (error) {
+      this.logger.error('Failed to extract Substack content', { error: error instanceof Error ? error.message : 'Unknown error', url });
+      throw error;
+    }
+  }
+
+  public async extract(url: string): Promise<Document> {
+    try {
+      // Check if URL is a Substack publication
+      if (url.includes('substack.com')) {
+        return await this.extractSubstackContent(url);
+      }
+      
+      // ... existing code for other URLs ...
+      const result = await this.extractFromUrl(url, this.config.team_id);
+      if (!result.success || !result.document) {
+        throw new Error(result.error || 'Failed to extract content');
+      }
+      return result.document;
+    } catch (error) {
+      this.logger.error('Extraction failed', { error: error instanceof Error ? error.message : 'Unknown error', url });
+      throw error;
     }
   }
 } 

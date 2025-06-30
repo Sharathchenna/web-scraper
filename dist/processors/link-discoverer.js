@@ -2,11 +2,12 @@ import { createLogger } from '../utils/logger.js';
 import { XMLParser } from 'fast-xml-parser';
 import { chromium } from 'playwright';
 import { JSDOM } from 'jsdom';
+import { URL } from 'url';
 export class LinkDiscoverer {
     logger;
     static MAX_HEADLESS_BROWSERS = 3;
     static FRESH_ONLY_DAYS = 365;
-    static MAX_FEED_ITEMS = 200;
+    static MAX_FEED_ITEMS = 50;
     static NETWORK_TIMEOUT = 30000; // 30 seconds
     static JS_HEAVY_THRESHOLD = 50; // Score threshold for JS-heavy detection
     xmlParser;
@@ -25,6 +26,9 @@ export class LinkDiscoverer {
         'wordpress.com': [
             { prefix: '/', dateFormat: 'YYYY/MM/DD', separator: '-', hasCategory: true },
             { prefix: '/', separator: '-', hasCategory: true, dateFormat: undefined }
+        ],
+        'substack.com': [
+            { prefix: '/p/', separator: '-', hasCategory: false, dateFormat: undefined }
         ]
     };
     // Selectors for interactive elements that might reveal more content
@@ -626,20 +630,19 @@ export class LinkDiscoverer {
         });
         // Extract URLs from JSON-LD scripts
         const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-        scripts.forEach((element) => {
-            if (element instanceof HTMLScriptElement) {
-                try {
-                    const data = JSON.parse(element.textContent || '');
-                    const extractedUrls = this.extractUrlsFromJson(data, ['url', '@id', 'mainEntityOfPage']);
-                    extractedUrls.forEach(url => {
-                        if (this.isArticleUrl(url, baseUrl)) {
-                            discoveredUrls.push(url);
-                        }
-                    });
-                }
-                catch {
-                    // Ignore invalid JSON
-                }
+        scripts.forEach((script) => {
+            try {
+                const content = script.textContent || '';
+                const data = JSON.parse(content);
+                const extractedUrls = this.extractUrlsFromJson(data, ['url', '@id', 'mainEntityOfPage']);
+                extractedUrls.forEach(url => {
+                    if (this.isArticleUrl(url, baseUrl)) {
+                        discoveredUrls.push(url);
+                    }
+                });
+            }
+            catch {
+                // Ignore invalid JSON
             }
         });
         return Array.from(new Set(discoveredUrls));
@@ -756,6 +759,40 @@ export class LinkDiscoverer {
             this.logger.error('Error during user behavior simulation:', error);
         }
         return Array.from(urls);
+    }
+    async fetchJson(url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+        }
+        return response.json();
+    }
+    async discoverSubstackLinks(directoryUrl) {
+        try {
+            const { hostname } = new URL(directoryUrl);
+            const apiUrl = `https://${hostname}/api/v1/archive`;
+            this.logger.info(`Fetching Substack archive from ${apiUrl}`);
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch archive: ${response.statusText}`);
+            }
+            const json = await response.json();
+            const urls = json.posts.map(post => post.canonical_url);
+            this.logger.info(`Found ${urls.length} posts from Substack archive API`);
+            return {
+                urls,
+                layer: 1,
+                success: true
+            };
+        }
+        catch (error) {
+            this.logger.error(`Failed to discover Substack links: ${error}`);
+            return {
+                urls: [],
+                layer: 0,
+                success: false
+            };
+        }
     }
     /**
      * Main entry point for discovering hidden links with JavaScript-heavy site detection

@@ -34,6 +34,13 @@ export interface ImportResult {
   stats?: ProcessingStats;
 }
 
+interface SmartDiscoveryResult {
+  urls: string[];
+  interactions: string[];
+  success: boolean;
+  durationMs: number;
+}
+
 export class KnowledgeImporter {
   private database: Database;
   private firecrawlExtractor: FirecrawlExtractor;
@@ -189,20 +196,17 @@ export class KnowledgeImporter {
       
       if (!discoveryResult.success || discoveryResult.urls.length === 0) {
         logger.info('Enhanced link discovery found no additional URLs', {
-          jsHeavy: discoveryResult.jsHeavy,
-          layer: discoveryResult.layer,
+          durationMs: discoveryResult.durationMs,
           interactions: discoveryResult.interactions.length
         });
         return { success: false, error: 'No links found' };
       }
 
-              logger.info('Enhanced link discovery completed', {
-          urlsFound: discoveryResult.urls.length,
-          jsHeavy: discoveryResult.jsHeavy,
-          layer: discoveryResult.layer,
-          interactions: discoveryResult.interactions.length,
-          score: discoveryResult.score
-        });
+      logger.info('Enhanced link discovery completed', {
+        urlsFound: discoveryResult.urls.length,
+        durationMs: discoveryResult.durationMs,
+        interactions: discoveryResult.interactions.length
+      });
 
       const discoveredUrls = discoveryResult.urls;
 
@@ -221,81 +225,81 @@ export class KnowledgeImporter {
       let successCount = 1; // Directory page counts as success
       let failCount = 0;
 
-              for (let i = 0; i < urlsToProcess.length; i++) {
-          const url = urlsToProcess[i];
-          if (!url) continue;
+      for (let i = 0; i < urlsToProcess.length; i++) {
+        const url = urlsToProcess[i];
+        if (!url) continue;
+        
+        try {
+          logger.info(`Processing discovered URL ${i + 1}/${urlsToProcess.length}`, { url });
           
-          try {
-            logger.info(`Processing discovered URL ${i + 1}/${urlsToProcess.length}`, { url });
-            
-            const result = await this.firecrawlExtractor.extractFromUrl(url, options.team_id);
-          
-          if (result.success && result.document) {
-            allDocuments.push(result.document);
-            successCount++;
-            logger.info(`✅ Successfully extracted: ${result.document.title}`);
-          } else {
-            failCount++;
-            logger.warn(`❌ Failed to extract: ${url} - ${result.error}`);
-          }
-          
-          // Small delay to be respectful to the server
-          if (i < urlsToProcess.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 1500));
-          }
-          
-        } catch (error) {
+          const result = await this.firecrawlExtractor.extractFromUrl(url, options.team_id);
+        
+        if (result.success && result.document) {
+          allDocuments.push(result.document);
+          successCount++;
+          logger.info(`✅ Successfully extracted: ${result.document.title}`);
+        } else {
           failCount++;
-          logger.error(`Error extracting ${url}:`, error);
+          logger.warn(`❌ Failed to extract: ${url} - ${result.error}`);
         }
+        
+        // Small delay to be respectful to the server
+        if (i < urlsToProcess.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, 1500));
+        }
+        
+      } catch (error) {
+        failCount++;
+        logger.error(`Error extracting ${url}:`, error);
       }
-
-      // Process all documents through chunker
-      logger.info('Processing discovered documents through chunker', { documentCount: allDocuments.length });
-      
-      const chunkedDocuments: Document[] = [];
-      for (const doc of allDocuments) {
-        const chunked = await this.chunker.chunkDocument(doc);
-        chunkedDocuments.push(chunked);
-      }
-
-      // Serialize to knowledge base format
-      const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
-
-      const processingTime = Date.now() - startTime;
-      const stats: ProcessingStats = {
-        total_pages: allDocuments.length,
-        successful_extractions: successCount,
-        failed_extractions: failCount,
-        total_chunks: chunkedDocuments.reduce((sum, doc) => sum + (doc.chunks?.length || 0), 0),
-        processing_time_ms: processingTime,
-      };
-
-      logger.info('Smart discovery completed successfully', {
-        documentCount: allDocuments.length,
-        successfulExtractions: successCount,
-        failedExtractions: failCount,
-        outputFile,
-        processingTimeMs: processingTime,
-      });
-
-      return {
-        success: true,
-        documents: chunkedDocuments,
-        output_file: outputFile,
-        stats,
-      };
-
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      logger.error('Smart discovery failed', { error: errorMessage });
-      
-      return {
-        success: false,
-        error: errorMessage,
-      };
     }
+
+    // Process all documents through chunker
+    logger.info('Processing discovered documents through chunker', { documentCount: allDocuments.length });
+    
+    const chunkedDocuments: Document[] = [];
+    for (const doc of allDocuments) {
+      const chunked = await this.chunker.chunkDocument(doc);
+      chunkedDocuments.push(chunked);
+    }
+
+    // Serialize to knowledge base format
+    const outputFile = await this.serializer.serialize(chunkedDocuments, options.team_id);
+
+    const processingTime = Date.now() - startTime;
+    const stats: ProcessingStats = {
+      total_pages: allDocuments.length,
+      successful_extractions: successCount,
+      failed_extractions: failCount,
+      total_chunks: chunkedDocuments.reduce((sum, doc) => sum + (doc.chunks?.length || 0), 0),
+      processing_time_ms: processingTime,
+    };
+
+    logger.info('Smart discovery completed successfully', {
+      documentCount: allDocuments.length,
+      successfulExtractions: successCount,
+      failedExtractions: failCount,
+      outputFile,
+      processingTimeMs: processingTime,
+    });
+
+    return {
+      success: true,
+      documents: chunkedDocuments,
+      output_file: outputFile,
+      stats,
+    };
+
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    logger.error('Smart discovery failed', { error: errorMessage });
+    
+    return {
+      success: false,
+      error: errorMessage,
+    };
   }
+}
 
   private async extractLinksFromContent(content: string, baseUrl: string): Promise<string[]> {
     const urls: string[] = [];

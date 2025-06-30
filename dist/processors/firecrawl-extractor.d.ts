@@ -24,6 +24,13 @@ export interface ExtractedContent {
         wordCount: number;
     };
 }
+interface ExtractionData {
+    html?: string;
+    markdown?: string;
+    metadata?: Record<string, unknown>;
+    success: boolean;
+    error?: string;
+}
 export declare class FirecrawlExtractor {
     private config;
     private app;
@@ -55,5 +62,9 @@ export declare class FirecrawlExtractor {
     private extractDomain;
     private generateDocumentId;
     extractContent(url: string): Promise<ExtractedContent>;
+    private fetchJson;
+    private extractSubstack;
+    scrapeUrl(url: string): Promise<ExtractionData>;
 }
+export {};
 //# sourceMappingURL=firecrawl-extractor.d.ts.map
