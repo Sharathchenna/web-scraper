@@ -42,17 +42,6 @@ cp .env.example .env && echo "USE_LOCAL_FIRECRAWL=true" >> .env
 
 ---
 
-## 🏗️  How it works
-```mermaid
-graph TD;
-  A[URL / PDF] --> B[Extractor];
-  B -->|Markdown| C[Semantic Chunker];
-  C --> D[Serializer];
-  D --> E[team_id_date.json];
-```
-
----
-
 ## 📄 Output (truncated)
 ```json
 {
@@ -73,18 +62,21 @@ That's all the grader needs: clone → install → run the command above and you
 ## 🗺️ Architecture Overview
 
 ```mermaid
-flowchart LR
-    subgraph "CLI"
-        A[User Command<br/>(crawl / pdf)]
+graph LR
+    subgraph CLI
+        A["User Command<br/>(crawl / pdf)"]
     end
-    subgraph "Processing Pipeline"
-        B[Extractor<br/>(HTML / PDF)]
-        C[Link & HTML<br/>Post-processor]
-        D[Semantic Chunker]
-        E[Serializer]
+    subgraph Pipeline["Processing Pipeline"]
+        B["Extractor<br/>(HTML / PDF)"]
+        C["Link & HTML<br/>Post-processor"]
+        D["Semantic Chunker"]
+        E["Serializer"]
     end
-    A --> B --> C --> D --> E
-    E --> F[Output<br/>Markdown + JSON]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F["Output<br/>Markdown + JSON"]
 ```
 
 **How it works (in 4 quick steps)**
