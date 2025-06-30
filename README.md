@@ -6,88 +6,66 @@ A powerful web scraping tool designed to automatically ingest technical knowledg
 
 ```mermaid
 graph TD
-    A[Web Sources] --> B[Knowledge Importer]
-    B --> C[Worker Pool]
-    
-    subgraph "Core Components"
-        B[Knowledge Importer]
-        C[Worker Pool]
-        D[Database]
-    end
-    
-    subgraph "Input Processors"
-        E[Firecrawl Extractor]
-        F[PDF Extractor]
-        G[Link Discoverer]
-        H[Smart Link Discoverer]
-    end
+    CLI["CLI Interface<br/>/src/cli.ts"]
+    KI["Knowledge Importer<br/>/src/core/knowledge-importer.ts"]
+    WP["Worker Pool<br/>/src/core/worker-pool.ts"]
+    DB["Database<br/>/src/core/database.ts"]
     
     subgraph "Content Processors"
-        I[Content Cleaner]
-        J[Semantic Chunker]
-        K[Knowledge Serializer]
+        FE["Firecrawl Extractor<br/>/processors/firecrawl-extractor.ts"]
+        PE["PDF Extractor<br/>/processors/pdf-extractor.ts"]
+        SC["Semantic Chunker<br/>/processors/semantic-chunker.ts"]
+        KS["Knowledge Serializer<br/>/processors/knowledge-serializer.ts"]
+        SLD["Smart Link Discoverer<br/>/processors/smart-link-discoverer.ts"]
     end
     
-    subgraph "Auth & Interaction"
-        L[Auth Engine]
-        M[Interaction Engine]
+    subgraph "External Services"
+        FC["Firecrawl Service<br/>[Docker Container]"]
+        GEM["Google Gemini API<br/>[Content Cleaning]"]
     end
     
-    C --> E
-    C --> F
-    C --> G
-    C --> H
+    CLI --> KI
+    KI --> WP
+    WP --> DB
+    WP --> FE
     
-    E --> I
-    F --> I
-    G --> I
-    H --> I
+    KI --> FE
+    KI --> PE
+    KI --> SC
+    KI --> KS
+    KI --> SLD
+    KI --> DB
     
-    I --> J
-    J --> K
+    FE --> FC
+    KS --> GEM
     
-    K --> D
-    
-    L --> B
-    M --> B
-    
-    subgraph "Utils"
-        N[Config]
-        O[Logger]
-        P[Google Drive Downloader]
+    subgraph "Storage"
+        OUT["Output Files<br/>/output/"]
+        LOGS["Log Files<br/>/logs/"]
     end
     
-    N --> B
-    O --> B
-    P --> B
+    KS --> OUT
+    KI --> LOGS
 ```
 
-### Component Description
+### Key Components
 
 1. **Core Components**
-   - Knowledge Importer: Orchestrates the entire knowledge ingestion process
-   - Worker Pool: Manages concurrent processing tasks
-   - Database: Handles data persistence and retrieval
+   - Knowledge Importer: Orchestrates content extraction and processing
+   - Worker Pool: Manages parallel processing with automatic retries
+   - Database: Tracks job states and processing metadata
 
-2. **Input Processors**
-   - Firecrawl Extractor: Handles web crawling and content extraction
-   - PDF Extractor: Processes PDF documents
-   - Link Discoverer: Basic link extraction
-   - Smart Link Discoverer: Advanced link discovery with AI assistance
+2. **Content Processors**
+   - Firecrawl Extractor: Web content extraction
+   - PDF Extractor: PDF document processing
+   - Semantic Chunker: Content segmentation
+   - Knowledge Serializer: Output formatting
+   - Smart Link Discoverer: Enhanced URL discovery
 
-3. **Content Processors**
-   - Content Cleaner: Normalizes and sanitizes extracted content
-   - Semantic Chunker: Breaks content into meaningful segments
-   - Knowledge Serializer: Prepares data for storage
+3. **External Services**
+   - Firecrawl Service (Docker): High-performance web crawling
+   - Google Gemini API: Content cleaning and enhancement
 
-4. **Auth & Interaction**
-   - Auth Engine: Manages authentication for protected resources
-   - Interaction Engine: Handles external service communication
-
-5. **Utils**
-   - Config: Manages application configuration
-   - Logger: Handles logging and monitoring
-   - Google Drive Downloader: Facilitates Google Drive integration
 
 ## Initial Setup
 
@@ -119,58 +97,70 @@ cd firecrawl
 docker compose up
 ```
 
-### CLI Usage
-The project includes a CLI tool that can be used with:
+## CLI Commands
+
+The CLI tool is built into the `dist/cli.js` file. Before using any commands, make sure to:
+1. Run `npm run build` to compile the TypeScript code
+2. Have your `.env` file properly configured
+
+### Available Commands
+
+1. **Crawl a Website**
 ```bash
-scrape [command] [options]
-```
-
-#### Available Commands
-
-1. **Single URL Extraction**
-```bash
-scrape single <url> --team <teamId> [options]
-
-Options:
-  --team <teamId>     Team ID for the knowledge base (required)
-  --user <userId>     User ID for the knowledge base items
-  --output <dir>      Output directory for results
-  --verbose           Enable verbose logging
-```
-
-2. **Website Crawling**
-```bash
-scrape crawl <rootUrl> --team <teamId> [options]
+node dist/cli.js crawl <rootUrl> --team <teamId> [options]
 
 Options:
   --team <teamId>         Team ID for the knowledge base (required)
   --user <userId>         User ID for the knowledge base items
-  --depth <depth>         Maximum crawl depth (default: 3)
-  --max-pages <pages>     Maximum number of pages to crawl (default: 50)
+  --depth <number>        Maximum crawl depth (default: 3)
+  --max-pages <number>    Maximum number of pages to crawl (default: 50)
   --exclude <patterns>    Patterns to exclude from crawling
   --include <patterns>    Patterns to include in crawling
   --output <dir>         Output directory for results
   --verbose              Enable verbose logging
 ```
 
-3. **Legacy URL Command (Deprecated)**
+2. **Extract Single URL**
 ```bash
-scrape url <rootUrl> --team <teamId> [options]
-# ⚠️ Deprecated: Use 'single' or 'crawl' commands instead
+node dist/cli.js single <url> --team <teamId> [options]
+
+Options:
+  --team <teamId>     Team ID for the knowledge base (required)
+  --user <userId>     User ID for the knowledge base items
+  --output <dir>      Output directory for results
+  --verbose          Enable verbose logging
 ```
 
-#### Example Usage
+### Example Usage
 
 ```bash
-# Extract content from a single URL
-scrape single https://example.com/blog-post --team team123 --output ./output
+# Crawl a website (most common use case)
+node dist/cli.js crawl https://quotes.toscrape.com/ --team quill_smart --max-pages 10 --verbose
 
-# Crawl a website with custom depth and max pages
-scrape crawl https://example.com --team team123 --depth 5 --max-pages 100 --output ./output
+# Extract a single page
+node dist/cli.js single https://example.com/blog-post --team your_team_id --verbose
 
-# Crawl with exclude patterns
-scrape crawl https://example.com --team team123 --exclude "**/admin/**" "**/login/**"
+# Crawl with custom depth and exclude patterns
+node dist/cli.js crawl https://example.com \
+  --team your_team_id \
+  --depth 5 \
+  --max-pages 20 \
+  --exclude "**/admin/**" "**/login/**" \
+  --verbose
 ```
+
+### Output
+
+The commands will generate:
+- JSON files in the configured output directory (default: `./output`)
+- Summary markdown files for each extraction
+- Console output showing:
+  - Title and metadata of extracted content
+  - Word count and reading time estimates
+  - Processing statistics
+  - Any errors or warnings
+
+> Note: The `--verbose` flag is recommended for debugging as it provides detailed logging of the extraction process.
 
 ## Requirements
 
